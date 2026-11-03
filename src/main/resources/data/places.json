@@ -112,8 +112,8 @@
     "name": "Parque Nacional del Café",
     "municipality": "Montenegro",
     "category": "ATRACTIVO_TURISTICO",
-    "latitude": 4.54083,
-    "longitude": -75.76972,
+    "latitude": 4.52350,
+    "longitude": -75.74410,
     "visitDurationMinutes": 360
   },
   {
@@ -121,8 +121,8 @@
     "name": "PANACA (Parque Nacional de la Cultura Agropecuaria)",
     "municipality": "Quimbaya",
     "category": "ATRACTIVO_TURISTICO",
-    "latitude": 4.62778,
-    "longitude": -75.81667,
+    "latitude": 4.60770,
+    "longitude": -75.82130,
     "visitDurationMinutes": 300
   },
   {
@@ -130,8 +130,8 @@
     "name": "Valle de Cocora",
     "municipality": "Salento",
     "category": "ATRACTIVO_TURISTICO",
-    "latitude": 4.63889,
-    "longitude": -75.48750,
+    "latitude": 4.63690,
+    "longitude": -75.48660,
     "visitDurationMinutes": 240
   },
   {
@@ -139,8 +139,8 @@
     "name": "Jardín Botánico del Quindío y Mariposario",
     "municipality": "Calarcá",
     "category": "ATRACTIVO_TURISTICO",
-    "latitude": 4.51667,
-    "longitude": -75.65833,
+    "latitude": 4.51160,
+    "longitude": -75.65100,
     "visitDurationMinutes": 90
   },
   {
@@ -148,8 +148,8 @@
     "name": "Museo del Oro Quimbaya",
     "municipality": "Armenia",
     "category": "ATRACTIVO_TURISTICO",
-    "latitude": 4.56111,
-    "longitude": -75.65833,
+    "latitude": 4.57142,
+    "longitude": -75.65022,
     "visitDurationMinutes": 90
   },
   {
@@ -157,8 +157,8 @@
     "name": "Recuca (Recorrido de la Cultura Cafetera)",
     "municipality": "Calarcá",
     "category": "ATRACTIVO_TURISTICO",
-    "latitude": 4.45000,
-    "longitude": -75.70000,
+    "latitude": 4.43260,
+    "longitude": -75.73320,
     "visitDurationMinutes": 120
   },
   {
@@ -166,8 +166,8 @@
     "name": "Parque Los Arrieros",
     "municipality": "Montenegro",
     "category": "ATRACTIVO_TURISTICO",
-    "latitude": 4.55000,
-    "longitude": -75.78333,
+    "latitude": 4.57968,
+    "longitude": -75.78106,
     "visitDurationMinutes": 240
   },
   {
@@ -175,8 +175,8 @@
     "name": "Mirador Colina Iluminada",
     "municipality": "Filandia",
     "category": "ATRACTIVO_TURISTICO",
-    "latitude": 4.67889,
-    "longitude": -75.65694,
+    "latitude": 4.66898,
+    "longitude": -75.66565,
     "visitDurationMinutes": 60
   },
   {
@@ -184,8 +184,8 @@
     "name": "Parque De La Vida",
     "municipality": "Armenia",
     "category": "ATRACTIVO_TURISTICO",
-    "latitude": 4.54722,
-    "longitude": -75.66389,
+    "latitude": 4.54778,
+    "longitude": -75.65972,
     "visitDurationMinutes": 60
   },
   {
@@ -193,8 +193,8 @@
     "name": "Centro de Interpretación de la Guadua",
     "municipality": "Córdoba",
     "category": "ATRACTIVO_TURISTICO",
-    "latitude": 4.39800,
-    "longitude": -75.68200,
+    "latitude": 4.40800,
+    "longitude": -75.69800,
     "visitDurationMinutes": 60
   },
   {
@@ -202,8 +202,8 @@
     "name": "Reserva Natural Kasaguadua",
     "municipality": "Salento",
     "category": "ATRACTIVO_TURISTICO",
-    "latitude": 4.63000,
-    "longitude": -75.58500,
+    "latitude": 4.62880,
+    "longitude": -75.58980,
     "visitDurationMinutes": 120
   },
   {
@@ -211,8 +211,8 @@
     "name": "BioParque La Reserva",
     "municipality": "Salento",
     "category": "ATRACTIVO_TURISTICO",
-    "latitude": 4.63500,
-    "longitude": -75.58000,
+    "latitude": 4.64650,
+    "longitude": -75.56850,
     "visitDurationMinutes": 120
   },
   {
@@ -220,8 +220,8 @@
     "name": "Mirador La Secreta",
     "municipality": "Armenia",
     "category": "ATRACTIVO_TURISTICO",
-    "latitude": 4.52700,
-    "longitude": -75.68600,
+    "latitude": 4.52680,
+    "longitude": -75.68850,
     "visitDurationMinutes": 45
   },
   {
@@ -229,8 +229,8 @@
     "name": "Cascadas de Río Verde",
     "municipality": "Córdoba",
     "category": "ATRACTIVO_TURISTICO",
-    "latitude": 4.37500,
-    "longitude": -75.67000,
+    "latitude": 4.34800,
+    "longitude": -75.67200,
     "visitDurationMinutes": 180
   },
   {
@@ -238,8 +238,8 @@
     "name": "Valle de Maravélez",
     "municipality": "La Tebaida",
     "category": "ATRACTIVO_TURISTICO",
-    "latitude": 4.43000,
-    "longitude": -75.82000,
+    "latitude": 4.42500,
+    "longitude": -75.81800,
     "visitDurationMinutes": 120
   },
   {
@@ -247,8 +247,8 @@
     "name": "Hacienda Combia Inspiración Cafetera",
     "municipality": "Calarcá",
     "category": "FINCA_HOTEL",
-    "latitude": 4.49800,
-    "longitude": -75.68500,
+    "latitude": 4.49088,
+    "longitude": -75.68686,
     "visitDurationMinutes": 0
   },
   {
@@ -256,8 +256,8 @@
     "name": "Hotel Las Camelias",
     "municipality": "Montenegro",
     "category": "FINCA_HOTEL",
-    "latitude": 4.54500,
-    "longitude": -75.76000,
+    "latitude": 4.47150,
+    "longitude": -75.73850,
     "visitDurationMinutes": 0
   },
   {
@@ -265,8 +265,8 @@
     "name": "Finca Hotel El Palmar",
     "municipality": "Quimbaya",
     "category": "FINCA_HOTEL",
-    "latitude": 4.61500,
-    "longitude": -75.80500,
+    "latitude": 4.61800,
+    "longitude": -75.80200,
     "visitDurationMinutes": 0
   },
   {
@@ -274,8 +274,8 @@
     "name": "Finca Hotel Bosques del Samán",
     "municipality": "Quimbaya",
     "category": "FINCA_HOTEL",
-    "latitude": 4.64000,
-    "longitude": -75.83000,
+    "latitude": 4.65400,
+    "longitude": -75.81400,
     "visitDurationMinutes": 0
   },
   {
@@ -283,8 +283,8 @@
     "name": "Finca Hotel Bambusa",
     "municipality": "Armenia",
     "category": "FINCA_HOTEL",
-    "latitude": 4.47500,
-    "longitude": -75.73500,
+    "latitude": 4.46520,
+    "longitude": -75.61200,
     "visitDurationMinutes": 0
   },
   {
@@ -292,8 +292,8 @@
     "name": "Finca Hotel Buenos Aires",
     "municipality": "Buenavista",
     "category": "FINCA_HOTEL",
-    "latitude": 4.35500,
-    "longitude": -75.74800,
+    "latitude": 4.36100,
+    "longitude": -75.74200,
     "visitDurationMinutes": 0
   },
   {
@@ -301,8 +301,8 @@
     "name": "Finca Cafetera La Mina",
     "municipality": "Pijao",
     "category": "FINCA_HOTEL",
-    "latitude": 4.32500,
-    "longitude": -75.71000,
+    "latitude": 4.32900,
+    "longitude": -75.70800,
     "visitDurationMinutes": 0
   },
   {
@@ -310,8 +310,8 @@
     "name": "Hotel Finca San Alberto",
     "municipality": "Buenavista",
     "category": "FINCA_HOTEL",
-    "latitude": 4.37000,
-    "longitude": -75.73200,
+    "latitude": 4.38550,
+    "longitude": -75.71100,
     "visitDurationMinutes": 0
   },
   {
@@ -319,8 +319,8 @@
     "name": "Cooperativa de Caficultores del Quindío - Armenia",
     "municipality": "Armenia",
     "category": "CENTRO_ACOPIO",
-    "latitude": 4.54200,
-    "longitude": -75.67500,
+    "latitude": 4.53200,
+    "longitude": -75.67900,
     "visitDurationMinutes": 0
   },
   {
@@ -328,8 +328,8 @@
     "name": "Trilladora La Meseta",
     "municipality": "Armenia",
     "category": "CENTRO_ACOPIO",
-    "latitude": 4.52500,
-    "longitude": -75.69500,
+    "latitude": 4.52200,
+    "longitude": -75.70200,
     "visitDurationMinutes": 0
   },
   {
@@ -337,8 +337,8 @@
     "name": "Comité Departamental de Cafeteros del Quindío",
     "municipality": "Armenia",
     "category": "CENTRO_ACOPIO",
-    "latitude": 4.54800,
-    "longitude": -75.66900,
+    "latitude": 4.53650,
+    "longitude": -75.66600,
     "visitDurationMinutes": 0
   },
   {
@@ -346,8 +346,8 @@
     "name": "Cooperativa de Caficultores - Agencia Calarcá",
     "municipality": "Calarcá",
     "category": "CENTRO_ACOPIO",
-    "latitude": 4.52600,
-    "longitude": -75.64500,
+    "latitude": 4.52450,
+    "longitude": -75.64350,
     "visitDurationMinutes": 0
   },
   {
@@ -355,8 +355,8 @@
     "name": "Cooperativa de Caficultores - Agencia Filandia",
     "municipality": "Filandia",
     "category": "CENTRO_ACOPIO",
-    "latitude": 4.67200,
-    "longitude": -75.66300,
+    "latitude": 4.67300,
+    "longitude": -75.66200,
     "visitDurationMinutes": 0
   },
   {
@@ -364,8 +364,8 @@
     "name": "Trilladora Café Quindío",
     "municipality": "Armenia",
     "category": "CENTRO_ACOPIO",
-    "latitude": 4.53800,
-    "longitude": -75.68800,
+    "latitude": 4.54500,
+    "longitude": -75.66800,
     "visitDurationMinutes": 0
   },
   {
@@ -373,8 +373,8 @@
     "name": "Centro de Acopio y Catación Pijao",
     "municipality": "Pijao",
     "category": "CENTRO_ACOPIO",
-    "latitude": 4.33900,
-    "longitude": -75.70100,
+    "latitude": 4.33700,
+    "longitude": -75.70200,
     "visitDurationMinutes": 0
   }
 ]
