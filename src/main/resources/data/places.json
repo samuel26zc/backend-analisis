@@ -1,0 +1,380 @@
+[
+  {
+    "id": "ARM_CAB",
+    "name": "Armenia (Plaza de Bolívar)",
+    "municipality": "Armenia",
+    "category": "CABECERA_MUNICIPAL",
+    "latitude": 4.53389,
+    "longitude": -75.68111,
+    "visitDurationMinutes": 0
+  },
+  {
+    "id": "BUE_CAB",
+    "name": "Buenavista (Plaza Principal)",
+    "municipality": "Buenavista",
+    "category": "CABECERA_MUNICIPAL",
+    "latitude": 4.36444,
+    "longitude": -75.74139,
+    "visitDurationMinutes": 0
+  },
+  {
+    "id": "CAL_CAB",
+    "name": "Calarcá (Plaza de Bolívar)",
+    "municipality": "Calarcá",
+    "category": "CABECERA_MUNICIPAL",
+    "latitude": 4.52972,
+    "longitude": -75.64167,
+    "visitDurationMinutes": 0
+  },
+  {
+    "id": "CIR_CAB",
+    "name": "Circasia (Parque Principal Bolívar)",
+    "municipality": "Circasia",
+    "category": "CABECERA_MUNICIPAL",
+    "latitude": 4.61861,
+    "longitude": -75.63583,
+    "visitDurationMinutes": 0
+  },
+  {
+    "id": "COR_CAB",
+    "name": "Córdoba (Plaza Principal)",
+    "municipality": "Córdoba",
+    "category": "CABECERA_MUNICIPAL",
+    "latitude": 4.39389,
+    "longitude": -75.68861,
+    "visitDurationMinutes": 0
+  },
+  {
+    "id": "FIL_CAB",
+    "name": "Filandia (Parque Principal)",
+    "municipality": "Filandia",
+    "category": "CABECERA_MUNICIPAL",
+    "latitude": 4.67444,
+    "longitude": -75.66083,
+    "visitDurationMinutes": 0
+  },
+  {
+    "id": "GEN_CAB",
+    "name": "Génova (Plaza Bolívar)",
+    "municipality": "Génova",
+    "category": "CABECERA_MUNICIPAL",
+    "latitude": 4.20528,
+    "longitude": -75.78778,
+    "visitDurationMinutes": 0
+  },
+  {
+    "id": "TEB_CAB",
+    "name": "La Tebaida (Plaza Bolívar)",
+    "municipality": "La Tebaida",
+    "category": "CABECERA_MUNICIPAL",
+    "latitude": 4.45333,
+    "longitude": -75.78889,
+    "visitDurationMinutes": 0
+  },
+  {
+    "id": "MON_CAB",
+    "name": "Montenegro (Parque Bolívar)",
+    "municipality": "Montenegro",
+    "category": "CABECERA_MUNICIPAL",
+    "latitude": 4.56639,
+    "longitude": -75.75083,
+    "visitDurationMinutes": 0
+  },
+  {
+    "id": "PIJ_CAB",
+    "name": "Pijao (Plaza Principal)",
+    "municipality": "Pijao",
+    "category": "CABECERA_MUNICIPAL",
+    "latitude": 4.33611,
+    "longitude": -75.70333,
+    "visitDurationMinutes": 0
+  },
+  {
+    "id": "QUI_CAB",
+    "name": "Quimbaya (Parque Bolívar)",
+    "municipality": "Quimbaya",
+    "category": "CABECERA_MUNICIPAL",
+    "latitude": 4.62889,
+    "longitude": -75.79417,
+    "visitDurationMinutes": 0
+  },
+  {
+    "id": "SAL_CAB",
+    "name": "Salento (Plaza de Bolívar)",
+    "municipality": "Salento",
+    "category": "CABECERA_MUNICIPAL",
+    "latitude": 4.63889,
+    "longitude": -75.57083,
+    "visitDurationMinutes": 0
+  },
+  {
+    "id": "PARQ_CAFE",
+    "name": "Parque Nacional del Café",
+    "municipality": "Montenegro",
+    "category": "ATRACTIVO_TURISTICO",
+    "latitude": 4.54083,
+    "longitude": -75.76972,
+    "visitDurationMinutes": 360
+  },
+  {
+    "id": "PANACA",
+    "name": "PANACA (Parque Nacional de la Cultura Agropecuaria)",
+    "municipality": "Quimbaya",
+    "category": "ATRACTIVO_TURISTICO",
+    "latitude": 4.62778,
+    "longitude": -75.81667,
+    "visitDurationMinutes": 300
+  },
+  {
+    "id": "VALLE_COCORA",
+    "name": "Valle de Cocora",
+    "municipality": "Salento",
+    "category": "ATRACTIVO_TURISTICO",
+    "latitude": 4.63889,
+    "longitude": -75.48750,
+    "visitDurationMinutes": 240
+  },
+  {
+    "id": "JARDIN_BOTANICO",
+    "name": "Jardín Botánico del Quindío y Mariposario",
+    "municipality": "Calarcá",
+    "category": "ATRACTIVO_TURISTICO",
+    "latitude": 4.51667,
+    "longitude": -75.65833,
+    "visitDurationMinutes": 90
+  },
+  {
+    "id": "MUSEO_ORO_QUIMBAYA",
+    "name": "Museo del Oro Quimbaya",
+    "municipality": "Armenia",
+    "category": "ATRACTIVO_TURISTICO",
+    "latitude": 4.56111,
+    "longitude": -75.65833,
+    "visitDurationMinutes": 90
+  },
+  {
+    "id": "RECUCA",
+    "name": "Recuca (Recorrido de la Cultura Cafetera)",
+    "municipality": "Calarcá",
+    "category": "ATRACTIVO_TURISTICO",
+    "latitude": 4.45000,
+    "longitude": -75.70000,
+    "visitDurationMinutes": 120
+  },
+  {
+    "id": "PARQ_ARRIEROS",
+    "name": "Parque Los Arrieros",
+    "municipality": "Montenegro",
+    "category": "ATRACTIVO_TURISTICO",
+    "latitude": 4.55000,
+    "longitude": -75.78333,
+    "visitDurationMinutes": 240
+  },
+  {
+    "id": "MIRADOR_FILANDIA",
+    "name": "Mirador Colina Iluminada",
+    "municipality": "Filandia",
+    "category": "ATRACTIVO_TURISTICO",
+    "latitude": 4.67889,
+    "longitude": -75.65694,
+    "visitDurationMinutes": 60
+  },
+  {
+    "id": "PARQ_VIDA",
+    "name": "Parque De La Vida",
+    "municipality": "Armenia",
+    "category": "ATRACTIVO_TURISTICO",
+    "latitude": 4.54722,
+    "longitude": -75.66389,
+    "visitDurationMinutes": 60
+  },
+  {
+    "id": "CENTRO_GUADUA",
+    "name": "Centro de Interpretación de la Guadua",
+    "municipality": "Córdoba",
+    "category": "ATRACTIVO_TURISTICO",
+    "latitude": 4.39800,
+    "longitude": -75.68200,
+    "visitDurationMinutes": 60
+  },
+  {
+    "id": "RES_KASAGUADUA",
+    "name": "Reserva Natural Kasaguadua",
+    "municipality": "Salento",
+    "category": "ATRACTIVO_TURISTICO",
+    "latitude": 4.63000,
+    "longitude": -75.58500,
+    "visitDurationMinutes": 120
+  },
+  {
+    "id": "BIO_RESERVA",
+    "name": "BioParque La Reserva",
+    "municipality": "Salento",
+    "category": "ATRACTIVO_TURISTICO",
+    "latitude": 4.63500,
+    "longitude": -75.58000,
+    "visitDurationMinutes": 120
+  },
+  {
+    "id": "MIRADOR_SECRETA",
+    "name": "Mirador La Secreta",
+    "municipality": "Armenia",
+    "category": "ATRACTIVO_TURISTICO",
+    "latitude": 4.52700,
+    "longitude": -75.68600,
+    "visitDurationMinutes": 45
+  },
+  {
+    "id": "CASC_RIOVERDE",
+    "name": "Cascadas de Río Verde",
+    "municipality": "Córdoba",
+    "category": "ATRACTIVO_TURISTICO",
+    "latitude": 4.37500,
+    "longitude": -75.67000,
+    "visitDurationMinutes": 180
+  },
+  {
+    "id": "VALLE_MARAVELEZ",
+    "name": "Valle de Maravélez",
+    "municipality": "La Tebaida",
+    "category": "ATRACTIVO_TURISTICO",
+    "latitude": 4.43000,
+    "longitude": -75.82000,
+    "visitDurationMinutes": 120
+  },
+  {
+    "id": "HAC_COMBIA",
+    "name": "Hacienda Combia Inspiración Cafetera",
+    "municipality": "Calarcá",
+    "category": "FINCA_HOTEL",
+    "latitude": 4.49800,
+    "longitude": -75.68500,
+    "visitDurationMinutes": 0
+  },
+  {
+    "id": "HOT_CAMELIAS",
+    "name": "Hotel Las Camelias",
+    "municipality": "Montenegro",
+    "category": "FINCA_HOTEL",
+    "latitude": 4.54500,
+    "longitude": -75.76000,
+    "visitDurationMinutes": 0
+  },
+  {
+    "id": "FINCA_PALMAR",
+    "name": "Finca Hotel El Palmar",
+    "municipality": "Quimbaya",
+    "category": "FINCA_HOTEL",
+    "latitude": 4.61500,
+    "longitude": -75.80500,
+    "visitDurationMinutes": 0
+  },
+  {
+    "id": "BOSQ_SAMAN",
+    "name": "Finca Hotel Bosques del Samán",
+    "municipality": "Quimbaya",
+    "category": "FINCA_HOTEL",
+    "latitude": 4.64000,
+    "longitude": -75.83000,
+    "visitDurationMinutes": 0
+  },
+  {
+    "id": "HOT_BAMBUSA",
+    "name": "Finca Hotel Bambusa",
+    "municipality": "Armenia",
+    "category": "FINCA_HOTEL",
+    "latitude": 4.47500,
+    "longitude": -75.73500,
+    "visitDurationMinutes": 0
+  },
+  {
+    "id": "FINCA_B_AIRES",
+    "name": "Finca Hotel Buenos Aires",
+    "municipality": "Buenavista",
+    "category": "FINCA_HOTEL",
+    "latitude": 4.35500,
+    "longitude": -75.74800,
+    "visitDurationMinutes": 0
+  },
+  {
+    "id": "FINCA_MINA",
+    "name": "Finca Cafetera La Mina",
+    "municipality": "Pijao",
+    "category": "FINCA_HOTEL",
+    "latitude": 4.32500,
+    "longitude": -75.71000,
+    "visitDurationMinutes": 0
+  },
+  {
+    "id": "HOT_SAN_ALBERTO",
+    "name": "Hotel Finca San Alberto",
+    "municipality": "Buenavista",
+    "category": "FINCA_HOTEL",
+    "latitude": 4.37000,
+    "longitude": -75.73200,
+    "visitDurationMinutes": 0
+  },
+  {
+    "id": "COOP_ARM",
+    "name": "Cooperativa de Caficultores del Quindío - Armenia",
+    "municipality": "Armenia",
+    "category": "CENTRO_ACOPIO",
+    "latitude": 4.54200,
+    "longitude": -75.67500,
+    "visitDurationMinutes": 0
+  },
+  {
+    "id": "TRILL_MESETA",
+    "name": "Trilladora La Meseta",
+    "municipality": "Armenia",
+    "category": "CENTRO_ACOPIO",
+    "latitude": 4.52500,
+    "longitude": -75.69500,
+    "visitDurationMinutes": 0
+  },
+  {
+    "id": "COMITE_CAF",
+    "name": "Comité Departamental de Cafeteros del Quindío",
+    "municipality": "Armenia",
+    "category": "CENTRO_ACOPIO",
+    "latitude": 4.54800,
+    "longitude": -75.66900,
+    "visitDurationMinutes": 0
+  },
+  {
+    "id": "COOP_CAL",
+    "name": "Cooperativa de Caficultores - Agencia Calarcá",
+    "municipality": "Calarcá",
+    "category": "CENTRO_ACOPIO",
+    "latitude": 4.52600,
+    "longitude": -75.64500,
+    "visitDurationMinutes": 0
+  },
+  {
+    "id": "COOP_FIL",
+    "name": "Cooperativa de Caficultores - Agencia Filandia",
+    "municipality": "Filandia",
+    "category": "CENTRO_ACOPIO",
+    "latitude": 4.67200,
+    "longitude": -75.66300,
+    "visitDurationMinutes": 0
+  },
+  {
+    "id": "TRILL_CAFE_Q",
+    "name": "Trilladora Café Quindío",
+    "municipality": "Armenia",
+    "category": "CENTRO_ACOPIO",
+    "latitude": 4.53800,
+    "longitude": -75.68800,
+    "visitDurationMinutes": 0
+  },
+  {
+    "id": "ACOPIO_PIJ",
+    "name": "Centro de Acopio y Catación Pijao",
+    "municipality": "Pijao",
+    "category": "CENTRO_ACOPIO",
+    "latitude": 4.33900,
+    "longitude": -75.70100,
+    "visitDurationMinutes": 0
+  }
+]
