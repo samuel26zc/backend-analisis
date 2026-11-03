@@ -228,7 +228,7 @@ public class DataLoader implements ApplicationRunner {
             net.addNode(new RoadNode(in.id(), in.lat(), in.lon(), utm.utmX(), utm.utmY()));
         }
 
-        // Conectar lugares urbanos de Armenia al anillo central
+        // Conectar lugares urbanos de Armenia al anillo central y sus radiales de salida
         String[] armeniaPlaces = {"ARM_CAB", "PARQ_VIDA", "MUSEO_ORO_QUIMBAYA", "MIRADOR_SECRETA", "COOP_ARM", "TRILL_MESETA", "COMITE_CAF", "TRILL_CAFE_Q"};
         for (String pId : armeniaPlaces) {
             Long nId = placeNodeMap.get(pId);
@@ -238,11 +238,19 @@ public class DataLoader implements ApplicationRunner {
             }
         }
 
-        // Anillo y radiales de Armenia
+        // Armenia Plaza de Bolívar conectada directamente a los 4 cuadrantes arteriales
+        Long armCabNode = placeNodeMap.get("ARM_CAB");
+        if (armCabNode != null) {
+            connect(net, armCabNode, 1102, 45.0, "primary", false); // Salida Occidente hacia Montenegro
+            connect(net, armCabNode, 1103, 45.0, "primary", false); // Salida Sur hacia La Tebaida
+        }
+
+        // Anillo perimetral y radiales de Armenia
         connect(net, 1101, 1105, 60.0, "primary", false);
         connect(net, 1101, 1104, 60.0, "primary", false);
         connect(net, 1101, 1102, 50.0, "secondary", false);
-        connect(net, 1101, 1103, 50.0, "secondary", false);
+        connect(net, 1102, 1103, 50.0, "secondary", false);
+        connect(net, 1103, 1104, 50.0, "secondary", false);
 
         // Autopista del Café hacia Circasia y Filandia
         connect(net, 1105, 1110, 80.0, "motorway", false);
@@ -297,10 +305,10 @@ public class DataLoader implements ApplicationRunner {
 
         // La Tebaida y Valle de Maravélez
         connect(net, 1103, 1150, 60.0, "primary", false);
-        connect(net, 1150, placeNodeMap.get("HOT_BAMBUSA"), 40.0, "tertiary", false);
         connect(net, 1150, 1151, 60.0, "primary", false);
         connect(net, 1151, placeNodeMap.get("TEB_CAB"), 40.0, "tertiary", false);
         connect(net, 1151, placeNodeMap.get("VALLE_MARAVELEZ"), 45.0, "secondary", false);
+        connect(net, 1151, placeNodeMap.get("HOT_BAMBUSA"), 40.0, "tertiary", false);
         connect(net, 1151, 1152, 50.0, "secondary", false);
         connect(net, 1152, 1163, 50.0, "secondary", false);
         connect(net, 1163, 1131, 50.0, "secondary", false);

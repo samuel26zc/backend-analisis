@@ -112,8 +112,8 @@
     "name": "Parque Nacional del Café",
     "municipality": "Montenegro",
     "category": "ATRACTIVO_TURISTICO",
-    "latitude": 4.52350,
-    "longitude": -75.74410,
+    "latitude": 4.54083,
+    "longitude": -75.76972,
     "visitDurationMinutes": 360
   },
   {
@@ -148,8 +148,8 @@
     "name": "Museo del Oro Quimbaya",
     "municipality": "Armenia",
     "category": "ATRACTIVO_TURISTICO",
-    "latitude": 4.57142,
-    "longitude": -75.65022,
+    "latitude": 4.57102,
+    "longitude": -75.64830,
     "visitDurationMinutes": 90
   },
   {
@@ -256,8 +256,8 @@
     "name": "Hotel Las Camelias",
     "municipality": "Montenegro",
     "category": "FINCA_HOTEL",
-    "latitude": 4.47150,
-    "longitude": -75.73850,
+    "latitude": 4.52212,
+    "longitude": -75.78548,
     "visitDurationMinutes": 0
   },
   {
@@ -274,8 +274,8 @@
     "name": "Finca Hotel Bosques del Samán",
     "municipality": "Quimbaya",
     "category": "FINCA_HOTEL",
-    "latitude": 4.65400,
-    "longitude": -75.81400,
+    "latitude": 4.65200,
+    "longitude": -75.77000,
     "visitDurationMinutes": 0
   },
   {
@@ -283,8 +283,8 @@
     "name": "Finca Hotel Bambusa",
     "municipality": "Armenia",
     "category": "FINCA_HOTEL",
-    "latitude": 4.46520,
-    "longitude": -75.61200,
+    "latitude": 4.40006,
+    "longitude": -75.77491,
     "visitDurationMinutes": 0
   },
   {
@@ -310,8 +310,8 @@
     "name": "Hotel Finca San Alberto",
     "municipality": "Buenavista",
     "category": "FINCA_HOTEL",
-    "latitude": 4.38550,
-    "longitude": -75.71100,
+    "latitude": 4.35843,
+    "longitude": -75.73447,
     "visitDurationMinutes": 0
   },
   {
