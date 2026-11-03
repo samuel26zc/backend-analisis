@@ -203,9 +203,9 @@ public class DataLoader implements ApplicationRunner {
                 new InterNode(1122, 4.6380, -75.5200), // Carretera Valle de Cocora
                 new InterNode(1130, 4.5450, -75.7300), // Armenia-Montenegro tramo 1
                 new InterNode(1131, 4.5600, -75.7450), // Entrada Montenegro
-                new InterNode(1132, 4.5900, -75.7700), // Montenegro-Quimbaya
-                new InterNode(1133, 4.6200, -75.7900), // Entrada Quimbaya
-                new InterNode(1134, 4.6300, -75.8100), // Vía PANACA
+                new InterNode(1132, 4.5940, -75.7570), // Montenegro-Quimbaya
+                new InterNode(1133, 4.6220, -75.7640), // Entrada Quimbaya
+                new InterNode(1134, 4.6150, -75.7900), // Vía PANACA
                 new InterNode(1140, 4.5200, -75.6450), // Variante Calarcá
                 new InterNode(1141, 4.4800, -75.6600), // Calarcá-Balboa
                 new InterNode(1142, 4.4400, -75.6700), // Cruce Río Verde
@@ -219,7 +219,7 @@ public class DataLoader implements ApplicationRunner {
                 new InterNode(1153, 4.3800, -75.7450), // Subida Buenavista
                 new InterNode(1160, 4.5350, -75.7650), // Cruce Parque del Café
                 new InterNode(1161, 4.4600, -75.7100), // El Caimo - Recuca
-                new InterNode(1162, 4.6100, -75.7500), // Quimbaya - Filandia Rural
+                new InterNode(1162, 4.6400, -75.7100), // Quimbaya - Filandia Rural
                 new InterNode(1163, 4.5500, -75.7800)  // Montenegro - Pueblo Tapao
         );
 
