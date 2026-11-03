@@ -356,7 +356,10 @@ public class DataLoader implements ApplicationRunner {
         RoadNode nodeV = net.getNodes().get(v);
         if (nodeU == null || nodeV == null) return;
 
-        double dist = GeoUtils.euclideanDistance(nodeU.utmX(), nodeU.utmY(), nodeV.utmX(), nodeV.utmY());
+        // Factor de sinuosidad y desarrollo vial terrestre sobre la orografía montañosa del Quindío
+        // (Las carreteras de montaña tienen curvas y gradientes que extienden el trayecto vs. línea recta)
+        double windingFactor = "motorway".equals(type) ? 1.18 : ("residential".equals(type) ? 1.25 : 1.34);
+        double dist = Math.round(GeoUtils.euclideanDistance(nodeU.utmX(), nodeU.utmY(), nodeV.utmX(), nodeV.utmY()) * windingFactor * 10.0) / 10.0;
         net.addEdge(RoadEdge.of(u, v, dist, speed, type, oneway));
 
         if (!oneway) {
