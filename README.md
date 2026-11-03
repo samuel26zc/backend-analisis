@@ -61,13 +61,15 @@ src/main/java/com/analisis/backend/
 
 El archivo de configuración principal se encuentra en [`src/main/resources/application.yml`](src/main/resources/application.yml).
 
-Soporta variables de entorno del sistema con valores por defecto para desarrollo local:
+Por defecto, el proyecto inicia de forma **100% autónoma (standalone)** con base de datos **H2 en memoria** (`jdbc:h2:mem:analisis_db`), sin requerir instalar o encender PostgreSQL externamente.
+
+Si deseas utilizar **PostgreSQL**, simplemente define las variables de entorno:
 
 | Variable de Entorno | Valor por Defecto | Descripción |
 |---|---|---|
-| `SPRING_DATASOURCE_URL` | `jdbc:postgresql://localhost:5432/analisis_db` | URL JDBC de conexión |
-| `SPRING_DATASOURCE_USERNAME` | `postgres` | Usuario de PostgreSQL |
-| `SPRING_DATASOURCE_PASSWORD` | `postgres` | Contraseña de PostgreSQL |
+| `SPRING_DATASOURCE_URL` | `jdbc:h2:mem:analisis_db...` | URL JDBC de conexión (o `jdbc:postgresql://localhost:5432/analisis_db`) |
+| `SPRING_DATASOURCE_USERNAME` | `sa` | Usuario de la BD (o `postgres`) |
+| `SPRING_DATASOURCE_PASSWORD` | `""` | Contraseña de la BD (o `postgres`) |
 | `PORT` | `8080` | Puerto del servidor web |
 
 ---
@@ -109,22 +111,22 @@ El módulo `User` viene completamente implementado como referencia de la arquite
 
 El proyecto incluye el Maven Wrapper (`mvnw`), por lo que **no requieres tener Maven instalado globalmente**:
 
-### Compilar el proyecto:
+### En Windows (PowerShell / CMD):
+```powershell
+.\mvnw.cmd spring-boot:run
+```
+
+### En Linux / macOS:
 ```bash
-./mvnw.cmd compile
+./mvnw spring-boot:run
 ```
 
 ### Ejecutar pruebas automáticas:
-```bash
-./mvnw.cmd test
-```
-
-### Levantar la aplicación:
-```bash
-./mvnw.cmd spring-boot:run
+```powershell
+.\mvnw.cmd test
 ```
 
 ### Empaquetar el JAR para despliegue:
-```bash
-./mvnw.cmd clean package -DskipTests
+```powershell
+.\mvnw.cmd clean package -DskipTests
 ```
