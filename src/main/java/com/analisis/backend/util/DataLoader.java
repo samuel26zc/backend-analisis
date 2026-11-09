@@ -192,21 +192,22 @@ public class DataLoader implements ApplicationRunner {
                 new InterNode(1101, 4.5380, -75.6780), // Armenia Circunvalar
                 new InterNode(1102, 4.5300, -75.7100), // Armenia Salida Montenegro
                 new InterNode(1103, 4.5150, -75.6850), // Armenia Salida Sur Tebaida
-                new InterNode(1104, 4.5350, -75.6550), // Armenia Salida Calarcá
+                new InterNode(1104, 4.5320, -75.6580), // Armenia Salida Calarcá
                 new InterNode(1105, 4.5550, -75.6600), // Armenia Salida Norte Circasia
                 new InterNode(1110, 4.5800, -75.6500), // Autopista del Café 1
                 new InterNode(1111, 4.6000, -75.6450), // Cruce Circasia
+                new InterNode(1114, 4.6220, -75.6380), // Cruce Salento en Autopista del Café
                 new InterNode(1112, 4.6400, -75.6400), // Cruce Filandia
                 new InterNode(1113, 4.6700, -75.6500), // Entrada Filandia
-                new InterNode(1120, 4.6150, -75.6100), // Boquía hacia Salento
-                new InterNode(1121, 4.6300, -75.5900), // Acceso Salento
+                new InterNode(1120, 4.6250, -75.6050), // Boquía hacia Salento
+                new InterNode(1121, 4.6372, -75.5698), // Acceso Salento
                 new InterNode(1122, 4.6380, -75.5200), // Carretera Valle de Cocora
                 new InterNode(1130, 4.5450, -75.7300), // Armenia-Montenegro tramo 1
                 new InterNode(1131, 4.5600, -75.7450), // Entrada Montenegro
                 new InterNode(1132, 4.5940, -75.7570), // Montenegro-Quimbaya
                 new InterNode(1133, 4.6220, -75.7640), // Entrada Quimbaya
                 new InterNode(1134, 4.6150, -75.7900), // Vía PANACA
-                new InterNode(1140, 4.5200, -75.6450), // Variante Calarcá
+                new InterNode(1140, 4.5310, -75.6450), // Variante Calarcá
                 new InterNode(1141, 4.4800, -75.6600), // Calarcá-Balboa
                 new InterNode(1142, 4.4400, -75.6700), // Cruce Río Verde
                 new InterNode(1143, 4.4000, -75.6800), // Entrada Córdoba
@@ -252,17 +253,18 @@ public class DataLoader implements ApplicationRunner {
         connect(net, 1102, 1103, 50.0, "secondary", false);
         connect(net, 1103, 1104, 50.0, "secondary", false);
 
-        // Autopista del Café hacia Circasia y Filandia
+        // Autopista del Café hacia Circasia, Salento y Filandia
         connect(net, 1105, 1110, 80.0, "motorway", false);
         connect(net, 1110, 1111, 80.0, "motorway", false);
-        connect(net, 1111, 1112, 80.0, "motorway", false);
+        connect(net, 1111, 1114, 80.0, "motorway", false);
+        connect(net, 1114, 1112, 80.0, "motorway", false);
         connect(net, 1112, 1113, 60.0, "secondary", false);
 
         // Circasia
         connect(net, 1111, placeNodeMap.get("CIR_CAB"), 50.0, "tertiary", false);
 
         // Salento y Valle de Cocora
-        connect(net, 1110, 1120, 50.0, "secondary", false);
+        connect(net, 1114, 1120, 50.0, "secondary", false);
         connect(net, 1120, 1121, 50.0, "secondary", false);
         connect(net, 1121, placeNodeMap.get("SAL_CAB"), 40.0, "tertiary", false);
         connect(net, 1121, placeNodeMap.get("RES_KASAGUADUA"), 35.0, "residential", false);
