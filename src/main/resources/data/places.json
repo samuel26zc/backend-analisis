@@ -4,144 +4,160 @@
     "name": "Armenia (Plaza de Bolívar)",
     "municipality": "Armenia",
     "category": "CABECERA_MUNICIPAL",
-    "latitude": 4.53389,
-    "longitude": -75.68111,
-    "visitDurationMinutes": 0
+    "latitude": 4.53257,
+    "longitude": -75.67304,
+    "visitDurationMinutes": 0,
+    "description": "Centro político y administrativo del departamento, frente a la Catedral La Inmaculada Concepción y la Gobernación del Quindío (Carreras 13 y 14, Calles 20 y 21)."
   },
   {
     "id": "BUE_CAB",
     "name": "Buenavista (Plaza Principal)",
     "municipality": "Buenavista",
     "category": "CABECERA_MUNICIPAL",
-    "latitude": 4.36444,
-    "longitude": -75.74139,
-    "visitDurationMinutes": 0
+    "latitude": 4.35992,
+    "longitude": -75.73868,
+    "visitDurationMinutes": 0,
+    "description": "Plaza central y mirador urbano frente a la Parroquia Nuestra Señora del Carmen y la Alcaldía de Buenavista."
   },
   {
     "id": "CAL_CAB",
     "name": "Calarcá (Plaza de Bolívar)",
     "municipality": "Calarcá",
     "category": "CABECERA_MUNICIPAL",
-    "latitude": 4.52972,
-    "longitude": -75.64167,
-    "visitDurationMinutes": 0
+    "latitude": 4.53064,
+    "longitude": -75.64052,
+    "visitDurationMinutes": 0,
+    "description": "Parque central de la Villa del Cacique, entre Calles 39 y 40, Carreras 24 y 25."
   },
   {
     "id": "CIR_CAB",
     "name": "Circasia (Parque Principal Bolívar)",
     "municipality": "Circasia",
     "category": "CABECERA_MUNICIPAL",
-    "latitude": 4.61861,
-    "longitude": -75.63583,
-    "visitDurationMinutes": 0
+    "latitude": 4.62016,
+    "longitude": -75.63472,
+    "visitDurationMinutes": 0,
+    "description": "Plaza central de la Tierra de Hombres Libres, frente a la Parroquia Nuestra Señora de las Mercedes (Carreras 14 y 15, Calles 6 y 7)."
   },
   {
     "id": "COR_CAB",
     "name": "Córdoba (Plaza Principal)",
     "municipality": "Córdoba",
     "category": "CABECERA_MUNICIPAL",
-    "latitude": 4.39389,
-    "longitude": -75.68861,
-    "visitDurationMinutes": 0
+    "latitude": 4.39007,
+    "longitude": -75.68582,
+    "visitDurationMinutes": 0,
+    "description": "Plaza central cordillerana frente a la Alcaldía Municipal y la Parroquia San José."
   },
   {
     "id": "FIL_CAB",
     "name": "Filandia (Parque Principal)",
     "municipality": "Filandia",
     "category": "CABECERA_MUNICIPAL",
-    "latitude": 4.67444,
-    "longitude": -75.66083,
-    "visitDurationMinutes": 0
+    "latitude": 4.675,
+    "longitude": -75.6582,
+    "visitDurationMinutes": 0,
+    "description": "Parque central frente a la icónica Parroquia María Inmaculada y el corredor artesanal de balcones coloniales."
   },
   {
     "id": "GEN_CAB",
     "name": "Génova (Plaza Bolívar)",
     "municipality": "Génova",
     "category": "CABECERA_MUNICIPAL",
-    "latitude": 4.20528,
-    "longitude": -75.78778,
-    "visitDurationMinutes": 0
+    "latitude": 4.2065,
+    "longitude": -75.79062,
+    "visitDurationMinutes": 0,
+    "description": "Plaza principal del municipio más austral del departamento, rodeada de cafetales y arquitectura tradicional de colonización antioqueña."
   },
   {
     "id": "TEB_CAB",
     "name": "La Tebaida (Plaza Bolívar)",
     "municipality": "La Tebaida",
     "category": "CABECERA_MUNICIPAL",
-    "latitude": 4.45333,
-    "longitude": -75.78889,
-    "visitDurationMinutes": 0
+    "latitude": 4.45367,
+    "longitude": -75.78945,
+    "visitDurationMinutes": 0,
+    "description": "Parque central arbolado, conocido como el Edén Tropical del Quindío, frente a la Parroquia Nuestra Señora del Carmen."
   },
   {
     "id": "MON_CAB",
     "name": "Montenegro (Parque Bolívar)",
     "municipality": "Montenegro",
     "category": "CABECERA_MUNICIPAL",
-    "latitude": 4.56639,
-    "longitude": -75.75083,
-    "visitDurationMinutes": 0
+    "latitude": 4.56642,
+    "longitude": -75.75071,
+    "visitDurationMinutes": 0,
+    "description": "Plaza principal cívica y comercial de Montenegro, centro neurálgico del turismo temático cafetero."
   },
   {
     "id": "PIJ_CAB",
     "name": "Pijao (Plaza Principal)",
     "municipality": "Pijao",
     "category": "CABECERA_MUNICIPAL",
-    "latitude": 4.33611,
-    "longitude": -75.70333,
-    "visitDurationMinutes": 0
+    "latitude": 4.33414,
+    "longitude": -75.70381,
+    "visitDurationMinutes": 0,
+    "description": "Plaza central del primer pueblo 'Cittaslow' (ciudad sin prisa) de América Latina, con arquitectura preservada y monumentos a la cultura cafetera."
   },
   {
     "id": "QUI_CAB",
     "name": "Quimbaya (Parque Bolívar)",
     "municipality": "Quimbaya",
     "category": "CABECERA_MUNICIPAL",
-    "latitude": 4.62245,
-    "longitude": -75.76312,
-    "visitDurationMinutes": 0
+    "latitude": 4.6231,
+    "longitude": -75.7609,
+    "visitDurationMinutes": 0,
+    "description": "Parque de la Constitución / Bolívar, sede del tradicional Concurso de Velas y Faroles, frente al Centro Administrativo Municipal y la Parroquia Jesús, María y José."
   },
   {
     "id": "SAL_CAB",
     "name": "Salento (Plaza de Bolívar)",
     "municipality": "Salento",
     "category": "CABECERA_MUNICIPAL",
-    "latitude": 4.63889,
-    "longitude": -75.57083,
-    "visitDurationMinutes": 0
+    "latitude": 4.63724,
+    "longitude": -75.56982,
+    "visitDurationMinutes": 0,
+    "description": "Corazón patrimonial del municipio padre del Quindío, nacimiento de la Calle Real y puerta de entrada al Valle de Cocora."
   },
   {
     "id": "PARQ_CAFE",
     "name": "Parque Nacional del Café",
     "municipality": "Montenegro",
     "category": "ATRACTIVO_TURISTICO",
-    "latitude": 4.54083,
-    "longitude": -75.76972,
-    "visitDurationMinutes": 360
+    "latitude": 4.53733,
+    "longitude": -75.76927,
+    "visitDurationMinutes": 360,
+    "description": "Taquillas y entrada principal del parque temático insignia de la cultura cafetera colombiana (Km 6 Vía Montenegro - Pueblo Tapao)."
   },
   {
     "id": "PANACA",
     "name": "PANACA (Parque Nacional de la Cultura Agropecuaria)",
     "municipality": "Quimbaya",
     "category": "ATRACTIVO_TURISTICO",
-    "latitude": 4.60770,
-    "longitude": -75.82130,
-    "visitDurationMinutes": 300
+    "latitude": 4.60708,
+    "longitude": -75.81883,
+    "visitDurationMinutes": 300,
+    "description": "Acceso principal del mayor parque agropecuario interactivo del país (Vereda Kerman, Quimbaya)."
   },
   {
     "id": "VALLE_COCORA",
     "name": "Valle de Cocora",
     "municipality": "Salento",
     "category": "ATRACTIVO_TURISTICO",
-    "latitude": 4.63690,
-    "longitude": -75.48660,
-    "visitDurationMinutes": 240
+    "latitude": 4.63711,
+    "longitude": -75.47833,
+    "visitDurationMinutes": 240,
+    "description": "Santuario natural de la Palma de Cera del Quindío (árbol nacional), punto de inicio de senderos ecológicos y miradores del bosque de niebla."
   },
   {
     "id": "JARDIN_BOTANICO",
     "name": "Jardín Botánico del Quindío y Mariposario",
     "municipality": "Calarcá",
     "category": "ATRACTIVO_TURISTICO",
-    "latitude": 4.51160,
-    "longitude": -75.65100,
-    "visitDurationMinutes": 90
+    "latitude": 4.51073,
+    "longitude": -75.65119,
+    "visitDurationMinutes": 90,
+    "description": "Centro de investigación ambiental y mariposario con estructura en forma de mariposa (Av. Colón, Calarcá)."
   },
   {
     "id": "MUSEO_ORO_QUIMBAYA",
@@ -149,17 +165,19 @@
     "municipality": "Armenia",
     "category": "ATRACTIVO_TURISTICO",
     "latitude": 4.57102,
-    "longitude": -75.64830,
-    "visitDurationMinutes": 90
+    "longitude": -75.6483,
+    "visitDurationMinutes": 90,
+    "description": "Obra maestra del arquitecto Rogelio Salmona (Monumento Nacional) y museo arqueológico del Banco de la República (Av. Bolívar # 40N-80)."
   },
   {
     "id": "RECUCA",
     "name": "Recuca (Recorrido de la Cultura Cafetera)",
     "municipality": "Calarcá",
     "category": "ATRACTIVO_TURISTICO",
-    "latitude": 4.43260,
-    "longitude": -75.73320,
-    "visitDurationMinutes": 120
+    "latitude": 4.43225,
+    "longitude": -75.73321,
+    "visitDurationMinutes": 120,
+    "description": "Finca temática experiencial con inmersión lúdica en las labores tradicionales de recolección y beneficio del café (Vereda Callejones)."
   },
   {
     "id": "PARQ_ARRIEROS",
@@ -168,88 +186,98 @@
     "category": "ATRACTIVO_TURISTICO",
     "latitude": 4.57968,
     "longitude": -75.78106,
-    "visitDurationMinutes": 240
+    "visitDurationMinutes": 240,
+    "description": "Parque temático de arriería, tradiciones campesinas y muestras folclóricas (Km 3 Vía Montenegro - Quimbaya)."
   },
   {
     "id": "MIRADOR_FILANDIA",
     "name": "Mirador Colina Iluminada",
     "municipality": "Filandia",
     "category": "ATRACTIVO_TURISTICO",
-    "latitude": 4.66898,
-    "longitude": -75.66565,
-    "visitDurationMinutes": 60
+    "latitude": 4.66896,
+    "longitude": -75.66566,
+    "visitDurationMinutes": 60,
+    "description": "Torre mirador de 27 metros en madera de mangle y guadua con vista panorámica de 360 grados sobre el departamento."
   },
   {
     "id": "PARQ_VIDA",
     "name": "Parque De La Vida",
     "municipality": "Armenia",
     "category": "ATRACTIVO_TURISTICO",
-    "latitude": 4.54778,
-    "longitude": -75.65972,
-    "visitDurationMinutes": 60
+    "latitude": 4.54745,
+    "longitude": -75.65956,
+    "visitDurationMinutes": 60,
+    "description": "Pulmón verde urbano de 8 hectáreas donado por la Federación Nacional de Cafeteros, con lago, senderos y cascadas artificiales (Av. Bolívar con Calle 8N)."
   },
   {
     "id": "CENTRO_GUADUA",
     "name": "Centro de Interpretación de la Guadua",
     "municipality": "Córdoba",
     "category": "ATRACTIVO_TURISTICO",
-    "latitude": 4.40800,
-    "longitude": -75.69800,
-    "visitDurationMinutes": 60
+    "latitude": 4.408,
+    "longitude": -75.698,
+    "visitDurationMinutes": 60,
+    "description": "Centro Nacional para el Estudio del Bambú-Guadua (CRQ), Km 22 Vía Armenia - Córdoba (Vereda La Soledad)."
   },
   {
     "id": "RES_KASAGUADUA",
     "name": "Reserva Natural Kasaguadua",
     "municipality": "Salento",
     "category": "ATRACTIVO_TURISTICO",
-    "latitude": 4.62880,
-    "longitude": -75.58980,
-    "visitDurationMinutes": 120
+    "latitude": 4.62931,
+    "longitude": -75.58945,
+    "visitDurationMinutes": 120,
+    "description": "Reserva ecológica comunitaria de selva andina húmeda y arquitectura bio-climática (Km 3 Vía Salento - Armenia)."
   },
   {
     "id": "BIO_RESERVA",
     "name": "BioParque La Reserva",
     "municipality": "Salento",
     "category": "ATRACTIVO_TURISTICO",
-    "latitude": 4.64650,
-    "longitude": -75.56850,
-    "visitDurationMinutes": 120
+    "latitude": 4.62971,
+    "longitude": -75.58938,
+    "visitDurationMinutes": 120,
+    "description": "Santuario de fauna y flora andina especializado en conservación y rescate animal (Km 2 Vía Boquía - Salento)."
   },
   {
     "id": "MIRADOR_SECRETA",
     "name": "Mirador La Secreta",
     "municipality": "Armenia",
     "category": "ATRACTIVO_TURISTICO",
-    "latitude": 4.52680,
-    "longitude": -75.68850,
-    "visitDurationMinutes": 45
+    "latitude": 4.52181,
+    "longitude": -75.68398,
+    "visitDurationMinutes": 45,
+    "description": "Mirador panorámico y parque lineal sobre el cañón del Río Quindío y la cordillera occidental (Carrera 18 con Calle 35)."
   },
   {
     "id": "CASC_RIOVERDE",
     "name": "Cascadas de Río Verde",
     "municipality": "Córdoba",
     "category": "ATRACTIVO_TURISTICO",
-    "latitude": 4.34800,
-    "longitude": -75.67200,
-    "visitDurationMinutes": 180
+    "latitude": 4.348,
+    "longitude": -75.672,
+    "visitDurationMinutes": 180,
+    "description": "Caídas naturales de agua en el cañón alto del Río Verde, accesible mediante sendero ecológico de montaña."
   },
   {
     "id": "VALLE_MARAVELEZ",
     "name": "Valle de Maravélez",
     "municipality": "La Tebaida",
     "category": "ATRACTIVO_TURISTICO",
-    "latitude": 4.42500,
-    "longitude": -75.81800,
-    "visitDurationMinutes": 120
+    "latitude": 4.39803,
+    "longitude": -75.79488,
+    "visitDurationMinutes": 120,
+    "description": "Planicie aluvial y confluencia de los ríos Barragán y La Vieja, escenario tradicional de cabalgatas y avistamiento de aves."
   },
   {
     "id": "HAC_COMBIA",
     "name": "Hacienda Combia Inspiración Cafetera",
     "municipality": "Calarcá",
     "category": "FINCA_HOTEL",
-    "latitude": 4.49088,
-    "longitude": -75.68686,
-    "visitDurationMinutes": 0
+    "latitude": 4.49174,
+    "longitude": -75.68626,
+    "visitDurationMinutes": 0,
+    "description": "Hotel campestre de arquitectura colonial con experiencia temática sensorial en torno a los procesos del café (Vereda La Bella)."
   },
   {
     "id": "HOT_CAMELIAS",
@@ -258,52 +286,58 @@
     "category": "FINCA_HOTEL",
     "latitude": 4.52212,
     "longitude": -75.78548,
-    "visitDurationMinutes": 0
+    "visitDurationMinutes": 0,
+    "description": "Complejo hotelero de primer nivel adyacente a los principales parques temáticos (Km 2 Vía Montenegro - Pueblo Tapao)."
   },
   {
     "id": "FINCA_PALMAR",
     "name": "Finca Hotel El Palmar",
-    "municipality": "Quimbaya",
+    "municipality": "Montenegro",
     "category": "FINCA_HOTEL",
-    "latitude": 4.61800,
-    "longitude": -75.80200,
-    "visitDurationMinutes": 0
+    "latitude": 4.5245,
+    "longitude": -75.775,
+    "visitDurationMinutes": 0,
+    "description": "Alojamiento rural tradicional cafetero ubicado en la Vereda La Esperanza, a 1.5 km del Parque del Café."
   },
   {
     "id": "BOSQ_SAMAN",
     "name": "Finca Hotel Bosques del Samán",
     "municipality": "Quimbaya",
     "category": "FINCA_HOTEL",
-    "latitude": 4.65200,
-    "longitude": -75.77000,
-    "visitDurationMinutes": 0
+    "latitude": 4.675,
+    "longitude": -75.75,
+    "visitDurationMinutes": 0,
+    "description": "Finca hotel cafetera con canopy sobre cafetales (Vereda La Caña, Km 5 Vía Alcalá - Filandia, zona turística de Quimbaya)."
   },
   {
     "id": "HOT_BAMBUSA",
     "name": "Finca Hotel Bambusa",
     "municipality": "Armenia",
     "category": "FINCA_HOTEL",
-    "latitude": 4.40006,
-    "longitude": -75.77491,
-    "visitDurationMinutes": 0
+    "latitude": 4.42172,
+    "longitude": -75.76105,
+    "visitDurationMinutes": 0,
+    "description": "Hotel boutique rural exclusivo emplazado entre plantaciones de cacao y plátano (Vereda El Caimo)."
   },
   {
     "id": "FINCA_B_AIRES",
     "name": "Finca Hotel Buenos Aires",
     "municipality": "Buenavista",
     "category": "FINCA_HOTEL",
-    "latitude": 4.36100,
-    "longitude": -75.74200,
-    "visitDurationMinutes": 0
+    "latitude": 4.3585,
+    "longitude": -75.739,
+    "visitDurationMinutes": 0,
+    "description": "Hospedaje de montaña con vista panorámica sobre el valle de Maravélez (Vereda La Granja, Buenavista)."
   },
   {
     "id": "FINCA_MINA",
     "name": "Finca Cafetera La Mina",
     "municipality": "Pijao",
     "category": "FINCA_HOTEL",
-    "latitude": 4.32900,
-    "longitude": -75.70800,
-    "visitDurationMinutes": 0
+    "latitude": 4.34863,
+    "longitude": -75.71516,
+    "visitDurationMinutes": 0,
+    "description": "Finca cafetera de alta montaña en el Alto de la Mina, preservando métodos artesanales de cosecha y secado."
   },
   {
     "id": "HOT_SAN_ALBERTO",
@@ -312,69 +346,77 @@
     "category": "FINCA_HOTEL",
     "latitude": 4.35843,
     "longitude": -75.73447,
-    "visitDurationMinutes": 0
+    "visitDurationMinutes": 0,
+    "description": "Finca cafetera y terraza del café más premiado de Colombia, con bautizo cafetero sobre la cordillera."
   },
   {
     "id": "COOP_ARM",
     "name": "Cooperativa de Caficultores del Quindío - Armenia",
     "municipality": "Armenia",
     "category": "CENTRO_ACOPIO",
-    "latitude": 4.53200,
-    "longitude": -75.67900,
-    "visitDurationMinutes": 0
+    "latitude": 4.5188,
+    "longitude": -75.6905,
+    "visitDurationMinutes": 0,
+    "description": "Sede principal de recibo, laboratorio de calidades y acopio mayorista (Carrera 19 # 45-12, Sector Sinaí)."
   },
   {
     "id": "TRILL_MESETA",
     "name": "Trilladora La Meseta",
     "municipality": "Armenia",
     "category": "CENTRO_ACOPIO",
-    "latitude": 4.52200,
-    "longitude": -75.70200,
-    "visitDurationMinutes": 0
+    "latitude": 4.51627,
+    "longitude": -75.69204,
+    "visitDurationMinutes": 0,
+    "description": "Planta agroindustrial de trilla y preparación de café excelso para exportación (Carrera 18 # 48-35, Zona Industrial Arrayanes)."
   },
   {
     "id": "COMITE_CAF",
     "name": "Comité Departamental de Cafeteros del Quindío",
     "municipality": "Armenia",
     "category": "CENTRO_ACOPIO",
-    "latitude": 4.53650,
-    "longitude": -75.66600,
-    "visitDurationMinutes": 0
+    "latitude": 4.5007,
+    "longitude": -75.71632,
+    "visitDurationMinutes": 0,
+    "description": "Complejo agroindustrial y centro de acopio técnico de la FNC (Km 3.5 Vía al Aeropuerto El Edén)."
   },
   {
     "id": "COOP_CAL",
     "name": "Cooperativa de Caficultores - Agencia Calarcá",
     "municipality": "Calarcá",
     "category": "CENTRO_ACOPIO",
-    "latitude": 4.52450,
-    "longitude": -75.64350,
-    "visitDurationMinutes": 0
+    "latitude": 4.52897,
+    "longitude": -75.64352,
+    "visitDurationMinutes": 0,
+    "description": "Punto de pesaje, compra y análisis físico de café de la cordillera central (Calle 39 # 26-25, Calarcá)."
   },
   {
     "id": "COOP_FIL",
     "name": "Cooperativa de Caficultores - Agencia Filandia",
     "municipality": "Filandia",
     "category": "CENTRO_ACOPIO",
-    "latitude": 4.67300,
-    "longitude": -75.66200,
-    "visitDurationMinutes": 0
+    "latitude": 4.67552,
+    "longitude": -75.6577,
+    "visitDurationMinutes": 0,
+    "description": "Agencia de acopio para productores del norte del departamento (Calle 7 # 4-18, Filandia)."
   },
   {
     "id": "TRILL_CAFE_Q",
     "name": "Trilladora Café Quindío",
     "municipality": "Armenia",
     "category": "CENTRO_ACOPIO",
-    "latitude": 4.54500,
-    "longitude": -75.66800,
-    "visitDurationMinutes": 0
+    "latitude": 4.56118,
+    "longitude": -75.65082,
+    "visitDurationMinutes": 0,
+    "description": "Planta de torrefacción, procesamiento y valor agregado de cafés especiales (Av. Centenario, Parque Industrial)."
   },
   {
     "id": "ACOPIO_PIJ",
     "name": "Centro de Acopio y Catación Pijao",
     "municipality": "Pijao",
     "category": "CENTRO_ACOPIO",
-    "latitude": 4.33700,
-    "longitude": -75.70200,
-    "visitDurationMinutes": 0
+    "latitude": 4.33413,
+    "longitude": -75.70427,
+    "visitDurationMinutes": 0,
+    "description": "Punto de recibo y escuela de catación comunitaria para cafés de origen de alta cordillera (Carrera 5, Pijao)."
   }
 ]
