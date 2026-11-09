@@ -58,4 +58,39 @@ class DijkstraTest {
         assertTrue(resPq.exploredNodesCount() > 0);
         assertNotNull(resPq.invariant());
     }
+
+    @Test
+    @DisplayName("NetworkDataHolder almacena y consulta correctamente matrices de tiempo y distancia calibradas")
+    void testNetworkDataHolderCalibratedMatrices() {
+        com.analisis.backend.model.domain.NetworkDataHolder holder = new com.analisis.backend.model.domain.NetworkDataHolder();
+        
+        java.util.Map<String, Double> armeniaTimes = new java.util.HashMap<>();
+        armeniaTimes.put("ARM_CAB", 0.0);
+        armeniaTimes.put("CAL_CAB", 441.7);
+        armeniaTimes.put("SAL_CAB", 1879.9);
+
+        java.util.Map<String, Double> armeniaDists = new java.util.HashMap<>();
+        armeniaDists.put("ARM_CAB", 0.0);
+        armeniaDists.put("CAL_CAB", 5177.7);
+        armeniaDists.put("SAL_CAB", 23729.5);
+
+        holder.getTimeMatrixSeconds().put("ARM_CAB", armeniaTimes);
+        holder.getDistanceMatrixMeters().put("ARM_CAB", armeniaDists);
+
+        // Origen igual a destino
+        assertEquals(0.0, holder.getTravelTimeBetweenPlaces("ARM_CAB", "ARM_CAB"));
+        assertEquals(0.0, holder.getDistanceBetweenPlaces("ARM_CAB", "ARM_CAB"));
+
+        // Calarcá: 5.17 km (~441 s)
+        assertEquals(441.7, holder.getTravelTimeBetweenPlaces("ARM_CAB", "CAL_CAB"), 0.1);
+        assertEquals(5177.7, holder.getDistanceBetweenPlaces("ARM_CAB", "CAL_CAB"), 0.1);
+
+        // Salento: 23.73 km (~1880 s)
+        assertEquals(1879.9, holder.getTravelTimeBetweenPlaces("ARM_CAB", "SAL_CAB"), 0.1);
+        assertEquals(23729.5, holder.getDistanceBetweenPlaces("ARM_CAB", "SAL_CAB"), 0.1);
+
+        // Destino desconocido retorna infinito
+        assertTrue(Double.isInfinite(holder.getTravelTimeBetweenPlaces("ARM_CAB", "UNKNOWN")));
+        assertTrue(Double.isInfinite(holder.getDistanceBetweenPlaces("ARM_CAB", "UNKNOWN")));
+    }
 }

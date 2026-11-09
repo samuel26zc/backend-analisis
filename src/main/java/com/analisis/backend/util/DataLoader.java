@@ -172,13 +172,42 @@ public class DataLoader implements ApplicationRunner {
             matrixSeconds.put(origId, row);
         }
 
-        // 7. Actualizar contenedor en memoria
+        // 7. Cargar matrices calibradas de alta precisión geodésica y vial real (Google Maps / OSRM)
+        Map<String, Map<String, Double>> finalTimeMatrix = matrixSeconds;
+        Map<String, Map<String, Double>> finalDistMatrix = new HashMap<>();
+
+        try {
+            Resource timeRes = resourceLoader.getResource("classpath:data/time_matrix_42x42.json");
+            if (timeRes.exists()) {
+                try (InputStream is = timeRes.getInputStream()) {
+                    finalTimeMatrix = objectMapper.readValue(is, new TypeReference<>() {});
+                    log.info("Matriz asimétrica de tiempos 42x42 calibrada con OSRM/Google Maps cargada exitosamente.");
+                }
+            }
+        } catch (Exception e) {
+            log.warn("No se pudo cargar time_matrix_42x42.json, usando matriz calculada por Dijkstra: {}", e.getMessage());
+        }
+
+        try {
+            Resource distRes = resourceLoader.getResource("classpath:data/distance_matrix_42x42.json");
+            if (distRes.exists()) {
+                try (InputStream is = distRes.getInputStream()) {
+                    finalDistMatrix = objectMapper.readValue(is, new TypeReference<>() {});
+                    log.info("Matriz de distancias 42x42 calibrada con OSRM/Google Maps cargada exitosamente.");
+                }
+            }
+        } catch (Exception e) {
+            log.warn("No se pudo cargar distance_matrix_42x42.json: {}", e.getMessage());
+        }
+
+        // 8. Actualizar contenedor en memoria
         dataHolder.setFullNetwork(fullNetwork);
         dataHolder.setLargestSccNetwork(sccNetwork);
         dataHolder.setSccResult(sccResult);
         dataHolder.setPlaceIds(placeIds);
         dataHolder.setPlaceNames(placeNames);
-        dataHolder.setTimeMatrixSeconds(matrixSeconds);
+        dataHolder.setTimeMatrixSeconds(finalTimeMatrix);
+        dataHolder.setDistanceMatrixMeters(finalDistMatrix);
         dataHolder.setPlaceNodeMapping(placeNodeMap);
         dataHolder.setNodePlaceMapping(nodePlaceMap);
 
