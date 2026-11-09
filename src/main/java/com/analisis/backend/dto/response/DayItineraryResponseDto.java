@@ -25,6 +25,12 @@ public class DayItineraryResponseDto {
     private List<String> prunedAttractions;
     private List<String> pruningJustifications;
     private boolean recalculatedWithHeldKarp;
+    private double heldKarpTotalMinutes;
+    private double greedyTotalMinutes;
+    private double differenceMinutes;
+    private double heldKarpTravelMinutes;
+    private double greedyTravelMinutes;
+    private List<String> greedyTourNames;
     private List<DayItineraryStopDto> stops;
 
     @Data

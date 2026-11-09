@@ -46,6 +46,12 @@ public class DayItineraryPlanner {
         private List<String> prunedAttractions;
         private List<String> pruningJustifications;
         private boolean recalculatedWithHeldKarp;
+        private double heldKarpTotalMinutes;
+        private double greedyTotalMinutes;
+        private double differenceMinutes;
+        private double heldKarpTravelMinutes;
+        private double greedyTravelMinutes;
+        private List<String> greedyTourNames;
         private List<ItineraryStop> stops;
     }
 
@@ -170,6 +176,25 @@ public class DayItineraryPlanner {
                     .build());
         }
 
+        // Comparación con la Heurística Voraz sobre el conjunto final de atractivos seleccionados
+        GreedyTsp greedyTsp = new GreedyTsp(dataHolder);
+        TspSolution greedySol = greedyTsp.solve(originId, currentAttractions);
+        double greedyTravelMin = greedySol.totalTravelTimeMinutes();
+        double greedyTotalMin = greedyTravelMin + totalVisitMin;
+        double diffMin = Math.max(0.0, greedyTotalMin - totalDurationMin);
+
+        List<String> greedyTourNames = new ArrayList<>();
+        for (String gId : greedySol.fullTourPlaceIds()) {
+            Place gp = placeMap.get(gId);
+            if (gp != null) {
+                greedyTourNames.add(gp.getName());
+            } else if (gId.equals(originId)) {
+                greedyTourNames.add(originName);
+            } else {
+                greedyTourNames.add(gId);
+            }
+        }
+
         double totalHours = Math.round((totalDurationMin / 60.0) * 100.0) / 100.0;
 
         return ItineraryResult.builder()
@@ -186,6 +211,12 @@ public class DayItineraryPlanner {
                 .prunedAttractions(prunedAttractions)
                 .pruningJustifications(pruningJustifications)
                 .recalculatedWithHeldKarp(true)
+                .heldKarpTotalMinutes(Math.round(totalDurationMin * 10.0) / 10.0)
+                .greedyTotalMinutes(Math.round(greedyTotalMin * 10.0) / 10.0)
+                .differenceMinutes(Math.round(diffMin * 10.0) / 10.0)
+                .heldKarpTravelMinutes(Math.round(totalTravelMin * 10.0) / 10.0)
+                .greedyTravelMinutes(Math.round(greedyTravelMin * 10.0) / 10.0)
+                .greedyTourNames(greedyTourNames)
                 .stops(stops)
                 .build();
     }

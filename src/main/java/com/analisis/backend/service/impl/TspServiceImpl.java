@@ -170,6 +170,12 @@ public class TspServiceImpl implements TspService {
                 .prunedAttractions(result.getPrunedAttractions())
                 .pruningJustifications(result.getPruningJustifications())
                 .recalculatedWithHeldKarp(result.isRecalculatedWithHeldKarp())
+                .heldKarpTotalMinutes(result.getHeldKarpTotalMinutes())
+                .greedyTotalMinutes(result.getGreedyTotalMinutes())
+                .differenceMinutes(result.getDifferenceMinutes())
+                .heldKarpTravelMinutes(result.getHeldKarpTravelMinutes())
+                .greedyTravelMinutes(result.getGreedyTravelMinutes())
+                .greedyTourNames(result.getGreedyTourNames())
                 .stops(stops)
                 .build();
     }
