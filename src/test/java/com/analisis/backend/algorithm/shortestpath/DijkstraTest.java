@@ -60,37 +60,59 @@ class DijkstraTest {
     }
 
     @Test
-    @DisplayName("NetworkDataHolder almacena y consulta correctamente matrices de tiempo y distancia calibradas")
-    void testNetworkDataHolderCalibratedMatrices() {
-        com.analisis.backend.model.domain.NetworkDataHolder holder = new com.analisis.backend.model.domain.NetworkDataHolder();
-        
-        java.util.Map<String, Double> armeniaTimes = new java.util.HashMap<>();
-        armeniaTimes.put("ARM_CAB", 0.0);
-        armeniaTimes.put("CAL_CAB", 441.7);
-        armeniaTimes.put("SAL_CAB", 1879.9);
+    @DisplayName("Red vial de OpenStreetMap (quindio_network.json) se carga y ejecuta Tarjan SCC y Dijkstra correctamente")
+    void testOpenStreetMapQuindioNetwork() throws Exception {
+        com.fasterxml.jackson.databind.ObjectMapper mapper = new com.fasterxml.jackson.databind.ObjectMapper();
+        try (java.io.InputStream is = getClass().getClassLoader().getResourceAsStream("data/quindio_network.json")) {
+            assertNotNull(is, "El archivo data/quindio_network.json debe existir en resources");
+            com.fasterxml.jackson.databind.JsonNode root = mapper.readTree(is);
+            RoadNetwork osmNet = new RoadNetwork();
 
-        java.util.Map<String, Double> armeniaDists = new java.util.HashMap<>();
-        armeniaDists.put("ARM_CAB", 0.0);
-        armeniaDists.put("CAL_CAB", 5177.7);
-        armeniaDists.put("SAL_CAB", 23729.5);
+            for (com.fasterxml.jackson.databind.JsonNode n : root.get("nodes")) {
+                osmNet.addNode(new RoadNode(
+                        n.get("id").asLong(),
+                        n.get("latitude").asDouble(),
+                        n.get("longitude").asDouble(),
+                        n.get("utmX").asLong(),
+                        n.get("utmY").asLong()
+                ));
+            }
+            for (com.fasterxml.jackson.databind.JsonNode e : root.get("edges")) {
+                osmNet.addEdge(new RoadEdge(
+                        e.get("source").asLong(),
+                        e.get("target").asLong(),
+                        e.get("distanceMeters").asDouble(),
+                        e.get("speedKmh").asDouble(),
+                        e.get("travelTimeSeconds").asDouble(),
+                        e.get("highway").asText(),
+                        e.get("oneway").asBoolean()
+                ));
+            }
 
-        holder.getTimeMatrixSeconds().put("ARM_CAB", armeniaTimes);
-        holder.getDistanceMatrixMeters().put("ARM_CAB", armeniaDists);
+            assertTrue(osmNet.getNodeCount() > 10000, "La red OSM del Quindío debe tener miles de nodos reales");
+            assertTrue(osmNet.getEdgeCount() > 20000, "La red OSM del Quindío debe tener decenas de miles de aristas");
 
-        // Origen igual a destino
-        assertEquals(0.0, holder.getTravelTimeBetweenPlaces("ARM_CAB", "ARM_CAB"));
-        assertEquals(0.0, holder.getDistanceBetweenPlaces("ARM_CAB", "ARM_CAB"));
+            com.analisis.backend.algorithm.scc.TarjanScc tarjan = new com.analisis.backend.algorithm.scc.TarjanScc(osmNet);
+            com.analisis.backend.model.domain.SccResult scc = tarjan.extractLargestComponent();
+            RoadNetwork sccNet = scc.largestSccNetwork();
 
-        // Calarcá: 5.17 km (~441 s)
-        assertEquals(441.7, holder.getTravelTimeBetweenPlaces("ARM_CAB", "CAL_CAB"), 0.1);
-        assertEquals(5177.7, holder.getDistanceBetweenPlaces("ARM_CAB", "CAL_CAB"), 0.1);
+            assertTrue(scc.sccNodesCount() > 10000, "La mayor SCC de OpenStreetMap debe conservar más de 10,000 nodos");
 
-        // Salento: 23.73 km (~1880 s)
-        assertEquals(1879.9, holder.getTravelTimeBetweenPlaces("ARM_CAB", "SAL_CAB"), 0.1);
-        assertEquals(23729.5, holder.getDistanceBetweenPlaces("ARM_CAB", "SAL_CAB"), 0.1);
+            // Probar camino mínimo en la SCC de OpenStreetMap entre Armenia (10042792787) y Salento (12984614208)
+            long armeniaNode = 10042792787L;
+            long salentoNode = 12984614208L;
 
-        // Destino desconocido retorna infinito
-        assertTrue(Double.isInfinite(holder.getTravelTimeBetweenPlaces("ARM_CAB", "UNKNOWN")));
-        assertTrue(Double.isInfinite(holder.getDistanceBetweenPlaces("ARM_CAB", "UNKNOWN")));
+            DijkstraPriorityQueue pq = new DijkstraPriorityQueue(sccNet);
+            DijkstraLinear linear = new DijkstraLinear(sccNet);
+
+            DijkstraResult resPq = pq.findShortestPath(armeniaNode, salentoNode);
+            DijkstraResult resLin = linear.findShortestPath(armeniaNode, salentoNode);
+
+            assertTrue(resPq.reachable(), "Debe existir camino vial OSM entre Armenia y Salento");
+            assertTrue(resLin.reachable(), "Debe existir camino vial OSM en versión lineal");
+            assertEquals(resPq.travelTimeSeconds(), resLin.travelTimeSeconds(), 1e-3,
+                    "Dijkstra Lineal y Cola de Prioridad deben coincidir exactamente sobre la red OSM");
+            assertTrue(resPq.nodePath().size() > 20, "La ruta sobre la red OSM debe contener decenas de nodos viales");
+        }
     }
 }

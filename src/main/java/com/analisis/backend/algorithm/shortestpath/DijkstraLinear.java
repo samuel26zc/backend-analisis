@@ -6,15 +6,14 @@ import com.analisis.backend.model.domain.RoadNetwork;
 import com.analisis.backend.model.enums.DijkstraVersion;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 /**
- * Implementación propia de Dijkstra con búsqueda lineal del nodo mínimo en O(V^2).
+ * Implementación propia de Dijkstra con búsqueda lineal del nodo mínimo en O(V^2) sobre arreglo.
  * Se detiene inmediatamente al seleccionar el nodo destino.
  */
 public class DijkstraLinear {
@@ -28,60 +27,76 @@ public class DijkstraLinear {
     public DijkstraResult findShortestPath(long originId, long destinationId) {
         long startTime = System.nanoTime();
 
-        Map<Long, Double> dist = new HashMap<>();
-        Map<Long, Double> distMeters = new HashMap<>();
-        Map<Long, Long> prev = new HashMap<>();
-        Set<Long> visited = new HashSet<>();
+        int n = network.getNodeCount();
+        long[] nodeIds = new long[n];
+        Map<Long, Integer> idToIndex = new HashMap<>(n * 2);
 
-        // Inicializar distancias tentativas a infinito
+        int idx = 0;
         for (Long nodeId : network.getNodes().keySet()) {
-            dist.put(nodeId, Double.POSITIVE_INFINITY);
-            distMeters.put(nodeId, Double.POSITIVE_INFINITY);
+            nodeIds[idx] = nodeId;
+            idToIndex.put(nodeId, idx);
+            idx++;
         }
 
-        dist.put(originId, 0.0);
-        distMeters.put(originId, 0.0);
+        double[] dist = new double[n];
+        double[] distMeters = new double[n];
+        int[] prev = new int[n];
+        boolean[] visited = new boolean[n];
+
+        Arrays.fill(dist, Double.POSITIVE_INFINITY);
+        Arrays.fill(distMeters, Double.POSITIVE_INFINITY);
+        Arrays.fill(prev, -1);
+
+        Integer originIdxObj = idToIndex.get(originId);
+        Integer destIdxObj = idToIndex.get(destinationId);
 
         int exploredNodesCount = 0;
         boolean reached = false;
+        int destIdx = (destIdxObj != null) ? destIdxObj : -1;
 
-        while (true) {
-            // Búsqueda lineal O(V) del nodo no visitado con menor distancia tentativa
-            Long u = null;
-            double minDist = Double.POSITIVE_INFINITY;
+        if (originIdxObj != null && destIdxObj != null) {
+            int originIdx = originIdxObj;
+            dist[originIdx] = 0.0;
+            distMeters[originIdx] = 0.0;
 
-            for (Map.Entry<Long, Double> entry : dist.entrySet()) {
-                Long nodeId = entry.getKey();
-                double d = entry.getValue();
-                if (!visited.contains(nodeId) && d < minDist) {
-                    minDist = d;
-                    u = nodeId;
+            for (int step = 0; step < n; step++) {
+                // Búsqueda lineal O(V) en el arreglo de distancias tentativas
+                int uIdx = -1;
+                double minDist = Double.POSITIVE_INFINITY;
+
+                for (int i = 0; i < n; i++) {
+                    if (!visited[i] && dist[i] < minDist) {
+                        minDist = dist[i];
+                        uIdx = i;
+                    }
                 }
-            }
 
-            if (u == null || minDist == Double.POSITIVE_INFINITY) {
-                // No hay más nodos alcanzables
-                break;
-            }
+                if (uIdx == -1 || minDist == Double.POSITIVE_INFINITY) {
+                    break;
+                }
 
-            visited.add(u);
-            exploredNodesCount++;
+                visited[uIdx] = true;
+                exploredNodesCount++;
 
-            // Parada inmediata al extraer el nodo destino
-            if (u == destinationId) {
-                reached = true;
-                break;
-            }
+                // Parada inmediata al extraer el nodo destino
+                if (uIdx == destIdx) {
+                    reached = true;
+                    break;
+                }
 
-            // Relajación de aristas
-            for (RoadEdge edge : network.getNeighbors(u)) {
-                long v = edge.target();
-                if (!visited.contains(v)) {
-                    double newDist = dist.get(u) + edge.travelTimeSeconds();
-                    if (newDist < dist.get(v)) {
-                        dist.put(v, newDist);
-                        distMeters.put(v, distMeters.get(u) + edge.distanceMeters());
-                        prev.put(v, u);
+                long uId = nodeIds[uIdx];
+                for (RoadEdge edge : network.getNeighbors(uId)) {
+                    Integer vIdxObj = idToIndex.get(edge.target());
+                    if (vIdxObj != null) {
+                        int vIdx = vIdxObj;
+                        if (!visited[vIdx]) {
+                            double newDist = minDist + edge.travelTimeSeconds();
+                            if (newDist < dist[vIdx]) {
+                                dist[vIdx] = newDist;
+                                distMeters[vIdx] = distMeters[uIdx] + edge.distanceMeters();
+                                prev[vIdx] = uIdx;
+                            }
+                        }
                     }
                 }
             }
@@ -91,14 +106,14 @@ public class DijkstraLinear {
         double executionTimeMs = elapsedNanos / 1_000_000.0;
 
         List<Long> path = new ArrayList<>();
-        double totalTime = reached ? dist.get(destinationId) : -1.0;
-        double totalDistMeters = reached ? distMeters.get(destinationId) : -1.0;
+        double totalTime = reached ? dist[destIdx] : -1.0;
+        double totalDistMeters = reached ? distMeters[destIdx] : -1.0;
 
         if (reached) {
-            Long curr = destinationId;
-            while (curr != null) {
-                path.add(curr);
-                curr = prev.get(curr);
+            int curr = destIdx;
+            while (curr != -1) {
+                path.add(nodeIds[curr]);
+                curr = prev[curr];
             }
             Collections.reverse(path);
         }

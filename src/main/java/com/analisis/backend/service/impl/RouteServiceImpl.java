@@ -75,17 +75,6 @@ public class RouteServiceImpl implements RouteService {
 
         double travelTimeSec = result.travelTimeSeconds();
         double distMeters = result.distanceMeters();
-
-        double realDist = dataHolder.getDistanceBetweenPlaces(origin.getId(), dest.getId());
-        double realTime = dataHolder.getTravelTimeBetweenPlaces(origin.getId(), dest.getId());
-
-        if (realDist > 0.0 && !Double.isInfinite(realDist)) {
-            distMeters = realDist;
-        }
-        if (realTime > 0.0 && !Double.isInfinite(realTime)) {
-            travelTimeSec = realTime;
-        }
-
         double timeMinutes = Math.round((travelTimeSec / 60.0) * 10.0) / 10.0;
         double distKm = Math.round((distMeters / 1000.0) * 100.0) / 100.0;
 
@@ -132,26 +121,13 @@ public class RouteServiceImpl implements RouteService {
                 ? (resLinear.executionTimeMs() / resPq.executionTimeMs())
                 : 1.0;
 
-        double displayTimeSec = resPq.travelTimeSeconds();
-        double displayDistMeters = resPq.distanceMeters();
-
-        double realDist = dataHolder.getDistanceBetweenPlaces(origin.getId(), dest.getId());
-        double realTime = dataHolder.getTravelTimeBetweenPlaces(origin.getId(), dest.getId());
-
-        if (realDist > 0.0 && !Double.isInfinite(realDist)) {
-            displayDistMeters = realDist;
-        }
-        if (realTime > 0.0 && !Double.isInfinite(realTime)) {
-            displayTimeSec = realTime;
-        }
-
         return CompareDijkstraResponseDto.builder()
                 .originPlaceId(origin.getId())
                 .originPlaceName(origin.getName())
                 .destinationPlaceId(dest.getId())
                 .destinationPlaceName(dest.getName())
-                .travelTimeSeconds(Math.round(displayTimeSec * 10.0) / 10.0)
-                .distanceMeters(Math.round(displayDistMeters * 10.0) / 10.0)
+                .travelTimeSeconds(Math.round(resPq.travelTimeSeconds() * 10.0) / 10.0)
+                .distanceMeters(Math.round(resPq.distanceMeters() * 10.0) / 10.0)
                 .linearExploredNodes(resLinear.exploredNodesCount())
                 .linearExecutionTimeMs(Math.round(resLinear.executionTimeMs() * 100.0) / 100.0)
                 .pqExploredNodes(resPq.exploredNodesCount())

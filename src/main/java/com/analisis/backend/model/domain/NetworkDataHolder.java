@@ -24,7 +24,6 @@ public class NetworkDataHolder {
     private List<String> placeIds = Collections.emptyList();
     private List<String> placeNames = Collections.emptyList();
     private Map<String, Map<String, Double>> timeMatrixSeconds = new HashMap<>();
-    private Map<String, Map<String, Double>> distanceMatrixMeters = new HashMap<>();
     private Map<String, Long> placeNodeMapping = new HashMap<>();
     private Map<Long, String> nodePlaceMapping = new HashMap<>();
 
@@ -33,17 +32,6 @@ public class NetworkDataHolder {
             return 0.0;
         }
         Map<String, Double> originRow = timeMatrixSeconds.get(originPlaceId);
-        if (originRow != null && originRow.containsKey(destinationPlaceId)) {
-            return originRow.get(destinationPlaceId);
-        }
-        return Double.POSITIVE_INFINITY;
-    }
-
-    public double getDistanceBetweenPlaces(String originPlaceId, String destinationPlaceId) {
-        if (originPlaceId.equals(destinationPlaceId)) {
-            return 0.0;
-        }
-        Map<String, Double> originRow = distanceMatrixMeters.get(originPlaceId);
         if (originRow != null && originRow.containsKey(destinationPlaceId)) {
             return originRow.get(destinationPlaceId);
         }
