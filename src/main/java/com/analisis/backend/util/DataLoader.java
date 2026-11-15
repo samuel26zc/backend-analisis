@@ -145,6 +145,22 @@ public class DataLoader implements ApplicationRunner {
             GeoUtils.UtmPoint placeUtm = GeoUtils.toUtmZone18N(lat, lon);
 
             RoadNode nearestNode = sccNetwork.findNearestNode(placeUtm.utmX(), placeUtm.utmY());
+            if (nearestNode != null && nodePlaceMap.containsKey(nearestNode.id())) {
+                RoadNode bestAlt = null;
+                double minAltDist = Double.MAX_VALUE;
+                for (RoadNode candidate : sccNetwork.getNodes().values()) {
+                    if (!nodePlaceMap.containsKey(candidate.id())) {
+                        double d = GeoUtils.euclideanDistance(placeUtm.utmX(), placeUtm.utmY(), candidate.utmX(), candidate.utmY());
+                        if (d < minAltDist) {
+                            minAltDist = d;
+                            bestAlt = candidate;
+                        }
+                    }
+                }
+                if (bestAlt != null) {
+                    nearestNode = bestAlt;
+                }
+            }
             if (nearestNode == null) {
                 nearestNode = fullNetwork.findNearestNode(placeUtm.utmX(), placeUtm.utmY());
             }
