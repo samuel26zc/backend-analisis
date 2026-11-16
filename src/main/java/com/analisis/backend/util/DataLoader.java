@@ -44,6 +44,7 @@ public class DataLoader implements ApplicationRunner {
     private final ResourceLoader resourceLoader;
     private final ObjectMapper objectMapper;
 
+    @JsonIgnoreProperties(ignoreUnknown = true)
     private record RawPlace(
             String id,
             String name,
@@ -51,7 +52,8 @@ public class DataLoader implements ApplicationRunner {
             String category,
             double latitude,
             double longitude,
-            int visitDurationMinutes
+            int visitDurationMinutes,
+            String visitDurationSource
     ) {}
 
     @JsonIgnoreProperties(ignoreUnknown = true)
@@ -158,10 +160,10 @@ public class DataLoader implements ApplicationRunner {
 
             String treatmentNote = isExceeding500m
                     ? String.format(Locale.US,
-                            "Ubicado a %.1f m del nodo vial OSM %d (> 500 m). Se proyectó ortogonalmente al nodo vehicular más cercano de la componente fuertemente conexa y se conectó mediante tramo de acceso rural.",
+                            "Supera los 500 m (%.1f m): se usa directamente el nodo más cercano de la componente fuertemente conexa (nodo OSM %d) como origen o destino de las rutas y se reporta la distancia euclidiana en UTM 18N.",
                             roundedDist, assignedNodeId)
                     : String.format(Locale.US,
-                            "Conexión directa al nodo vial más cercano de la red OpenStreetMap (nodo %d a %.1f m).",
+                            "Se usa directamente el nodo más cercano de la componente fuertemente conexa (nodo OSM %d a %.1f m en UTM 18N).",
                             assignedNodeId, roundedDist);
 
             Place place = Place.builder()
@@ -174,6 +176,7 @@ public class DataLoader implements ApplicationRunner {
                     .utmX(placeUtm.utmX())
                     .utmY(placeUtm.utmY())
                     .visitDurationMinutes(raw.visitDurationMinutes())
+                    .visitDurationSource(raw.visitDurationSource())
                     .nearestNodeId(assignedNodeId)
                     .distanceToNodeMeters(roundedDist)
                     .isExceeding500m(isExceeding500m)

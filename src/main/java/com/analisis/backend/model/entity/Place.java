@@ -54,6 +54,9 @@ public class Place extends BaseEntity {
     @Column(name = "visit_duration_minutes", nullable = false)
     private int visitDurationMinutes;
 
+    @Column(name = "visit_duration_source", length = 600)
+    private String visitDurationSource;
+
     @Column(name = "nearest_node_id")
     private Long nearestNodeId;
 

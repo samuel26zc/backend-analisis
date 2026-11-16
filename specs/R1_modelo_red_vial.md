@@ -14,9 +14,12 @@ Modelar la red vial vehicular (`network_type="drive"`) del Departamento del Quin
   - Tiempo de viaje en segundos: $t(u, v) = \frac{d(u, v)}{v(u, v) / 3.6}$.
 - **Componente Fuertemente Conexa (R1.3)**:
   - Medición en Python con `ox.truncate.largest_component(G, strongly=True)` sobre subredes radiales de 2, 5, 10 y 20 km alrededor de la Plaza de Bolívar de Armenia y el departamento completo (5 repeticiones, mediana en ms).
-  - Verificación en Java con implementación propia del **Algoritmo de Tarjan** ($\Theta(V + E)$ en tiempo, $O(V)$ en memoria).
-- **Asociación de Lugares (R1.4)**:
-  - Cada uno de los 42 lugares se asocia al nodo de la SCC con menor distancia euclidiana en coordenadas UTM Zona 18N ($\text{EPSG:32618}$). Dos lugares cercanos pueden compartir el mismo nodo vial si es el más próximo para ambos. Se reportan los lugares a más de 500 m.
+  - Verificación en Java con implementación propia del **Algoritmo de Tarjan** ($\Theta(V + E)$ en tiempo, $O(V)$ en memoria), obteniendo $35\,442$ nodos y $70\,865$ aristas dirigidas en la mayor componente fuertemente conexa.
+- **Asociación de Lugares y Tratamiento > 500 m (R1.4)**:
+  - Cada uno de los 42 lugares se asocia al nodo de la SCC con menor distancia euclidiana en coordenadas UTM Zona 18N ($\text{EPSG:32618}$). Dos lugares cercanos pueden compartir el mismo nodo vial si es el más próximo para ambos.
+  - Los 2 atractivos situados a más de 500 m (`VALLE_COCORA` a `654.6 m` y `CASC_RIOVERDE` a `571.2 m`, por encontrarse al final de senderos peatonales de montaña) se tratan utilizando directamente dicho nodo más cercano de la SCC como origen/destino de las rutas vehiculares y reportando explícitamente su distancia euclidiana en UTM 18N.
+- **Duración de Visita de Atractivos**:
+  - Cada atractivo en `places.json` incluye `visitDurationMinutes` y `visitDurationSource` (fuente oficial o criterio técnico del grupo).
 
 ## 3. Casos de Prueba Verificables
 1. `TarjanSccTest`: Verifica la identificación exacta de la mayor componente fuertemente conexa descartando nodos sumidero unidireccionales.

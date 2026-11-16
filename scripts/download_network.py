@@ -26,7 +26,7 @@ Cumple con la Sección 4 ('Datos') y los Requerimientos 1.1, 1.2, 1.3 y 1.5 del 
 4. Conversión de coordenadas WGS84 (latitud, longitud) a coordenadas métricas UTM Zona 18N (EPSG:32618) redondeadas a enteros.
 5. Exportación a 'src/main/resources/data/quindio_network.json' para consumo del backend Java 21.
 
-Fecha de descarga registrada: 2026-10-17T10:00:00-05:00
+Fecha de descarga registrada: 2026-11-15T13:54:01-05:00
 Región: Departamento del Quindío, Colombia
 """
 
@@ -41,7 +41,7 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 OUTPUT_FILE = os.path.normpath(os.path.join(SCRIPT_DIR, "../src/main/resources/data/quindio_network.json"))
 PLACES_FILE = os.path.normpath(os.path.join(SCRIPT_DIR, "../src/main/resources/data/places.json"))
 
-DOWNLOAD_DATE = "2026-10-17T10:00:00-05:00"
+DOWNLOAD_DATE = "2026-11-15T13:54:01-05:00"
 
 OVERPASS_ENDPOINTS = [
     "https://lz4.overpass-api.de/api/interpreter",

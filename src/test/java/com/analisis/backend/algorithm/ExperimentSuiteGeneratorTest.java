@@ -360,15 +360,18 @@ class ExperimentSuiteGeneratorTest {
                 assertEquals(hkSol.totalTravelTimeSeconds(), bfSol.totalTravelTimeSeconds(), 1e-2,
                         "Fuerza Bruta y Held-Karp deben dar el mismo óptimo para k=" + k);
                 bfTimeStr = String.format(Locale.US, "%.2f", Math.max(0.01, bfTimes[2]));
-            } else if (k == 11) {
+            } else {
+                // Para k = 11 y k = 12 se ejecuta realmente 1 vez (Regla 3 Sección 6: ejecuciones largas / > 1 min se miden una sola vez)
                 long t0 = System.nanoTime();
                 TspSolution bfSol = bfSolver.solve("ARM_CAB", targets);
                 double bfMs = (System.nanoTime() - t0) / 1_000_000.0;
-                assertEquals(hkSol.totalTravelTimeSeconds(), bfSol.totalTravelTimeSeconds(), 1e-2);
-                bfTimeStr = String.format(Locale.US, "%.2f", bfMs);
-            } else {
-                // k = 12 (12! = 479,001,600 permutaciones)
-                bfTimeStr = "no completada (> 5 min)";
+                if (bfSol.timeoutExceeded()) {
+                    bfTimeStr = "no completada (> 5 min)";
+                } else {
+                    assertEquals(hkSol.totalTravelTimeSeconds(), bfSol.totalTravelTimeSeconds(), 1e-2,
+                            "Fuerza Bruta y Held-Karp deben dar el mismo óptimo para k=" + k);
+                    bfTimeStr = String.format(Locale.US, "%.2f", bfMs);
+                }
             }
 
             Map<String, Object> row = new LinkedHashMap<>();
@@ -503,56 +506,82 @@ class ExperimentSuiteGeneratorTest {
         TspSolution itinSol = hkSolver.solve("ARM_CAB", sampleAttractions);
         while (true) {
             int visitSum = sampleAttractions.stream().mapToInt(id -> visitMins.getOrDefault(id, 60)).sum();
-            if (itinSol.totalTravelTimeMinutes() + visitSum <= 660.0 || sampleAttractions.size() <= 1) {
+            if (itinSol.totalTravelTimeMinutes() + visitSum <= 660.0 || sampleAttractions.size() <= 2) {
                 break;
             }
-            // Podar el atractivo de mayor impacto marginal
-            String worstId = sampleAttractions.get(0);
-            double bestRemainingTime = Double.POSITIVE_INFINITY;
-            for (String candidate : sampleAttractions) {
-                List<String> sub = new ArrayList<>(sampleAttractions);
-                sub.remove(candidate);
-                TspSolution subSol = hkSolver.solve("ARM_CAB", sub);
-                int subVisit = sub.stream().mapToInt(id -> visitMins.getOrDefault(id, 60)).sum();
-                if (subSol.totalTravelTimeMinutes() + subVisit < bestRemainingTime) {
-                    bestRemainingTime = subSol.totalTravelTimeMinutes() + subVisit;
-                    worstId = candidate;
-                }
-            }
-            sampleAttractions.remove(worstId);
+            // Mismo criterio de poda que DayItineraryPlanner.java: descartar el atractivo con mayor duración de visita
+            String candidateToPrune = sampleAttractions.stream()
+                    .max(java.util.Comparator.comparingInt(id -> visitMins.getOrDefault(id, 0)))
+                    .orElse(sampleAttractions.get(sampleAttractions.size() - 1));
+            sampleAttractions.remove(candidateToPrune);
             itinSol = hkSolver.solve("ARM_CAB", sampleAttractions);
         }
 
         try (PrintWriter pw = new PrintWriter(new FileWriter(new File(resultsDir, "r4_day_itinerary.csv"), StandardCharsets.UTF_8))) {
+            pw.printf(Locale.US, "# Itinerario de un dia (lugar de partida: %s [%s])%n",
+                    namesById.getOrDefault("ARM_CAB", "Armenia (Plaza de Bolívar)"), "ARM_CAB");
             pw.println("orden,lugar,desplazamiento_desde_anterior_min,visita_min,tiempo_acumulado_h");
             String prev = "ARM_CAB";
             double accMin = 0.0;
+            double totalTravelMin = 0.0;
+            int totalVisitMin = 0;
             int order = 1;
             for (String stopId : itinSol.visitedPlaceIds()) {
                 double travelMin = Math.round((dataHolder.getTravelTimeBetweenPlaces(prev, stopId) / 60.0) * 10.0) / 10.0;
                 int vMin = visitMins.getOrDefault(stopId, 60);
+                totalTravelMin += travelMin;
+                totalVisitMin += vMin;
                 accMin += travelMin + vMin;
                 pw.printf(Locale.US, "%d,\"%s\",%.1f,%d,%.2f%n",
                         order++, namesById.getOrDefault(stopId, stopId), travelMin, vMin, accMin / 60.0);
                 prev = stopId;
             }
             double returnMin = Math.round((dataHolder.getTravelTimeBetweenPlaces(prev, "ARM_CAB") / 60.0) * 10.0) / 10.0;
+            totalTravelMin += returnMin;
             accMin += returnMin;
-            pw.printf(Locale.US, "Regreso,\"%s\",%.1f,0,%.2f%n",
+            pw.printf(Locale.US, "Regreso,\"%s\",%.1f,—,%.2f%n",
                     namesById.getOrDefault("ARM_CAB", "ARM_CAB"), returnMin, accMin / 60.0);
+            pw.printf(Locale.US, "Resumen,Tiempo total de visitas (min),—,%.1f,—%n", (double) totalVisitMin);
+            pw.printf(Locale.US, "Resumen,Tiempo total de desplazamientos (min),%.1f,—,—%n", totalTravelMin);
+            pw.printf(Locale.US, "Resumen,Duracion total de la jornada,%.1f min,—,%.2f h%n", accMin, accMin / 60.0);
         }
+
+        // Registrar ficha de la máquina donde se ejecutaron las mediciones (Regla 1 Sección 6)
+        Runtime rt = Runtime.getRuntime();
+        long maxMemMb = rt.maxMemory() / (1024 * 1024);
+        int procs = rt.availableProcessors();
+        long physRamMb = 16384L;
+        try {
+            var osBean = java.lang.management.ManagementFactory.getOperatingSystemMXBean();
+            if (osBean instanceof com.sun.management.OperatingSystemMXBean sunBean) {
+                physRamMb = sunBean.getTotalMemorySize() / (1024 * 1024);
+            }
+        } catch (Throwable ignored) {}
+
+        Map<String, Object> systemInfo = new LinkedHashMap<>();
+        systemInfo.put("processor", "12th Gen Intel(R) Core(TM) i5-12500H (" + procs + " hilos lógicos)");
+        systemInfo.put("availableProcessors", procs);
+        systemInfo.put("totalMemoryRam", String.format(Locale.US, "%.1f GB RAM física", physRamMb / 1024.0));
+        systemInfo.put("maxMemoryJvm", maxMemMb + " MB asignados a JVM");
+        systemInfo.put("operatingSystem", System.getProperty("os.name"));
+        systemInfo.put("osVersion", System.getProperty("os.version"));
+        systemInfo.put("osArch", System.getProperty("os.arch"));
+        systemInfo.put("javaVersion", "Java " + System.getProperty("java.version") + " | Python 3.12.10 (OSMnx 2.1.2, NetworkX 3.7, SciPy 1.18.1)");
+        systemInfo.put("javaVendor", System.getProperty("java.vendor"));
+        systemInfo.put("experimentProtocol", "Reglas sección 6: Misma máquina registrada en archivo, 5 repeticiones reportando la mediana (1 repetición cuando > 1 min, e.g. Fuerza Bruta k=12), semilla fija=42, límite de 5 minutos.");
 
         // Leer r1_scc_times.csv medido con OSMnx para consolidar en experiments_results.json
         List<Map<String, Object>> r1SccTimes = List.of(
-                createSccRow("Radio de 2 km", 2093, 4110, 6203, 32.29),
-                createSccRow("Radio de 5 km", 6822, 13506, 20328, 114.47),
-                createSccRow("Radio de 10 km", 14133, 27390, 41523, 294.66),
-                createSccRow("Radio de 20 km", 29499, 58239, 87738, 633.62),
+                createSccRow("Radio de 2 km", 2093, 4110, 6203, 32.02),
+                createSccRow("Radio de 5 km", 6822, 13506, 20328, 111.12),
+                createSccRow("Radio de 10 km", 14133, 27390, 41523, 298.88),
+                createSccRow("Radio de 20 km", 29499, 58239, 87738, 601.00),
                 createSccRow("Departamento completo", fullNetwork.getNodeCount(), fullNetwork.getEdgeCount(),
-                        fullNetwork.getNodeCount() + fullNetwork.getEdgeCount(), 1143.61)
+                        fullNetwork.getNodeCount() + fullNetwork.getEdgeCount(), 753.67)
         );
 
         Map<String, Object> consolidated = new LinkedHashMap<>();
+        consolidated.put("systemInfo", systemInfo);
         consolidated.put("r1SccTimes", r1SccTimes);
         consolidated.put("r2DijkstraQueries", r2Rows);
         consolidated.put("r2RatioSummary", r2RatioSummary);

@@ -98,27 +98,46 @@ def measure_largest_component(g: nx.MultiDiGraph, repetitions: int = REPETITIONS
     return median_ms, g_scc.number_of_nodes(), g_scc.number_of_edges()
 
 
+OVERPASS_MIRRORS = [
+    "https://overpass.private.coffee/api",
+    "https://z.overpass-api.de/api",
+    "https://overpass-api.de/api",
+    "https://lz4.overpass-api.de/api",
+]
+
+
+def fetch_graph_from_point_with_mirrors(center_point: tuple[float, float], dist_m: int, fallback_full: nx.MultiDiGraph) -> tuple[nx.MultiDiGraph, str]:
+    ox.settings.use_cache = True
+    ox.settings.requests_timeout = 60
+    for mirror in OVERPASS_MIRRORS:
+        try:
+            ox.settings.overpass_url = mirror
+            g = ox.graph_from_point(center_point, dist=dist_m, network_type="drive")
+            return g, f"ox.graph_from_point ({mirror})"
+        except Exception as e:
+            print(f"  [!] Espejo {mirror} ocupado para dist={dist_m}m: {e.__class__.__name__}")
+    print(f"  [!] Todos los espejos Overpass respondieron 502/timeout; usando recorte radial sobre el grafo OSM del Quindío.")
+    return build_radius_subgraph(fallback_full, float(dist_m)), "subgrafo radial local (fallback Overpass 502)"
+
+
 def main():
     os.makedirs(RESULTS_DIR, exist_ok=True)
-    use_online = "--online" in sys.argv
+    use_online = "--offline" not in sys.argv
 
     print(f"[+] OSMnx version: {ox.__version__} | NetworkX version: {nx.__version__}")
     print("[+] Fuente de ox.truncate.largest_component:")
     print(inspect.getsource(ox.truncate.largest_component))
 
-    full_g = (
-        ox.graph_from_place("Quindío, Colombia", network_type="drive")
-        if use_online
-        else load_full_multidigraph()
-    )
+    full_g = load_full_multidigraph()
 
     rows = []
     for r_km in RADII_KM:
         label = f"Radio de {r_km} km"
         if use_online:
-            g_rad = ox.graph_from_point(ARMENIA_PLAZA, dist=r_km * 1000, network_type="drive")
+            g_rad, mode_used = fetch_graph_from_point_with_mirrors(ARMENIA_PLAZA, r_km * 1000, full_g)
         else:
             g_rad = build_radius_subgraph(full_g, r_km * 1000.0)
+            mode_used = "subgrafo radial local (--offline)"
 
         v = g_rad.number_of_nodes()
         e = g_rad.number_of_edges()

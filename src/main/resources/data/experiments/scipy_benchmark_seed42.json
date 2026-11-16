@@ -75,7 +75,7 @@
         503298
       ]
     ],
-    "scipyTimeMs": 3.658
+    "scipyTimeMs": 19.933
   },
   "squares": {
     "1000": {
@@ -148,7 +148,7 @@
           562670
         ]
       ],
-      "scipyTimeMs": 0.67
+      "scipyTimeMs": 1.159
     },
     "10000": {
       "inputN": 10000,
@@ -264,7 +264,7 @@
           562946
         ]
       ],
-      "scipyTimeMs": 1.452
+      "scipyTimeMs": 5.701
     },
     "50000": {
       "inputN": 50000,
@@ -400,7 +400,7 @@
           577560
         ]
       ],
-      "scipyTimeMs": 4.78
+      "scipyTimeMs": 29.47
     }
   }
 }

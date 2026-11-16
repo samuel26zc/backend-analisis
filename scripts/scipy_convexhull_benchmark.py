@@ -88,12 +88,13 @@ def filter_collinear_ccw(pts_hull: np.ndarray) -> list[list[int]]:
 
 
 def measure_scipy_hull(points_xy: np.ndarray, repetitions: int = 5) -> dict:
-    # Deduplicar puntos enteros como exige el Requerimiento 3
-    unique_pts = np.unique(points_xy, axis=0)
+    # Igualar con QuickHull2D: incluir la eliminación de puntos repetidos dentro de la medición
     times_ms = []
     hull = None
+    unique_pts = None
     for _ in range(repetitions):
         t0 = time.perf_counter_ns()
+        unique_pts = np.unique(points_xy, axis=0)
         hull = ConvexHull(unique_pts)
         elapsed_ms = (time.perf_counter_ns() - t0) / 1_000_000.0
         times_ms.append(elapsed_ms)

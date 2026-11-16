@@ -22,6 +22,7 @@ public class PlaceResponseDto {
     private long utmX;
     private long utmY;
     private int visitDurationMinutes;
+    private String visitDurationSource;
     private Long nearestNodeId;
     private Double distanceToNodeMeters;
     private Boolean isExceeding500m;

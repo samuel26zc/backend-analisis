@@ -1,34 +1,46 @@
 {
+  "systemInfo" : {
+    "processor" : "12th Gen Intel(R) Core(TM) i5-12500H (16 hilos lógicos)",
+    "availableProcessors" : 16,
+    "totalMemoryRam" : "15.7 GB RAM física",
+    "maxMemoryJvm" : "4014 MB asignados a JVM",
+    "operatingSystem" : "Windows 11",
+    "osVersion" : "10.0",
+    "osArch" : "amd64",
+    "javaVersion" : "Java 21.0.12.1 | Python 3.12.10 (OSMnx 2.1.2, NetworkX 3.7, SciPy 1.18.1)",
+    "javaVendor" : "Eclipse Adoptium",
+    "experimentProtocol" : "Reglas sección 6: Misma máquina registrada en archivo, 5 repeticiones reportando la mediana (1 repetición cuando > 1 min, e.g. Fuerza Bruta k=12), semilla fija=42, límite de 5 minutos."
+  },
   "r1SccTimes" : [ {
     "red" : "Radio de 2 km",
     "v" : 2093,
     "e" : 4110,
     "vPlusE" : 6203,
-    "tiempoMs" : 32.29
+    "tiempoMs" : 32.02
   }, {
     "red" : "Radio de 5 km",
     "v" : 6822,
     "e" : 13506,
     "vPlusE" : 20328,
-    "tiempoMs" : 114.47
+    "tiempoMs" : 111.12
   }, {
     "red" : "Radio de 10 km",
     "v" : 14133,
     "e" : 27390,
     "vPlusE" : 41523,
-    "tiempoMs" : 294.66
+    "tiempoMs" : 298.88
   }, {
     "red" : "Radio de 20 km",
     "v" : 29499,
     "e" : 58239,
     "vPlusE" : 87738,
-    "tiempoMs" : 633.62
+    "tiempoMs" : 601.0
   }, {
     "red" : "Departamento completo",
     "v" : 37117,
     "e" : 73615,
     "vPlusE" : 110732,
-    "tiempoMs" : 1143.61
+    "tiempoMs" : 753.67
   } ],
   "r2DijkstraQueries" : [ {
     "origen" : "ARM_CAB",
@@ -36,70 +48,70 @@
     "version" : "cola_prioridad",
     "tiempoViajeS" : 535.4,
     "nodosExplorados" : 6147,
-    "tiempoMs" : 8.15
+    "tiempoMs" : 9.1
   }, {
     "origen" : "ARM_CAB",
     "destino" : "MUSEO_ORO_QUIMBAYA",
     "version" : "lineal",
     "tiempoViajeS" : 535.4,
     "nodosExplorados" : 6147,
-    "tiempoMs" : 109.76
+    "tiempoMs" : 419.21
   }, {
     "origen" : "ARM_CAB",
     "destino" : "PARQ_VIDA",
     "version" : "cola_prioridad",
     "tiempoViajeS" : 248.7,
     "nodosExplorados" : 1925,
-    "tiempoMs" : 0.67
+    "tiempoMs" : 1.66
   }, {
     "origen" : "ARM_CAB",
     "destino" : "PARQ_VIDA",
     "version" : "lineal",
     "tiempoViajeS" : 248.7,
     "nodosExplorados" : 1924,
-    "tiempoMs" : 32.05
+    "tiempoMs" : 35.19
   }, {
     "origen" : "ARM_CAB",
     "destino" : "MIRADOR_SECRETA",
     "version" : "cola_prioridad",
     "tiempoViajeS" : 198.9,
     "nodosExplorados" : 1262,
-    "tiempoMs" : 0.3
+    "tiempoMs" : 0.78
   }, {
     "origen" : "ARM_CAB",
     "destino" : "MIRADOR_SECRETA",
     "version" : "lineal",
     "tiempoViajeS" : 198.9,
     "nodosExplorados" : 1262,
-    "tiempoMs" : 20.41
+    "tiempoMs" : 23.06
   }, {
     "origen" : "ARM_CAB",
     "destino" : "CAL_CAB",
     "version" : "cola_prioridad",
     "tiempoViajeS" : 329.8,
     "nodosExplorados" : 3127,
-    "tiempoMs" : 1.08
+    "tiempoMs" : 1.26
   }, {
     "origen" : "ARM_CAB",
     "destino" : "CAL_CAB",
     "version" : "lineal",
     "tiempoViajeS" : 329.8,
     "nodosExplorados" : 3127,
-    "tiempoMs" : 51.78
+    "tiempoMs" : 57.43
   }, {
     "origen" : "CAL_CAB",
     "destino" : "JARDIN_BOTANICO",
     "version" : "cola_prioridad",
     "tiempoViajeS" : 223.5,
     "nodosExplorados" : 1074,
-    "tiempoMs" : 0.31
+    "tiempoMs" : 0.29
   }, {
     "origen" : "CAL_CAB",
     "destino" : "JARDIN_BOTANICO",
     "version" : "lineal",
     "tiempoViajeS" : 223.5,
     "nodosExplorados" : 1074,
-    "tiempoMs" : 18.15
+    "tiempoMs" : 19.93
   }, {
     "origen" : "FIL_CAB",
     "destino" : "MIRADOR_FILANDIA",
@@ -113,205 +125,205 @@
     "version" : "lineal",
     "tiempoViajeS" : 89.1,
     "nodosExplorados" : 192,
-    "tiempoMs" : 3.82
+    "tiempoMs" : 3.91
   }, {
     "origen" : "MON_CAB",
     "destino" : "PARQ_CAFE",
     "version" : "cola_prioridad",
     "tiempoViajeS" : 418.2,
     "nodosExplorados" : 851,
-    "tiempoMs" : 0.21
+    "tiempoMs" : 0.22
   }, {
     "origen" : "MON_CAB",
     "destino" : "PARQ_CAFE",
     "version" : "lineal",
     "tiempoViajeS" : 418.2,
     "nodosExplorados" : 851,
-    "tiempoMs" : 14.06
+    "tiempoMs" : 16.56
   }, {
     "origen" : "QUI_CAB",
     "destino" : "PANACA",
     "version" : "cola_prioridad",
     "tiempoViajeS" : 931.6,
-    "nodosExplorados" : 2994,
-    "tiempoMs" : 0.84
+    "nodosExplorados" : 2996,
+    "tiempoMs" : 0.88
   }, {
     "origen" : "QUI_CAB",
     "destino" : "PANACA",
     "version" : "lineal",
     "tiempoViajeS" : 931.6,
-    "nodosExplorados" : 2994,
-    "tiempoMs" : 49.35
+    "nodosExplorados" : 2996,
+    "tiempoMs" : 56.32
   }, {
     "origen" : "SAL_CAB",
     "destino" : "RES_KASAGUADUA",
     "version" : "cola_prioridad",
     "tiempoViajeS" : 390.1,
     "nodosExplorados" : 392,
-    "tiempoMs" : 0.06
+    "tiempoMs" : 0.07
   }, {
     "origen" : "SAL_CAB",
     "destino" : "RES_KASAGUADUA",
     "version" : "lineal",
     "tiempoViajeS" : 390.1,
     "nodosExplorados" : 392,
-    "tiempoMs" : 6.87
+    "tiempoMs" : 7.09
   }, {
     "origen" : "ARM_CAB",
     "destino" : "CIR_CAB",
     "version" : "cola_prioridad",
     "tiempoViajeS" : 910.6,
     "nodosExplorados" : 9283,
-    "tiempoMs" : 3.49
+    "tiempoMs" : 4.21
   }, {
     "origen" : "ARM_CAB",
     "destino" : "CIR_CAB",
     "version" : "lineal",
     "tiempoViajeS" : 910.6,
     "nodosExplorados" : 9283,
-    "tiempoMs" : 208.46
+    "tiempoMs" : 244.29
   }, {
     "origen" : "ARM_CAB",
     "destino" : "SAL_CAB",
     "version" : "cola_prioridad",
     "tiempoViajeS" : 1731.0,
     "nodosExplorados" : 18658,
-    "tiempoMs" : 8.62
+    "tiempoMs" : 9.61
   }, {
     "origen" : "ARM_CAB",
     "destino" : "FIL_CAB",
     "version" : "cola_prioridad",
     "tiempoViajeS" : 1898.9,
-    "nodosExplorados" : 20735,
-    "tiempoMs" : 9.82
+    "nodosExplorados" : 20737,
+    "tiempoMs" : 10.65
   }, {
     "origen" : "ARM_CAB",
     "destino" : "MON_CAB",
     "version" : "cola_prioridad",
     "tiempoViajeS" : 920.7,
     "nodosExplorados" : 9422,
-    "tiempoMs" : 4.02
+    "tiempoMs" : 3.82
   }, {
     "origen" : "ARM_CAB",
     "destino" : "QUI_CAB",
     "version" : "cola_prioridad",
     "tiempoViajeS" : 1649.1,
     "nodosExplorados" : 17740,
-    "tiempoMs" : 7.98
+    "tiempoMs" : 8.63
   }, {
     "origen" : "ARM_CAB",
     "destino" : "TEB_CAB",
     "version" : "cola_prioridad",
     "tiempoViajeS" : 1165.3,
     "nodosExplorados" : 12057,
-    "tiempoMs" : 4.87
+    "tiempoMs" : 4.88
   }, {
     "origen" : "ARM_CAB",
     "destino" : "COR_CAB",
     "version" : "cola_prioridad",
     "tiempoViajeS" : 2090.4,
-    "nodosExplorados" : 23074,
-    "tiempoMs" : 9.72
+    "nodosExplorados" : 23076,
+    "tiempoMs" : 11.32
   }, {
     "origen" : "ARM_CAB",
     "destino" : "PIJ_CAB",
     "version" : "cola_prioridad",
     "tiempoViajeS" : 2673.0,
     "nodosExplorados" : 28528,
-    "tiempoMs" : 14.63
+    "tiempoMs" : 16.53
   }, {
     "origen" : "ARM_CAB",
     "destino" : "BUE_CAB",
     "version" : "cola_prioridad",
     "tiempoViajeS" : 2179.3,
-    "nodosExplorados" : 24058,
-    "tiempoMs" : 10.79
+    "nodosExplorados" : 24060,
+    "tiempoMs" : 11.71
   }, {
     "origen" : "ARM_CAB",
     "destino" : "GEN_CAB",
     "version" : "cola_prioridad",
     "tiempoViajeS" : 4303.1,
     "nodosExplorados" : 33476,
-    "tiempoMs" : 16.39
+    "tiempoMs" : 18.37
   }, {
     "origen" : "ARM_CAB",
     "destino" : "VALLE_COCORA",
     "version" : "cola_prioridad",
     "tiempoViajeS" : 2889.2,
     "nodosExplorados" : 29719,
-    "tiempoMs" : 16.0
+    "tiempoMs" : 17.1
   } ],
   "r2RatioSummary" : {
-    "mediana" : 59.73,
-    "minimo" : 13.47,
-    "maximo" : 114.5
+    "mediana" : 64.0,
+    "minimo" : 21.2,
+    "maximo" : 101.29
   },
   "r3ConvexHullBenchmarks" : [ {
     "pointSet" : "Nodos de la red",
     "n" : 35442,
     "hullVertices" : 17,
-    "ownTimeMs" : 12.36,
-    "referenceTimeMs" : 3.66,
-    "ratio" : 3.38
+    "ownTimeMs" : 12.76,
+    "referenceTimeMs" : 19.93,
+    "ratio" : 0.64
   }, {
     "pointSet" : "Cuadrado, 1,000 puntos",
     "n" : 1000,
     "hullVertices" : 16,
-    "ownTimeMs" : 0.48,
-    "referenceTimeMs" : 0.67,
-    "ratio" : 0.72
+    "ownTimeMs" : 0.6,
+    "referenceTimeMs" : 1.16,
+    "ratio" : 0.52
   }, {
     "pointSet" : "Cuadrado, 10,000 puntos",
     "n" : 10000,
     "hullVertices" : 27,
-    "ownTimeMs" : 4.29,
-    "referenceTimeMs" : 1.45,
-    "ratio" : 2.96
+    "ownTimeMs" : 4.86,
+    "referenceTimeMs" : 5.7,
+    "ratio" : 0.85
   }, {
     "pointSet" : "Cuadrado, 50,000 puntos",
     "n" : 50000,
     "hullVertices" : 32,
-    "ownTimeMs" : 17.95,
-    "referenceTimeMs" : 4.78,
-    "ratio" : 3.76
+    "ownTimeMs" : 19.19,
+    "referenceTimeMs" : 29.47,
+    "ratio" : 0.65
   } ],
   "r4ExactTspTimes" : [ {
     "k" : 5,
-    "tiempoFuerzaBrutaMs" : "0.11",
-    "tiempoHeldKarpMs" : 0.08
+    "tiempoFuerzaBrutaMs" : "0.12",
+    "tiempoHeldKarpMs" : 0.04
   }, {
     "k" : 6,
-    "tiempoFuerzaBrutaMs" : "0.36",
-    "tiempoHeldKarpMs" : 0.06
+    "tiempoFuerzaBrutaMs" : "0.39",
+    "tiempoHeldKarpMs" : 0.05
   }, {
     "k" : 7,
-    "tiempoFuerzaBrutaMs" : "2.49",
-    "tiempoHeldKarpMs" : 0.11
+    "tiempoFuerzaBrutaMs" : "2.70",
+    "tiempoHeldKarpMs" : 0.13
   }, {
     "k" : 8,
-    "tiempoFuerzaBrutaMs" : "7.55",
-    "tiempoHeldKarpMs" : 0.3
+    "tiempoFuerzaBrutaMs" : "7.79",
+    "tiempoHeldKarpMs" : 0.33
   }, {
     "k" : 9,
-    "tiempoFuerzaBrutaMs" : "62.65",
-    "tiempoHeldKarpMs" : 0.26
+    "tiempoFuerzaBrutaMs" : "70.56",
+    "tiempoHeldKarpMs" : 0.28
   }, {
     "k" : 10,
-    "tiempoFuerzaBrutaMs" : "688.68",
-    "tiempoHeldKarpMs" : 0.72
+    "tiempoFuerzaBrutaMs" : "770.34",
+    "tiempoHeldKarpMs" : 0.58
   }, {
     "k" : 11,
-    "tiempoFuerzaBrutaMs" : "7757.95",
-    "tiempoHeldKarpMs" : 0.72
+    "tiempoFuerzaBrutaMs" : "8748.51",
+    "tiempoHeldKarpMs" : 0.85
   }, {
     "k" : 12,
-    "tiempoFuerzaBrutaMs" : "no completada (> 5 min)",
-    "tiempoHeldKarpMs" : 1.59
+    "tiempoFuerzaBrutaMs" : "117910.02",
+    "tiempoHeldKarpMs" : 1.7
   } ],
   "r4HeuristicQuality" : [ {
     "k" : 5,
     "instancias" : 5,
-    "brechaPromedioPorcentaje" : 6.17,
+    "brechaPromedioPorcentaje" : 6.2,
     "brechaMaximaPorcentaje" : 14.19
   }, {
     "k" : 8,
@@ -321,12 +333,12 @@
   }, {
     "k" : 10,
     "instancias" : 5,
-    "brechaPromedioPorcentaje" : 12.27,
+    "brechaPromedioPorcentaje" : 12.13,
     "brechaMaximaPorcentaje" : 17.53
   }, {
     "k" : 12,
     "instancias" : 5,
-    "brechaPromedioPorcentaje" : 10.14,
+    "brechaPromedioPorcentaje" : 10.21,
     "brechaMaximaPorcentaje" : 18.61
   } ]
 }

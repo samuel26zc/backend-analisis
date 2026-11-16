@@ -6,7 +6,7 @@ Calcular la envolvente convexa (menor polígono convexo) de los nodos de la comp
 ## 2. Algoritmo y Complejidad
 - **Algoritmo propio (`QuickHull2D`)**: Enfoque Divide y Vencerás con recurrencia $T(n) = 2T(n/2) + O(n) \implies O(n \log n)$ en caso promedio y $O(n^2)$ en peor caso, memoria $O(n)$.
 - **Orientación exacta en 64 bits**: Producto cruz entero `long` $(x_2 - x_1)(y_3 - y_1) - (y_2 - y_1)(x_3 - x_1)$ sin error de punto flotante ni desbordamiento.
-- **Referencia (`scipy.spatial.ConvexHull`)**: Librería Qhull compilada en C nativo (`scripts/scipy_convexhull_benchmark.py` y `SciPyBenchmarkRunner.java`).
+- **Referencia (`scipy.spatial.ConvexHull`)**: Librería Qhull compilada en C nativo (`scripts/scipy_convexhull_benchmark.py` y `SciPyBenchmarkRunner.java`). Tanto en `QuickHull2D` como en el script de SciPy se incluye la deduplicación de coordenadas enteras dentro del bloque cronometrado para garantizar condiciones de medición idénticas.
 
 ## 3. Protocolo Experimental y Casos de Prueba
 - **Conjuntos evaluados (`results/r3_convex_hull.csv`)**:

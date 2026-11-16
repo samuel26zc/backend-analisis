@@ -20,6 +20,7 @@ public class PlaceMapper {
                 .utmX(place.getUtmX())
                 .utmY(place.getUtmY())
                 .visitDurationMinutes(place.getVisitDurationMinutes())
+                .visitDurationSource(place.getVisitDurationSource())
                 .nearestNodeId(place.getNearestNodeId())
                 .distanceToNodeMeters(place.getDistanceToNodeMeters())
                 .isExceeding500m(place.getIsExceeding500m())

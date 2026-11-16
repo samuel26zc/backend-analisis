@@ -7,7 +7,8 @@
     "latitude": 4.53257,
     "longitude": -75.67304,
     "visitDurationMinutes": 0,
-    "description": "Centro político y administrativo del departamento, frente a la Catedral La Inmaculada Concepción y la Gobernación del Quindío (Carreras 13 y 14, Calles 20 y 21)."
+    "description": "Centro político y administrativo del departamento, frente a la Catedral La Inmaculada Concepción y la Gobernación del Quindío (Carreras 13 y 14, Calles 20 y 21).",
+    "visitDurationSource": "Criterio del grupo: nodo logístico (cabecera municipal, alojamiento o centro de acopio) usado como punto de partida/paso sin tiempo de visita turística en el requerimiento 4 (0 min)."
   },
   {
     "id": "BUE_CAB",
@@ -17,7 +18,8 @@
     "latitude": 4.35992,
     "longitude": -75.73868,
     "visitDurationMinutes": 0,
-    "description": "Plaza central y mirador urbano frente a la Parroquia Nuestra Señora del Carmen y la Alcaldía de Buenavista."
+    "description": "Plaza central y mirador urbano frente a la Parroquia Nuestra Señora del Carmen y la Alcaldía de Buenavista.",
+    "visitDurationSource": "Criterio del grupo: nodo logístico (cabecera municipal, alojamiento o centro de acopio) usado como punto de partida/paso sin tiempo de visita turística en el requerimiento 4 (0 min)."
   },
   {
     "id": "CAL_CAB",
@@ -27,7 +29,8 @@
     "latitude": 4.53064,
     "longitude": -75.64052,
     "visitDurationMinutes": 0,
-    "description": "Parque central de la Villa del Cacique, entre Calles 39 y 40, Carreras 24 y 25."
+    "description": "Parque central de la Villa del Cacique, entre Calles 39 y 40, Carreras 24 y 25.",
+    "visitDurationSource": "Criterio del grupo: nodo logístico (cabecera municipal, alojamiento o centro de acopio) usado como punto de partida/paso sin tiempo de visita turística en el requerimiento 4 (0 min)."
   },
   {
     "id": "CIR_CAB",
@@ -37,7 +40,8 @@
     "latitude": 4.62016,
     "longitude": -75.63472,
     "visitDurationMinutes": 0,
-    "description": "Plaza central de la Tierra de Hombres Libres, frente a la Parroquia Nuestra Señora de las Mercedes (Carreras 14 y 15, Calles 6 y 7)."
+    "description": "Plaza central de la Tierra de Hombres Libres, frente a la Parroquia Nuestra Señora de las Mercedes (Carreras 14 y 15, Calles 6 y 7).",
+    "visitDurationSource": "Criterio del grupo: nodo logístico (cabecera municipal, alojamiento o centro de acopio) usado como punto de partida/paso sin tiempo de visita turística en el requerimiento 4 (0 min)."
   },
   {
     "id": "COR_CAB",
@@ -47,7 +51,8 @@
     "latitude": 4.39007,
     "longitude": -75.68582,
     "visitDurationMinutes": 0,
-    "description": "Plaza central cordillerana frente a la Alcaldía Municipal y la Parroquia San José."
+    "description": "Plaza central cordillerana frente a la Alcaldía Municipal y la Parroquia San José.",
+    "visitDurationSource": "Criterio del grupo: nodo logístico (cabecera municipal, alojamiento o centro de acopio) usado como punto de partida/paso sin tiempo de visita turística en el requerimiento 4 (0 min)."
   },
   {
     "id": "FIL_CAB",
@@ -57,7 +62,8 @@
     "latitude": 4.675,
     "longitude": -75.6582,
     "visitDurationMinutes": 0,
-    "description": "Parque central frente a la icónica Parroquia María Inmaculada y el corredor artesanal de balcones coloniales."
+    "description": "Parque central frente a la icónica Parroquia María Inmaculada y el corredor artesanal de balcones coloniales.",
+    "visitDurationSource": "Criterio del grupo: nodo logístico (cabecera municipal, alojamiento o centro de acopio) usado como punto de partida/paso sin tiempo de visita turística en el requerimiento 4 (0 min)."
   },
   {
     "id": "GEN_CAB",
@@ -67,7 +73,8 @@
     "latitude": 4.2065,
     "longitude": -75.79062,
     "visitDurationMinutes": 0,
-    "description": "Plaza principal del municipio más austral del departamento, rodeada de cafetales y arquitectura tradicional de colonización antioqueña."
+    "description": "Plaza principal del municipio más austral del departamento, rodeada de cafetales y arquitectura tradicional de colonización antioqueña.",
+    "visitDurationSource": "Criterio del grupo: nodo logístico (cabecera municipal, alojamiento o centro de acopio) usado como punto de partida/paso sin tiempo de visita turística en el requerimiento 4 (0 min)."
   },
   {
     "id": "TEB_CAB",
@@ -77,7 +84,8 @@
     "latitude": 4.45367,
     "longitude": -75.78945,
     "visitDurationMinutes": 0,
-    "description": "Parque central arbolado, conocido como el Edén Tropical del Quindío, frente a la Parroquia Nuestra Señora del Carmen."
+    "description": "Parque central arbolado, conocido como el Edén Tropical del Quindío, frente a la Parroquia Nuestra Señora del Carmen.",
+    "visitDurationSource": "Criterio del grupo: nodo logístico (cabecera municipal, alojamiento o centro de acopio) usado como punto de partida/paso sin tiempo de visita turística en el requerimiento 4 (0 min)."
   },
   {
     "id": "MON_CAB",
@@ -87,7 +95,8 @@
     "latitude": 4.56642,
     "longitude": -75.75071,
     "visitDurationMinutes": 0,
-    "description": "Plaza principal cívica y comercial de Montenegro, centro neurálgico del turismo temático cafetero."
+    "description": "Plaza principal cívica y comercial de Montenegro, centro neurálgico del turismo temático cafetero.",
+    "visitDurationSource": "Criterio del grupo: nodo logístico (cabecera municipal, alojamiento o centro de acopio) usado como punto de partida/paso sin tiempo de visita turística en el requerimiento 4 (0 min)."
   },
   {
     "id": "PIJ_CAB",
@@ -97,7 +106,8 @@
     "latitude": 4.33414,
     "longitude": -75.70381,
     "visitDurationMinutes": 0,
-    "description": "Plaza central del primer pueblo 'Cittaslow' (ciudad sin prisa) de América Latina, con arquitectura preservada y monumentos a la cultura cafetera."
+    "description": "Plaza central del primer pueblo 'Cittaslow' (ciudad sin prisa) de América Latina, con arquitectura preservada y monumentos a la cultura cafetera.",
+    "visitDurationSource": "Criterio del grupo: nodo logístico (cabecera municipal, alojamiento o centro de acopio) usado como punto de partida/paso sin tiempo de visita turística en el requerimiento 4 (0 min)."
   },
   {
     "id": "QUI_CAB",
@@ -107,7 +117,8 @@
     "latitude": 4.6231,
     "longitude": -75.7609,
     "visitDurationMinutes": 0,
-    "description": "Parque de la Constitución / Bolívar, sede del tradicional Concurso de Velas y Faroles, frente al Centro Administrativo Municipal y la Parroquia Jesús, María y José."
+    "description": "Parque de la Constitución / Bolívar, sede del tradicional Concurso de Velas y Faroles, frente al Centro Administrativo Municipal y la Parroquia Jesús, María y José.",
+    "visitDurationSource": "Criterio del grupo: nodo logístico (cabecera municipal, alojamiento o centro de acopio) usado como punto de partida/paso sin tiempo de visita turística en el requerimiento 4 (0 min)."
   },
   {
     "id": "SAL_CAB",
@@ -117,7 +128,8 @@
     "latitude": 4.63724,
     "longitude": -75.56982,
     "visitDurationMinutes": 0,
-    "description": "Corazón patrimonial del municipio padre del Quindío, nacimiento de la Calle Real y puerta de entrada al Valle de Cocora."
+    "description": "Corazón patrimonial del municipio padre del Quindío, nacimiento de la Calle Real y puerta de entrada al Valle de Cocora.",
+    "visitDurationSource": "Criterio del grupo: nodo logístico (cabecera municipal, alojamiento o centro de acopio) usado como punto de partida/paso sin tiempo de visita turística en el requerimiento 4 (0 min)."
   },
   {
     "id": "PARQ_CAFE",
@@ -127,7 +139,8 @@
     "latitude": 4.53733,
     "longitude": -75.76927,
     "visitDurationMinutes": 360,
-    "description": "Taquillas y entrada principal del parque temático insignia de la cultura cafetera colombiana (Km 6 Vía Montenegro - Pueblo Tapao)."
+    "description": "Taquillas y entrada principal del parque temático insignia de la cultura cafetera colombiana (Km 6 Vía Montenegro - Pueblo Tapao).",
+    "visitDurationSource": "Fuente: Portal oficial Parque del Café (parquedelcafe.co, Pasaporte Múltiple) y Guía Fontur Paisaje Cultural Cafetero: recorrido completo por más de 25 atracciones mecánicas, teleférico, tren del café y shows toma ~6 h (360 min)."
   },
   {
     "id": "PANACA",
@@ -137,7 +150,8 @@
     "latitude": 4.60708,
     "longitude": -75.81883,
     "visitDurationMinutes": 300,
-    "description": "Acceso principal del mayor parque agropecuario interactivo del país (Vereda Kerman, Quimbaya)."
+    "description": "Acceso principal del mayor parque agropecuario interactivo del país (Vereda Kerman, Quimbaya).",
+    "visitDurationSource": "Fuente: Portal oficial PANACA (panaca.com.co, Pasaporte Terra): recorrido por las 10 estaciones temáticas agropecuarias y 5 exhibiciones en vivo requiere ~5 h (300 min)."
   },
   {
     "id": "VALLE_COCORA",
@@ -147,7 +161,8 @@
     "latitude": 4.63711,
     "longitude": -75.47833,
     "visitDurationMinutes": 240,
-    "description": "Santuario natural de la Palma de Cera del Quindío (árbol nacional), punto de inicio de senderos ecológicos y miradores del bosque de niebla."
+    "description": "Santuario natural de la Palma de Cera del Quindío (árbol nacional), punto de inicio de senderos ecológicos y miradores del bosque de niebla.",
+    "visitDurationSource": "Fuente: Alcaldía de Salento / Parques Nacionales y criterio del grupo: caminata ecológica por el bosque de palmas de cera y miradores (circuito corto-medio de 5 km) toma ~4 h (240 min)."
   },
   {
     "id": "JARDIN_BOTANICO",
@@ -157,7 +172,8 @@
     "latitude": 4.51073,
     "longitude": -75.65119,
     "visitDurationMinutes": 90,
-    "description": "Centro de investigación ambiental y mariposario con estructura en forma de mariposa (Av. Colón, Calarcá)."
+    "description": "Centro de investigación ambiental y mariposario con estructura en forma de mariposa (Av. Colón, Calarcá).",
+    "visitDurationSource": "Fuente: Portal oficial Jardín Botánico del Quindío (jardinbotanicoquindio.org): recorrido guiado por el bosque natural, avistamiento de aves y mariposario dura ~1.5 h (90 min)."
   },
   {
     "id": "MUSEO_ORO_QUIMBAYA",
@@ -167,7 +183,8 @@
     "latitude": 4.57102,
     "longitude": -75.6483,
     "visitDurationMinutes": 90,
-    "description": "Obra maestra del arquitecto Rogelio Salmona (Monumento Nacional) y museo arqueológico del Banco de la República (Av. Bolívar # 40N-80)."
+    "description": "Obra maestra del arquitecto Rogelio Salmona (Monumento Nacional) y museo arqueológico del Banco de la República (Av. Bolívar # 40N-80).",
+    "visitDurationSource": "Fuente: Red Cultural del Banco de la República (banrepcultural.org/armenia/museo-del-oro-quimbaya): visita a las salas de orfebrería prehispánica y jardines de Rogelio Salmona dura ~1.5 h (90 min)."
   },
   {
     "id": "RECUCA",
@@ -177,7 +194,8 @@
     "latitude": 4.43225,
     "longitude": -75.73321,
     "visitDurationMinutes": 120,
-    "description": "Finca temática experiencial con inmersión lúdica en las labores tradicionales de recolección y beneficio del café (Vereda Callejones)."
+    "description": "Finca temática experiencial con inmersión lúdica en las labores tradicionales de recolección y beneficio del café (Vereda Callejones).",
+    "visitDurationSource": "Fuente: Portal oficial Recuca (recuca.com, Recorrido de la Cultura Cafetera): experiencia interactiva guiada de cosecha, trilla, catación y baile típico tiene duración programada de 2 h (120 min)."
   },
   {
     "id": "PARQ_ARRIEROS",
@@ -187,7 +205,8 @@
     "latitude": 4.57968,
     "longitude": -75.78106,
     "visitDurationMinutes": 240,
-    "description": "Parque temático de arriería, tradiciones campesinas y muestras folclóricas (Km 3 Vía Montenegro - Quimbaya)."
+    "description": "Parque temático de arriería, tradiciones campesinas y muestras folclóricas (Km 3 Vía Montenegro - Quimbaya).",
+    "visitDurationSource": "Fuente: Portal oficial Parque Los Arrieros (parquelosarrieros.com): circuito cultural por escenarios de arriería, fonda, trapiche y presentaciones artísticas dura ~4 h (240 min)."
   },
   {
     "id": "MIRADOR_FILANDIA",
@@ -197,7 +216,8 @@
     "latitude": 4.66896,
     "longitude": -75.66566,
     "visitDurationMinutes": 60,
-    "description": "Torre mirador de 27 metros en madera de mangle y guadua con vista panorámica de 360 grados sobre el departamento."
+    "description": "Torre mirador de 27 metros en madera de mangle y guadua con vista panorámica de 360 grados sobre el departamento.",
+    "visitDurationSource": "Fuente: Alcaldía de Filandia / Criterio del grupo: ascenso a los 27 m de la torre Colina Iluminada, observación panorámica en 360° y sendero interpretativo toma 1 h (60 min)."
   },
   {
     "id": "PARQ_VIDA",
@@ -207,7 +227,8 @@
     "latitude": 4.54745,
     "longitude": -75.65956,
     "visitDurationMinutes": 60,
-    "description": "Pulmón verde urbano de 8 hectáreas donado por la Federación Nacional de Cafeteros, con lago, senderos y cascadas artificiales (Av. Bolívar con Calle 8N)."
+    "description": "Pulmón verde urbano de 8 hectáreas donado por la Federación Nacional de Cafeteros, con lago, senderos y cascadas artificiales (Av. Bolívar con Calle 8N).",
+    "visitDurationSource": "Fuente: Sociedad de Mejoras Públicas de Armenia y criterio del grupo: caminata recreativa de 1.8 km alrededor del lago, cascadas y senderos arbolados urbanos toma 1 h (60 min)."
   },
   {
     "id": "CENTRO_GUADUA",
@@ -217,7 +238,8 @@
     "latitude": 4.408,
     "longitude": -75.698,
     "visitDurationMinutes": 60,
-    "description": "Centro Nacional para el Estudio del Bambú-Guadua (CRQ), Km 22 Vía Armenia - Córdoba (Vereda La Soledad)."
+    "description": "Centro Nacional para el Estudio del Bambú-Guadua (CRQ), Km 22 Vía Armenia - Córdoba (Vereda La Soledad).",
+    "visitDurationSource": "Fuente: Corporación Autónoma Regional del Quindío (CRQ, Centro Nacional para el Estudio del Bambú-Guadua): recorrido técnico e interpretativo por guaduales y vivero dura 1 h (60 min)."
   },
   {
     "id": "RES_KASAGUADUA",
@@ -227,7 +249,8 @@
     "latitude": 4.62931,
     "longitude": -75.58945,
     "visitDurationMinutes": 120,
-    "description": "Reserva ecológica comunitaria de selva andina húmeda y arquitectura bio-climática (Km 3 Vía Salento - Armenia)."
+    "description": "Reserva ecológica comunitaria de selva andina húmeda y arquitectura bio-climática (Km 3 Vía Salento - Armenia).",
+    "visitDurationSource": "Fuente: Reserva Natural Kasaguadua (kasaguadua.org): caminata ecológica guiada por los senderos de bosque de niebla regenerado dura 2 h (120 min)."
   },
   {
     "id": "BIO_RESERVA",
@@ -237,7 +260,8 @@
     "latitude": 4.62971,
     "longitude": -75.58938,
     "visitDurationMinutes": 120,
-    "description": "Santuario de fauna y flora andina especializado en conservación y rescate animal (Km 2 Vía Boquía - Salento)."
+    "description": "Santuario de fauna y flora andina especializado en conservación y rescate animal (Km 2 Vía Boquía - Salento).",
+    "visitDurationSource": "Fuente: BioParque La Reserva Salento y criterio del grupo: recorrido educativo guiado por los hábitats de fauna y flora andina toma 2 h (120 min)."
   },
   {
     "id": "MIRADOR_SECRETA",
@@ -247,7 +271,8 @@
     "latitude": 4.52181,
     "longitude": -75.68398,
     "visitDurationMinutes": 45,
-    "description": "Mirador panorámico y parque lineal sobre el cañón del Río Quindío y la cordillera occidental (Carrera 18 con Calle 35)."
+    "description": "Mirador panorámico y parque lineal sobre el cañón del Río Quindío y la cordillera occidental (Carrera 18 con Calle 35).",
+    "visitDurationSource": "Fuente: Criterio del grupo (observación panorámica urbana): parada de contemplación paisajística del cañón del río Quindío y fotografía toma 45 min."
   },
   {
     "id": "CASC_RIOVERDE",
@@ -257,7 +282,8 @@
     "latitude": 4.348,
     "longitude": -75.672,
     "visitDurationMinutes": 180,
-    "description": "Caídas naturales de agua en el cañón alto del Río Verde, accesible mediante sendero ecológico de montaña."
+    "description": "Caídas naturales de agua en el cañón alto del Río Verde, accesible mediante sendero ecológico de montaña.",
+    "visitDurationSource": "Fuente: Alcaldía de Córdoba y criterio del grupo (senderismo de montaña): caminata de ascenso y descenso desde el punto vehicular hasta la caída de agua y regreso toma 3 h (180 min)."
   },
   {
     "id": "VALLE_MARAVELEZ",
@@ -267,7 +293,8 @@
     "latitude": 4.39803,
     "longitude": -75.79488,
     "visitDurationMinutes": 120,
-    "description": "Planicie aluvial y confluencia de los ríos Barragán y La Vieja, escenario tradicional de cabalgatas y avistamiento de aves."
+    "description": "Planicie aluvial y confluencia de los ríos Barragán y La Vieja, escenario tradicional de cabalgatas y avistamiento de aves.",
+    "visitDurationSource": "Fuente: Alcaldía de La Tebaida y criterio del grupo: recorrido paisajístico, avistamiento de aves y estancia junto a la confluencia de los ríos Barragán y La Vieja toma 2 h (120 min)."
   },
   {
     "id": "HAC_COMBIA",
@@ -277,7 +304,8 @@
     "latitude": 4.49174,
     "longitude": -75.68626,
     "visitDurationMinutes": 0,
-    "description": "Hotel campestre de arquitectura colonial con experiencia temática sensorial en torno a los procesos del café (Vereda La Bella)."
+    "description": "Hotel campestre de arquitectura colonial con experiencia temática sensorial en torno a los procesos del café (Vereda La Bella).",
+    "visitDurationSource": "Criterio del grupo: nodo logístico (cabecera municipal, alojamiento o centro de acopio) usado como punto de partida/paso sin tiempo de visita turística en el requerimiento 4 (0 min)."
   },
   {
     "id": "HOT_CAMELIAS",
@@ -287,7 +315,8 @@
     "latitude": 4.52212,
     "longitude": -75.78548,
     "visitDurationMinutes": 0,
-    "description": "Complejo hotelero de primer nivel adyacente a los principales parques temáticos (Km 2 Vía Montenegro - Pueblo Tapao)."
+    "description": "Complejo hotelero de primer nivel adyacente a los principales parques temáticos (Km 2 Vía Montenegro - Pueblo Tapao).",
+    "visitDurationSource": "Criterio del grupo: nodo logístico (cabecera municipal, alojamiento o centro de acopio) usado como punto de partida/paso sin tiempo de visita turística en el requerimiento 4 (0 min)."
   },
   {
     "id": "FINCA_PALMAR",
@@ -297,17 +326,19 @@
     "latitude": 4.5245,
     "longitude": -75.775,
     "visitDurationMinutes": 0,
-    "description": "Alojamiento rural tradicional cafetero ubicado en la Vereda La Esperanza, a 1.5 km del Parque del Café."
+    "description": "Alojamiento rural tradicional cafetero ubicado en la Vereda La Esperanza, a 1.5 km del Parque del Café.",
+    "visitDurationSource": "Criterio del grupo: nodo logístico (cabecera municipal, alojamiento o centro de acopio) usado como punto de partida/paso sin tiempo de visita turística en el requerimiento 4 (0 min)."
   },
   {
     "id": "BOSQ_SAMAN",
     "name": "Finca Hotel Bosques del Samán",
     "municipality": "Quimbaya",
     "category": "FINCA_HOTEL",
-    "latitude": 4.675,
-    "longitude": -75.75,
+    "latitude": 4.64672,
+    "longitude": -75.77428,
     "visitDurationMinutes": 0,
-    "description": "Finca hotel cafetera con canopy sobre cafetales (Vereda La Caña, Km 5 Vía Alcalá - Filandia, zona turística de Quimbaya)."
+    "description": "Finca hotel cafetera tradicional sobre el corredor vial Quimbaya - Alcalá (Vereda El Laurel / Río Roble, Quimbaya).",
+    "visitDurationSource": "Criterio del grupo: nodo logístico (cabecera municipal, alojamiento o centro de acopio) usado como punto de partida/paso sin tiempo de visita turística en el requerimiento 4 (0 min)."
   },
   {
     "id": "HOT_BAMBUSA",
@@ -317,7 +348,8 @@
     "latitude": 4.42172,
     "longitude": -75.76105,
     "visitDurationMinutes": 0,
-    "description": "Hotel boutique rural exclusivo emplazado entre plantaciones de cacao y plátano (Vereda El Caimo)."
+    "description": "Hotel boutique rural exclusivo emplazado entre plantaciones de cacao y plátano (Vereda El Caimo).",
+    "visitDurationSource": "Criterio del grupo: nodo logístico (cabecera municipal, alojamiento o centro de acopio) usado como punto de partida/paso sin tiempo de visita turística en el requerimiento 4 (0 min)."
   },
   {
     "id": "FINCA_B_AIRES",
@@ -327,7 +359,8 @@
     "latitude": 4.3585,
     "longitude": -75.739,
     "visitDurationMinutes": 0,
-    "description": "Hospedaje de montaña con vista panorámica sobre el valle de Maravélez (Vereda La Granja, Buenavista)."
+    "description": "Hospedaje de montaña con vista panorámica sobre el valle de Maravélez (Vereda La Granja, Buenavista).",
+    "visitDurationSource": "Criterio del grupo: nodo logístico (cabecera municipal, alojamiento o centro de acopio) usado como punto de partida/paso sin tiempo de visita turística en el requerimiento 4 (0 min)."
   },
   {
     "id": "FINCA_MINA",
@@ -337,7 +370,8 @@
     "latitude": 4.34863,
     "longitude": -75.71516,
     "visitDurationMinutes": 0,
-    "description": "Finca cafetera de alta montaña en el Alto de la Mina, preservando métodos artesanales de cosecha y secado."
+    "description": "Finca cafetera de alta montaña en el Alto de la Mina, preservando métodos artesanales de cosecha y secado.",
+    "visitDurationSource": "Criterio del grupo: nodo logístico (cabecera municipal, alojamiento o centro de acopio) usado como punto de partida/paso sin tiempo de visita turística en el requerimiento 4 (0 min)."
   },
   {
     "id": "HOT_SAN_ALBERTO",
@@ -347,7 +381,8 @@
     "latitude": 4.35843,
     "longitude": -75.73447,
     "visitDurationMinutes": 0,
-    "description": "Finca cafetera y terraza del café más premiado de Colombia, con bautizo cafetero sobre la cordillera."
+    "description": "Finca cafetera y terraza del café más premiado de Colombia, con bautizo cafetero sobre la cordillera.",
+    "visitDurationSource": "Criterio del grupo: nodo logístico (cabecera municipal, alojamiento o centro de acopio) usado como punto de partida/paso sin tiempo de visita turística en el requerimiento 4 (0 min)."
   },
   {
     "id": "COOP_ARM",
@@ -357,7 +392,8 @@
     "latitude": 4.5188,
     "longitude": -75.6905,
     "visitDurationMinutes": 0,
-    "description": "Sede principal de recibo, laboratorio de calidades y acopio mayorista (Carrera 19 # 45-12, Sector Sinaí)."
+    "description": "Sede principal de recibo, laboratorio de calidades y acopio mayorista (Carrera 19 # 45-12, Sector Sinaí).",
+    "visitDurationSource": "Criterio del grupo: nodo logístico (cabecera municipal, alojamiento o centro de acopio) usado como punto de partida/paso sin tiempo de visita turística en el requerimiento 4 (0 min)."
   },
   {
     "id": "TRILL_MESETA",
@@ -367,7 +403,8 @@
     "latitude": 4.51627,
     "longitude": -75.69204,
     "visitDurationMinutes": 0,
-    "description": "Planta agroindustrial de trilla y preparación de café excelso para exportación (Carrera 18 # 48-35, Zona Industrial Arrayanes)."
+    "description": "Planta agroindustrial de trilla y preparación de café excelso para exportación (Carrera 18 # 48-35, Zona Industrial Arrayanes).",
+    "visitDurationSource": "Criterio del grupo: nodo logístico (cabecera municipal, alojamiento o centro de acopio) usado como punto de partida/paso sin tiempo de visita turística en el requerimiento 4 (0 min)."
   },
   {
     "id": "COMITE_CAF",
@@ -377,7 +414,8 @@
     "latitude": 4.5007,
     "longitude": -75.71632,
     "visitDurationMinutes": 0,
-    "description": "Complejo agroindustrial y centro de acopio técnico de la FNC (Km 3.5 Vía al Aeropuerto El Edén)."
+    "description": "Complejo agroindustrial y centro de acopio técnico de la FNC (Km 3.5 Vía al Aeropuerto El Edén).",
+    "visitDurationSource": "Criterio del grupo: nodo logístico (cabecera municipal, alojamiento o centro de acopio) usado como punto de partida/paso sin tiempo de visita turística en el requerimiento 4 (0 min)."
   },
   {
     "id": "COOP_CAL",
@@ -387,7 +425,8 @@
     "latitude": 4.52897,
     "longitude": -75.64352,
     "visitDurationMinutes": 0,
-    "description": "Punto de pesaje, compra y análisis físico de café de la cordillera central (Calle 39 # 26-25, Calarcá)."
+    "description": "Punto de pesaje, compra y análisis físico de café de la cordillera central (Calle 39 # 26-25, Calarcá).",
+    "visitDurationSource": "Criterio del grupo: nodo logístico (cabecera municipal, alojamiento o centro de acopio) usado como punto de partida/paso sin tiempo de visita turística en el requerimiento 4 (0 min)."
   },
   {
     "id": "COOP_FIL",
@@ -397,7 +436,8 @@
     "latitude": 4.67552,
     "longitude": -75.6577,
     "visitDurationMinutes": 0,
-    "description": "Agencia de acopio para productores del norte del departamento (Calle 7 # 4-18, Filandia)."
+    "description": "Agencia de acopio para productores del norte del departamento (Calle 7 # 4-18, Filandia).",
+    "visitDurationSource": "Criterio del grupo: nodo logístico (cabecera municipal, alojamiento o centro de acopio) usado como punto de partida/paso sin tiempo de visita turística en el requerimiento 4 (0 min)."
   },
   {
     "id": "TRILL_CAFE_Q",
@@ -407,7 +447,8 @@
     "latitude": 4.56118,
     "longitude": -75.65082,
     "visitDurationMinutes": 0,
-    "description": "Planta de torrefacción, procesamiento y valor agregado de cafés especiales (Av. Centenario, Parque Industrial)."
+    "description": "Planta de torrefacción, procesamiento y valor agregado de cafés especiales (Av. Centenario, Parque Industrial).",
+    "visitDurationSource": "Criterio del grupo: nodo logístico (cabecera municipal, alojamiento o centro de acopio) usado como punto de partida/paso sin tiempo de visita turística en el requerimiento 4 (0 min)."
   },
   {
     "id": "ACOPIO_PIJ",
@@ -417,6 +458,7 @@
     "latitude": 4.33413,
     "longitude": -75.70427,
     "visitDurationMinutes": 0,
-    "description": "Punto de recibo y escuela de catación comunitaria para cafés de origen de alta cordillera (Carrera 5, Pijao)."
+    "description": "Punto de recibo y escuela de catación comunitaria para cafés de origen de alta cordillera (Carrera 5, Pijao).",
+    "visitDurationSource": "Criterio del grupo: nodo logístico (cabecera municipal, alojamiento o centro de acopio) usado como punto de partida/paso sin tiempo de visita turística en el requerimiento 4 (0 min)."
   }
 ]

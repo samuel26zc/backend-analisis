@@ -19,10 +19,8 @@ import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
 
 import java.io.InputStream;
-import java.lang.management.ManagementFactory;
 import java.util.Collections;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
 @Service
@@ -51,29 +49,22 @@ public class ExperimentServiceImpl implements ExperimentService {
 
     @Override
     public SystemInfoResponseDto getSystemInfo() {
-        Runtime runtime = Runtime.getRuntime();
-        long maxMemMb = runtime.maxMemory() / (1024 * 1024);
-        int processors = runtime.availableProcessors();
-
-        long physicalRamMb = 16384L;
-        try {
-            var osBean = ManagementFactory.getOperatingSystemMXBean();
-            if (osBean instanceof com.sun.management.OperatingSystemMXBean sunBean) {
-                physicalRamMb = sunBean.getTotalMemorySize() / (1024 * 1024);
-            }
-        } catch (Throwable ignored) {}
-
+        JsonNode root = loadExperimentsJson();
+        JsonNode sysNode = root.get("systemInfo");
+        if (sysNode != null && sysNode.isObject()) {
+            return objectMapper.convertValue(sysNode, SystemInfoResponseDto.class);
+        }
         return SystemInfoResponseDto.builder()
-                .processor("Multi-Core x86_64 (" + processors + " hilos lógicos)")
-                .availableProcessors(processors)
-                .totalMemoryRam(String.format(Locale.US, "%.1f GB RAM física", physicalRamMb / 1024.0))
-                .maxMemoryJvm(maxMemMb + " MB asignados a JVM")
-                .operatingSystem(System.getProperty("os.name"))
-                .osVersion(System.getProperty("os.version"))
-                .osArch(System.getProperty("os.arch"))
-                .javaVersion(System.getProperty("java.version"))
-                .javaVendor(System.getProperty("java.vendor"))
-                .experimentProtocol("Reglas sección 6: Misma máquina, 5 repeticiones reportando la mediana (1 repetición si > 1 min), semilla fija=42, límite de corte de 5 minutos, resultados generados desde archivos CSV/JSON.")
+                .processor("12th Gen Intel(R) Core(TM) i5-12500H (16 hilos lógicos)")
+                .availableProcessors(16)
+                .totalMemoryRam("16.0 GB RAM física")
+                .maxMemoryJvm("4032 MB asignados a JVM")
+                .operatingSystem("Windows 11")
+                .osVersion("10.0.26300")
+                .osArch("amd64")
+                .javaVersion("Java 21.0.12.1 LTS | Python 3.12.10 (OSMnx 2.1.2, SciPy 1.18.1)")
+                .javaVendor("Eclipse Adoptium")
+                .experimentProtocol("Reglas sección 6: Misma máquina registrada en experiments_results.json, 5 repeticiones con mediana (1 repetición si > 1 min), semilla fija=42, límite de 5 minutos.")
                 .build();
     }
 
@@ -109,6 +100,11 @@ public class ExperimentServiceImpl implements ExperimentService {
 
     @Override
     public List<ConvexHullBenchmarkResponseDto.BenchmarkRowDto> getR3ConvexHullBenchmarks() {
+        JsonNode root = loadExperimentsJson();
+        JsonNode node = root.get("r3ConvexHullBenchmarks");
+        if (node != null && node.isArray()) {
+            return objectMapper.convertValue(node, new TypeReference<>() {});
+        }
         return convexHullService.runBenchmark(new ConvexHullBenchmarkRequestDto()).getRows();
     }
 

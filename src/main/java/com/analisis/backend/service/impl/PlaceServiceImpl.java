@@ -73,9 +73,10 @@ public class PlaceServiceImpl implements PlaceService {
                         .build())
                 .toList();
 
-        String strategy = "Para lugares situados a más de 500 metros del nodo más cercano de la red vial principal " +
-                "(e.g., senderos naturales o fincas en zonas de ladera profunda), se proyecta ortogonalmente su acceso " +
-                "al nodo vehicular de la red y se adiciona una arista virtual peatonal o de acceso con velocidad reducida.";
+        String strategy = "Para los lugares cuyo nodo más cercano en la componente fuertemente conexa queda a más de 500 metros " +
+                "(atractivos naturales en final de vía o senderos de montaña como el Valle de Cocora y las Cascadas de Río Verde), " +
+                "se utiliza directamente dicho nodo más cercano en distancia euclidiana UTM 18N como origen o destino de las rutas " +
+                "vehiculares y se reporta explícitamente la distancia en línea recta desde el nodo hasta el atractivo.";
 
         return PlaceMappingResponseDto.builder()
                 .totalPlaces(places.size())
