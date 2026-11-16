@@ -9,38 +9,38 @@
     "osArch" : "amd64",
     "javaVersion" : "Java 21.0.12.1 | Python 3.12.10 (OSMnx 2.1.2, NetworkX 3.7, SciPy 1.18.1)",
     "javaVendor" : "Eclipse Adoptium",
-    "experimentProtocol" : "Reglas sección 6: Misma máquina registrada en archivo, 5 repeticiones reportando la mediana (1 repetición cuando > 1 min, e.g. Fuerza Bruta k=12), semilla fija=42, límite de 5 minutos."
+    "experimentProtocol" : "Reglas sección 6: Misma máquina registrada en archivo, 5 repeticiones reportando la mediana (1 repetición en Fuerza Bruta k=11..12), semilla fija=42, límite de 5 minutos."
   },
   "r1SccTimes" : [ {
     "red" : "Radio de 2 km",
-    "v" : 2093,
-    "e" : 4110,
-    "vPlusE" : 6203,
-    "tiempoMs" : 32.02
+    "v" : 1649,
+    "e" : 3659,
+    "vPlusE" : 5308,
+    "tiempoMs" : 150.13
   }, {
     "red" : "Radio de 5 km",
-    "v" : 6822,
-    "e" : 13506,
-    "vPlusE" : 20328,
-    "tiempoMs" : 111.12
+    "v" : 4303,
+    "e" : 9718,
+    "vPlusE" : 14021,
+    "tiempoMs" : 381.61
   }, {
     "red" : "Radio de 10 km",
-    "v" : 14133,
-    "e" : 27390,
-    "vPlusE" : 41523,
-    "tiempoMs" : 298.88
+    "v" : 5942,
+    "e" : 13400,
+    "vPlusE" : 19342,
+    "tiempoMs" : 568.62
   }, {
     "red" : "Radio de 20 km",
-    "v" : 29499,
-    "e" : 58239,
-    "vPlusE" : 87738,
-    "tiempoMs" : 601.0
+    "v" : 8774,
+    "e" : 20047,
+    "vPlusE" : 28821,
+    "tiempoMs" : 793.6
   }, {
     "red" : "Departamento completo",
     "v" : 37117,
     "e" : 73615,
     "vPlusE" : 110732,
-    "tiempoMs" : 753.67
+    "tiempoMs" : 2948.12
   } ],
   "r2DijkstraQueries" : [ {
     "origen" : "ARM_CAB",
@@ -48,282 +48,282 @@
     "version" : "cola_prioridad",
     "tiempoViajeS" : 535.4,
     "nodosExplorados" : 6147,
-    "tiempoMs" : 9.1
+    "tiempoMs" : 11.39
   }, {
     "origen" : "ARM_CAB",
     "destino" : "MUSEO_ORO_QUIMBAYA",
     "version" : "lineal",
     "tiempoViajeS" : 535.4,
     "nodosExplorados" : 6147,
-    "tiempoMs" : 419.21
+    "tiempoMs" : 522.75
   }, {
     "origen" : "ARM_CAB",
     "destino" : "PARQ_VIDA",
     "version" : "cola_prioridad",
     "tiempoViajeS" : 248.7,
     "nodosExplorados" : 1925,
-    "tiempoMs" : 1.66
+    "tiempoMs" : 6.38
   }, {
     "origen" : "ARM_CAB",
     "destino" : "PARQ_VIDA",
     "version" : "lineal",
     "tiempoViajeS" : 248.7,
     "nodosExplorados" : 1924,
-    "tiempoMs" : 35.19
+    "tiempoMs" : 151.57
   }, {
     "origen" : "ARM_CAB",
     "destino" : "MIRADOR_SECRETA",
     "version" : "cola_prioridad",
     "tiempoViajeS" : 198.9,
     "nodosExplorados" : 1262,
-    "tiempoMs" : 0.78
+    "tiempoMs" : 2.98
   }, {
     "origen" : "ARM_CAB",
     "destino" : "MIRADOR_SECRETA",
     "version" : "lineal",
     "tiempoViajeS" : 198.9,
     "nodosExplorados" : 1262,
-    "tiempoMs" : 23.06
+    "tiempoMs" : 101.42
   }, {
     "origen" : "ARM_CAB",
     "destino" : "CAL_CAB",
     "version" : "cola_prioridad",
     "tiempoViajeS" : 329.8,
     "nodosExplorados" : 3127,
-    "tiempoMs" : 1.26
+    "tiempoMs" : 4.84
   }, {
     "origen" : "ARM_CAB",
     "destino" : "CAL_CAB",
     "version" : "lineal",
     "tiempoViajeS" : 329.8,
     "nodosExplorados" : 3127,
-    "tiempoMs" : 57.43
+    "tiempoMs" : 241.36
   }, {
     "origen" : "CAL_CAB",
     "destino" : "JARDIN_BOTANICO",
     "version" : "cola_prioridad",
     "tiempoViajeS" : 223.5,
     "nodosExplorados" : 1074,
-    "tiempoMs" : 0.29
+    "tiempoMs" : 1.1
   }, {
     "origen" : "CAL_CAB",
     "destino" : "JARDIN_BOTANICO",
     "version" : "lineal",
     "tiempoViajeS" : 223.5,
     "nodosExplorados" : 1074,
-    "tiempoMs" : 19.93
+    "tiempoMs" : 85.84
   }, {
     "origen" : "FIL_CAB",
     "destino" : "MIRADOR_FILANDIA",
     "version" : "cola_prioridad",
     "tiempoViajeS" : 89.1,
     "nodosExplorados" : 192,
-    "tiempoMs" : 0.04
+    "tiempoMs" : 0.17
   }, {
     "origen" : "FIL_CAB",
     "destino" : "MIRADOR_FILANDIA",
     "version" : "lineal",
     "tiempoViajeS" : 89.1,
     "nodosExplorados" : 192,
-    "tiempoMs" : 3.91
+    "tiempoMs" : 18.24
   }, {
     "origen" : "MON_CAB",
     "destino" : "PARQ_CAFE",
     "version" : "cola_prioridad",
     "tiempoViajeS" : 418.2,
     "nodosExplorados" : 851,
-    "tiempoMs" : 0.22
+    "tiempoMs" : 1.0
   }, {
     "origen" : "MON_CAB",
     "destino" : "PARQ_CAFE",
     "version" : "lineal",
     "tiempoViajeS" : 418.2,
     "nodosExplorados" : 851,
-    "tiempoMs" : 16.56
+    "tiempoMs" : 70.33
   }, {
     "origen" : "QUI_CAB",
     "destino" : "PANACA",
     "version" : "cola_prioridad",
     "tiempoViajeS" : 931.6,
-    "nodosExplorados" : 2996,
-    "tiempoMs" : 0.88
+    "nodosExplorados" : 2994,
+    "tiempoMs" : 3.58
   }, {
     "origen" : "QUI_CAB",
     "destino" : "PANACA",
     "version" : "lineal",
     "tiempoViajeS" : 931.6,
-    "nodosExplorados" : 2996,
-    "tiempoMs" : 56.32
+    "nodosExplorados" : 2994,
+    "tiempoMs" : 235.83
   }, {
     "origen" : "SAL_CAB",
     "destino" : "RES_KASAGUADUA",
     "version" : "cola_prioridad",
     "tiempoViajeS" : 390.1,
     "nodosExplorados" : 392,
-    "tiempoMs" : 0.07
+    "tiempoMs" : 0.3
   }, {
     "origen" : "SAL_CAB",
     "destino" : "RES_KASAGUADUA",
     "version" : "lineal",
     "tiempoViajeS" : 390.1,
     "nodosExplorados" : 392,
-    "tiempoMs" : 7.09
+    "tiempoMs" : 33.77
   }, {
     "origen" : "ARM_CAB",
     "destino" : "CIR_CAB",
     "version" : "cola_prioridad",
     "tiempoViajeS" : 910.6,
     "nodosExplorados" : 9283,
-    "tiempoMs" : 4.21
+    "tiempoMs" : 15.2
   }, {
     "origen" : "ARM_CAB",
     "destino" : "CIR_CAB",
     "version" : "lineal",
     "tiempoViajeS" : 910.6,
     "nodosExplorados" : 9283,
-    "tiempoMs" : 244.29
+    "tiempoMs" : 899.18
   }, {
     "origen" : "ARM_CAB",
     "destino" : "SAL_CAB",
     "version" : "cola_prioridad",
     "tiempoViajeS" : 1731.0,
     "nodosExplorados" : 18658,
-    "tiempoMs" : 9.61
+    "tiempoMs" : 32.6
   }, {
     "origen" : "ARM_CAB",
     "destino" : "FIL_CAB",
     "version" : "cola_prioridad",
     "tiempoViajeS" : 1898.9,
-    "nodosExplorados" : 20737,
-    "tiempoMs" : 10.65
+    "nodosExplorados" : 20735,
+    "tiempoMs" : 36.42
   }, {
     "origen" : "ARM_CAB",
     "destino" : "MON_CAB",
     "version" : "cola_prioridad",
     "tiempoViajeS" : 920.7,
     "nodosExplorados" : 9422,
-    "tiempoMs" : 3.82
+    "tiempoMs" : 16.09
   }, {
     "origen" : "ARM_CAB",
     "destino" : "QUI_CAB",
     "version" : "cola_prioridad",
     "tiempoViajeS" : 1649.1,
     "nodosExplorados" : 17740,
-    "tiempoMs" : 8.63
+    "tiempoMs" : 31.94
   }, {
     "origen" : "ARM_CAB",
     "destino" : "TEB_CAB",
     "version" : "cola_prioridad",
     "tiempoViajeS" : 1165.3,
     "nodosExplorados" : 12057,
-    "tiempoMs" : 4.88
+    "tiempoMs" : 19.1
   }, {
     "origen" : "ARM_CAB",
     "destino" : "COR_CAB",
     "version" : "cola_prioridad",
     "tiempoViajeS" : 2090.4,
-    "nodosExplorados" : 23076,
-    "tiempoMs" : 11.32
+    "nodosExplorados" : 23074,
+    "tiempoMs" : 38.95
   }, {
     "origen" : "ARM_CAB",
     "destino" : "PIJ_CAB",
     "version" : "cola_prioridad",
     "tiempoViajeS" : 2673.0,
     "nodosExplorados" : 28528,
-    "tiempoMs" : 16.53
+    "tiempoMs" : 64.12
   }, {
     "origen" : "ARM_CAB",
     "destino" : "BUE_CAB",
     "version" : "cola_prioridad",
     "tiempoViajeS" : 2179.3,
-    "nodosExplorados" : 24060,
-    "tiempoMs" : 11.71
+    "nodosExplorados" : 24058,
+    "tiempoMs" : 41.6
   }, {
     "origen" : "ARM_CAB",
     "destino" : "GEN_CAB",
     "version" : "cola_prioridad",
     "tiempoViajeS" : 4303.1,
     "nodosExplorados" : 33476,
-    "tiempoMs" : 18.37
+    "tiempoMs" : 62.33
   }, {
     "origen" : "ARM_CAB",
     "destino" : "VALLE_COCORA",
     "version" : "cola_prioridad",
     "tiempoViajeS" : 2889.2,
     "nodosExplorados" : 29719,
-    "tiempoMs" : 17.1
+    "tiempoMs" : 58.17
   } ],
   "r2RatioSummary" : {
-    "mediana" : 64.0,
-    "minimo" : 21.2,
-    "maximo" : 101.29
+    "mediana" : 65.87,
+    "minimo" : 23.76,
+    "maximo" : 112.57
   },
   "r3ConvexHullBenchmarks" : [ {
     "pointSet" : "Nodos de la red",
     "n" : 35442,
     "hullVertices" : 17,
-    "ownTimeMs" : 12.76,
-    "referenceTimeMs" : 19.93,
-    "ratio" : 0.64
+    "ownTimeMs" : 59.21,
+    "referenceTimeMs" : 97.64,
+    "ratio" : 0.61
   }, {
     "pointSet" : "Cuadrado, 1,000 puntos",
     "n" : 1000,
     "hullVertices" : 16,
-    "ownTimeMs" : 0.6,
-    "referenceTimeMs" : 1.16,
-    "ratio" : 0.52
+    "ownTimeMs" : 2.67,
+    "referenceTimeMs" : 6.12,
+    "ratio" : 0.44
   }, {
     "pointSet" : "Cuadrado, 10,000 puntos",
     "n" : 10000,
     "hullVertices" : 27,
-    "ownTimeMs" : 4.86,
-    "referenceTimeMs" : 5.7,
-    "ratio" : 0.85
+    "ownTimeMs" : 17.19,
+    "referenceTimeMs" : 28.93,
+    "ratio" : 0.59
   }, {
     "pointSet" : "Cuadrado, 50,000 puntos",
     "n" : 50000,
     "hullVertices" : 32,
-    "ownTimeMs" : 19.19,
-    "referenceTimeMs" : 29.47,
-    "ratio" : 0.65
+    "ownTimeMs" : 79.15,
+    "referenceTimeMs" : 143.67,
+    "ratio" : 0.55
   } ],
   "r4ExactTspTimes" : [ {
     "k" : 5,
-    "tiempoFuerzaBrutaMs" : "0.12",
-    "tiempoHeldKarpMs" : 0.04
+    "tiempoFuerzaBrutaMs" : "0.15",
+    "tiempoHeldKarpMs" : 1.15
   }, {
     "k" : 6,
-    "tiempoFuerzaBrutaMs" : "0.39",
-    "tiempoHeldKarpMs" : 0.05
+    "tiempoFuerzaBrutaMs" : "0.34",
+    "tiempoHeldKarpMs" : 0.16
   }, {
     "k" : 7,
-    "tiempoFuerzaBrutaMs" : "2.70",
-    "tiempoHeldKarpMs" : 0.13
+    "tiempoFuerzaBrutaMs" : "1.93",
+    "tiempoHeldKarpMs" : 1.75
   }, {
     "k" : 8,
-    "tiempoFuerzaBrutaMs" : "7.79",
-    "tiempoHeldKarpMs" : 0.33
+    "tiempoFuerzaBrutaMs" : "3.78",
+    "tiempoHeldKarpMs" : 2.06
   }, {
     "k" : 9,
-    "tiempoFuerzaBrutaMs" : "70.56",
-    "tiempoHeldKarpMs" : 0.28
+    "tiempoFuerzaBrutaMs" : "32.42",
+    "tiempoHeldKarpMs" : 0.78
   }, {
     "k" : 10,
-    "tiempoFuerzaBrutaMs" : "770.34",
-    "tiempoHeldKarpMs" : 0.58
+    "tiempoFuerzaBrutaMs" : "193.77",
+    "tiempoHeldKarpMs" : 1.48
   }, {
     "k" : 11,
-    "tiempoFuerzaBrutaMs" : "8748.51",
-    "tiempoHeldKarpMs" : 0.85
+    "tiempoFuerzaBrutaMs" : "2359.48",
+    "tiempoHeldKarpMs" : 3.66
   }, {
     "k" : 12,
-    "tiempoFuerzaBrutaMs" : "117910.02",
-    "tiempoHeldKarpMs" : 1.7
+    "tiempoFuerzaBrutaMs" : "7004.57",
+    "tiempoHeldKarpMs" : 6.72
   } ],
   "r4HeuristicQuality" : [ {
     "k" : 5,
     "instancias" : 5,
-    "brechaPromedioPorcentaje" : 6.2,
+    "brechaPromedioPorcentaje" : 6.17,
     "brechaMaximaPorcentaje" : 14.19
   }, {
     "k" : 8,
@@ -333,12 +333,12 @@
   }, {
     "k" : 10,
     "instancias" : 5,
-    "brechaPromedioPorcentaje" : 12.13,
+    "brechaPromedioPorcentaje" : 12.31,
     "brechaMaximaPorcentaje" : 17.53
   }, {
     "k" : 12,
     "instancias" : 5,
-    "brechaPromedioPorcentaje" : 10.21,
+    "brechaPromedioPorcentaje" : 10.15,
     "brechaMaximaPorcentaje" : 18.61
   } ]
 }

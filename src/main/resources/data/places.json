@@ -334,10 +334,10 @@
     "name": "Finca Hotel Bosques del Samán",
     "municipality": "Quimbaya",
     "category": "FINCA_HOTEL",
-    "latitude": 4.64672,
-    "longitude": -75.77428,
+    "latitude": 4.66005,
+    "longitude": -75.73886,
     "visitDurationMinutes": 0,
-    "description": "Finca hotel cafetera tradicional sobre el corredor vial Quimbaya - Alcalá (Vereda El Laurel / Río Roble, Quimbaya).",
+    "description": "Finca hotel cafetera ubicada en la Vereda La Caña (Km 5 Vía Alcalá - Filandia, en la zona limítrofe entre Quimbaya y Alcalá; nodo verificado en OpenStreetMap ID 5376286144).",
     "visitDurationSource": "Criterio del grupo: nodo logístico (cabecera municipal, alojamiento o centro de acopio) usado como punto de partida/paso sin tiempo de visita turística en el requerimiento 4 (0 min)."
   },
   {

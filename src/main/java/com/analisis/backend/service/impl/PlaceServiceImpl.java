@@ -20,6 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 @Service
 @RequiredArgsConstructor
@@ -74,9 +75,9 @@ public class PlaceServiceImpl implements PlaceService {
                 .toList();
 
         String strategy = "Para los lugares cuyo nodo más cercano en la componente fuertemente conexa queda a más de 500 metros " +
-                "(atractivos naturales en final de vía o senderos de montaña como el Valle de Cocora y las Cascadas de Río Verde), " +
+                "(Valle de Cocora, Finca Hotel Bosques del Samán en el límite con Alcalá y Cascadas de Río Verde), " +
                 "se utiliza directamente dicho nodo más cercano en distancia euclidiana UTM 18N como origen o destino de las rutas " +
-                "vehiculares y se reporta explícitamente la distancia en línea recta desde el nodo hasta el atractivo.";
+                "vehiculares y se reporta explícitamente la distancia en línea recta desde el nodo hasta el lugar.";
 
         return PlaceMappingResponseDto.builder()
                 .totalPlaces(places.size())
@@ -115,9 +116,7 @@ public class PlaceServiceImpl implements PlaceService {
                 ? Math.round(GeoUtils.euclideanDistance(utm.utmX(), utm.utmY(), nearestNode.utmX(), nearestNode.utmY()) * 10.0) / 10.0
                 : 0.0;
         boolean exceeding = distance > 500.0;
-        String treatment = exceeding
-                ? String.format("Ubicado a %.1f m del nodo vial. Proyección ortogonal y enlace virtual rural.", distance)
-                : "Conexión directa inmediata al nodo vial de la red.";
+        String treatment = formatTreatmentNote(exceeding, distance, nearestId);
 
         Place place = placeMapper.toEntity(dto, utm.utmX(), utm.utmY(), nearestId, distance, exceeding, treatment);
         Place saved = placeRepository.save(place);
@@ -137,9 +136,7 @@ public class PlaceServiceImpl implements PlaceService {
                 ? Math.round(GeoUtils.euclideanDistance(utm.utmX(), utm.utmY(), nearestNode.utmX(), nearestNode.utmY()) * 10.0) / 10.0
                 : existing.getDistanceToNodeMeters();
         boolean exceeding = distance > 500.0;
-        String treatment = exceeding
-                ? String.format("Ubicado a %.1f m del nodo vial. Proyección ortogonal y enlace virtual rural.", distance)
-                : "Conexión directa inmediata al nodo vial de la red.";
+        String treatment = formatTreatmentNote(exceeding, distance, nearestId);
 
         existing.setName(dto.getName());
         existing.setMunicipality(dto.getMunicipality());
@@ -165,5 +162,15 @@ public class PlaceServiceImpl implements PlaceService {
             throw new ResourceNotFoundException("Lugar no encontrado en el catálogo con id: " + id);
         }
         placeRepository.deleteById(id);
+    }
+
+    private String formatTreatmentNote(boolean exceeding, double distanceMeters, long nearestNodeId) {
+        return exceeding
+                ? String.format(Locale.US,
+                        "Supera los 500 m (%.1f m): se usa directamente el nodo más cercano de la componente fuertemente conexa (nodo OSM %d) como origen o destino de las rutas y se reporta la distancia euclidiana en UTM 18N.",
+                        distanceMeters, nearestNodeId)
+                : String.format(Locale.US,
+                        "Se usa directamente el nodo más cercano de la componente fuertemente conexa (nodo OSM %d a %.1f m en UTM 18N).",
+                        nearestNodeId, distanceMeters);
     }
 }

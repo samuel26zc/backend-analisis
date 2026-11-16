@@ -36,3 +36,6 @@ build/
 DOCUMENTO_TECNICO.md
 *DOCUMENTO_TECNICO*
 
+# OSMnx local cache
+cache/
+

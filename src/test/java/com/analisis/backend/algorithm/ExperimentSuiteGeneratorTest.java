@@ -568,17 +568,25 @@ class ExperimentSuiteGeneratorTest {
         systemInfo.put("osArch", System.getProperty("os.arch"));
         systemInfo.put("javaVersion", "Java " + System.getProperty("java.version") + " | Python 3.12.10 (OSMnx 2.1.2, NetworkX 3.7, SciPy 1.18.1)");
         systemInfo.put("javaVendor", System.getProperty("java.vendor"));
-        systemInfo.put("experimentProtocol", "Reglas sección 6: Misma máquina registrada en archivo, 5 repeticiones reportando la mediana (1 repetición cuando > 1 min, e.g. Fuerza Bruta k=12), semilla fija=42, límite de 5 minutos.");
+        systemInfo.put("experimentProtocol", "Reglas sección 6: Misma máquina registrada en archivo, 5 repeticiones reportando la mediana (1 repetición en Fuerza Bruta k=11..12), semilla fija=42, límite de 5 minutos.");
 
         // Leer r1_scc_times.csv medido con OSMnx para consolidar en experiments_results.json
-        List<Map<String, Object>> r1SccTimes = List.of(
-                createSccRow("Radio de 2 km", 2093, 4110, 6203, 32.02),
-                createSccRow("Radio de 5 km", 6822, 13506, 20328, 111.12),
-                createSccRow("Radio de 10 km", 14133, 27390, 41523, 298.88),
-                createSccRow("Radio de 20 km", 29499, 58239, 87738, 601.00),
-                createSccRow("Departamento completo", fullNetwork.getNodeCount(), fullNetwork.getEdgeCount(),
-                        fullNetwork.getNodeCount() + fullNetwork.getEdgeCount(), 753.67)
-        );
+        File r1SccCsv = new File(resultsDir, "r1_scc_times.csv");
+        assertTrue(r1SccCsv.exists(), "Debe existir results/r1_scc_times.csv generado por scripts/measure_r1_scc_osmnx.py");
+        List<Map<String, Object>> r1SccTimes = new ArrayList<>();
+        List<String> sccLines = java.nio.file.Files.readAllLines(r1SccCsv.toPath(), StandardCharsets.UTF_8);
+        for (int i = 1; i < sccLines.size(); i++) {
+            String line = sccLines.get(i).trim();
+            if (line.isEmpty()) continue;
+            String[] parts = line.split(",");
+            r1SccTimes.add(createSccRow(
+                    parts[0].trim(),
+                    Integer.parseInt(parts[1].trim()),
+                    Integer.parseInt(parts[2].trim()),
+                    Integer.parseInt(parts[3].trim()),
+                    Double.parseDouble(parts[4].trim())
+            ));
+        }
 
         Map<String, Object> consolidated = new LinkedHashMap<>();
         consolidated.put("systemInfo", systemInfo);

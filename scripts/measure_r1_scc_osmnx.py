@@ -99,16 +99,16 @@ def measure_largest_component(g: nx.MultiDiGraph, repetitions: int = REPETITIONS
 
 
 OVERPASS_MIRRORS = [
-    "https://overpass.private.coffee/api",
     "https://z.overpass-api.de/api",
     "https://overpass-api.de/api",
+    "https://overpass.private.coffee/api",
     "https://lz4.overpass-api.de/api",
 ]
 
 
 def fetch_graph_from_point_with_mirrors(center_point: tuple[float, float], dist_m: int, fallback_full: nx.MultiDiGraph) -> tuple[nx.MultiDiGraph, str]:
     ox.settings.use_cache = True
-    ox.settings.requests_timeout = 60
+    ox.settings.requests_timeout = 180
     for mirror in OVERPASS_MIRRORS:
         try:
             ox.settings.overpass_url = mirror
@@ -151,7 +151,7 @@ def main():
             "sccE": e_scc,
             "tiempoMs": med_ms,
         })
-        print(f"  {label:22s} | V={v:6d} | E={e:6d} | V+E={v+e:7d} | SCC_V={v_scc:6d} | Mediana={med_ms:6.2f} ms")
+        print(f"  {label:22s} | V={v:6d} | E={e:6d} | V+E={v+e:7d} | SCC_V={v_scc:6d} | Mediana={med_ms:6.2f} ms | {mode_used}")
 
     v_full = full_g.number_of_nodes()
     e_full = full_g.number_of_edges()
