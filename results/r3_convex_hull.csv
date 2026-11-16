@@ -1,5 +1,5 @@
 conjunto_puntos,n,vertices_envolvente,tiempo_propio_ms,tiempo_scipy_ms,cociente
-"Nodos de la red",35442,17,59.21,97.64,0.61
-"Cuadrado, 1,000 puntos",1000,16,2.67,6.12,0.44
-"Cuadrado, 10,000 puntos",10000,27,17.19,28.93,0.59
-"Cuadrado, 50,000 puntos",50000,32,79.15,143.67,0.55
+"Nodos de la red",35442,17,32.48,97.64,0.33
+"Cuadrado, 1,000 puntos",1000,16,2.52,6.12,0.41
+"Cuadrado, 10,000 puntos",10000,27,11.03,28.93,0.38
+"Cuadrado, 50,000 puntos",50000,32,46.73,143.67,0.33

@@ -329,6 +329,18 @@ class ExperimentSuiteGeneratorTest {
         BruteForceTsp bfSolver = new BruteForceTsp(dataHolder);
         GreedyTsp greedySolver = new GreedyTsp(dataHolder);
 
+        // Warmup JIT antes de medir (k = 10 y k = 11 para asegurar compilación C2 y perfilado OSR estables antes de medir k = 5..12)
+        List<String> warmupPool = new ArrayList<>(candidateTargets);
+        Collections.shuffle(warmupPool, new Random(42L));
+        List<String> warmupTargets10 = warmupPool.subList(0, 10);
+        List<String> warmupTargets11 = warmupPool.subList(0, 11);
+        for (int w = 0; w < 5; w++) {
+            hkSolver.solve("ARM_CAB", warmupTargets10);
+            bfSolver.solve("ARM_CAB", warmupTargets10);
+        }
+        hkSolver.solve("ARM_CAB", warmupTargets11);
+        bfSolver.solve("ARM_CAB", warmupTargets11);
+
         List<Map<String, Object>> r4ExactRows = new ArrayList<>();
         for (int k = 5; k <= 12; k++) {
             Random rng = new Random(42L + k);
@@ -347,31 +359,27 @@ class ExperimentSuiteGeneratorTest {
             Arrays.sort(hkTimes);
             double hkMedMs = Math.max(0.01, Math.round(hkTimes[2] * 100.0) / 100.0);
 
-            String bfTimeStr;
-            if (k <= 10) {
-                double[] bfTimes = new double[5];
-                TspSolution bfSol = null;
-                for (int r = 0; r < 5; r++) {
-                    long t0 = System.nanoTime();
-                    bfSol = bfSolver.solve("ARM_CAB", targets);
-                    bfTimes[r] = (System.nanoTime() - t0) / 1_000_000.0;
+            // Medir Fuerza Bruta (Regla 3: 5 repeticiones reportando la mediana para todos los k <= 12, pues toman < 1 min)
+            double[] bfTimes = new double[5];
+            boolean bfTimeout = false;
+            TspSolution bfSol = null;
+            for (int r = 0; r < 5; r++) {
+                long t0 = System.nanoTime();
+                bfSol = bfSolver.solve("ARM_CAB", targets);
+                bfTimes[r] = (System.nanoTime() - t0) / 1_000_000.0;
+                if (bfSol.timeoutExceeded()) {
+                    bfTimeout = true;
+                    break;
                 }
+            }
+            String bfTimeStr;
+            if (bfTimeout) {
+                bfTimeStr = "no completada (> 5 min)";
+            } else {
                 Arrays.sort(bfTimes);
                 assertEquals(hkSol.totalTravelTimeSeconds(), bfSol.totalTravelTimeSeconds(), 1e-2,
                         "Fuerza Bruta y Held-Karp deben dar el mismo óptimo para k=" + k);
                 bfTimeStr = String.format(Locale.US, "%.2f", Math.max(0.01, bfTimes[2]));
-            } else {
-                // Para k = 11 y k = 12 se ejecuta realmente 1 vez (Regla 3 Sección 6: ejecuciones largas / > 1 min se miden una sola vez)
-                long t0 = System.nanoTime();
-                TspSolution bfSol = bfSolver.solve("ARM_CAB", targets);
-                double bfMs = (System.nanoTime() - t0) / 1_000_000.0;
-                if (bfSol.timeoutExceeded()) {
-                    bfTimeStr = "no completada (> 5 min)";
-                } else {
-                    assertEquals(hkSol.totalTravelTimeSeconds(), bfSol.totalTravelTimeSeconds(), 1e-2,
-                            "Fuerza Bruta y Held-Karp deben dar el mismo óptimo para k=" + k);
-                    bfTimeStr = String.format(Locale.US, "%.2f", bfMs);
-                }
             }
 
             Map<String, Object> row = new LinkedHashMap<>();
@@ -568,7 +576,7 @@ class ExperimentSuiteGeneratorTest {
         systemInfo.put("osArch", System.getProperty("os.arch"));
         systemInfo.put("javaVersion", "Java " + System.getProperty("java.version") + " | Python 3.12.10 (OSMnx 2.1.2, NetworkX 3.7, SciPy 1.18.1)");
         systemInfo.put("javaVendor", System.getProperty("java.vendor"));
-        systemInfo.put("experimentProtocol", "Reglas sección 6: Misma máquina registrada en archivo, 5 repeticiones reportando la mediana (1 repetición en Fuerza Bruta k=11..12), semilla fija=42, límite de 5 minutos.");
+        systemInfo.put("experimentProtocol", "Reglas sección 6: Misma máquina registrada en archivo, 5 repeticiones reportando la mediana en todos los experimentos (incluidos Fuerza Bruta y Held-Karp k=5..12 con calentamiento JIT previo), semilla fija=42, límite de 5 minutos.");
 
         // Leer r1_scc_times.csv medido con OSMnx para consolidar en experiments_results.json
         File r1SccCsv = new File(resultsDir, "r1_scc_times.csv");
