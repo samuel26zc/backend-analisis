@@ -108,14 +108,19 @@ public class QuickHull2D {
             return;
         }
 
-        // Encontrar el punto más distante del segmento p1 -> p2 (mayor producto cruzado / área)
+        // Encontrar el punto más distante del segmento p1 -> p2 (mayor producto cruzado / área).
+        // En caso de empate exacto (puntos colineales paralelos a p1->p2), desempatar por mayor suma de
+        // distancias cuadráticas a p1 y p2 para seleccionar siempre el vértice extremo y nunca un punto intermedio.
         long maxDistance = -1;
+        double maxChordSq = -1.0;
         Point furthestPoint = null;
 
         for (Point p : set) {
             long dist = crossProduct(p1, p2, p);
-            if (dist > maxDistance) {
+            double chordSq = sqDist(p1, p) + sqDist(p2, p);
+            if (dist > maxDistance || (dist == maxDistance && chordSq > maxChordSq)) {
                 maxDistance = dist;
+                maxChordSq = chordSq;
                 furthestPoint = p;
             }
         }
@@ -152,6 +157,12 @@ public class QuickHull2D {
         return (p2.x() - p1.x()) * (p.y() - p1.y()) - (p2.y() - p1.y()) * (p.x() - p1.x());
     }
 
+    private static double sqDist(Point a, Point b) {
+        double dx = (double) a.x() - b.x();
+        double dy = (double) a.y() - b.y();
+        return dx * dx + dy * dy;
+    }
+
     private static long pointLocation(Point p1, Point p2, Point p) {
         long cp = crossProduct(p1, p2, p);
         if (cp > 0) return 1;
@@ -184,21 +195,29 @@ public class QuickHull2D {
             return Double.compare(angleA, angleB);
         });
 
-        // Eliminar puntos colineales estrictos sobre las aristas
-        List<Point> filtered = new ArrayList<>();
-        int m = sorted.size();
-        for (int i = 0; i < m; i++) {
-            Point prev = sorted.get((i - 1 + m) % m);
-            Point curr = sorted.get(i);
-            Point next = sorted.get((i + 1) % m);
+        // Eliminar puntos colineales o no estrictamente extremos sobre las aristas (en bucle hasta convergencia)
+        List<Point> current = sorted;
+        boolean changed = true;
+        while (changed && current.size() >= 3) {
+            changed = false;
+            List<Point> nextList = new ArrayList<>(current.size());
+            int m = current.size();
+            for (int i = 0; i < m; i++) {
+                Point prev = current.get((i - 1 + m) % m);
+                Point curr = current.get(i);
+                Point next = current.get((i + 1) % m);
 
-            // Si el producto cruzado es cero, curr es colineal entre prev y next
-            if (crossProduct(prev, next, curr) != 0) {
-                filtered.add(curr);
+                // En sentido antihorario (CCW), un vértice extremo estricto cumple crossProduct(prev, curr, next) > 0
+                if (crossProduct(prev, curr, next) > 0) {
+                    nextList.add(curr);
+                } else {
+                    changed = true;
+                }
             }
+            current = nextList;
         }
 
-        return filtered;
+        return current;
     }
 
     private HullResult buildResult(List<Point> vertices, double executionTimeMs) {

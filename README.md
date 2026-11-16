@@ -1,114 +1,119 @@
-# Backend Análisis de Algoritmos - Quindío 2026-2 (Spring Boot 3.4.3 & Java 21)
+# Backend Análisis de Algoritmos — Quindío 2026-2 (Spring Boot 3.4 & Java 21 LTS)
 
-Sistema de backend de alto rendimiento para modelado territorial, grafos viales y optimización combinatoria en el Departamento del Quindío, Colombia. Desarrollado como proyecto final de la asignatura **Análisis y Complejidad de Algoritmos (2026-2)**.
+Sistema de backend para modelado territorial sobre la red vial real de **OpenStreetMap**, algoritmos de grafos, geometría computacional y optimización combinatoria en el Departamento del Quindío, Colombia. Desarrollado como proyecto final de la asignatura **Análisis y Complejidad de Algoritmos (2026-2)**.
 
 ---
 
-## 🏛️ Arquitectura del Sistema
+## 🏛️ Arquitectura del Sistema y Estructura del Repositorio
 
-El backend sigue una arquitectura limpia multicapa (Layered Architecture) implementada en **Java 21 LTS** con **Spring Boot 3.4.3**, garantizando un desacoplamiento estricto entre presentación, lógica de negocio y estructuras algorítmicas de bajo nivel:
+El backend sigue una arquitectura multicapa en **Java 21 LTS** con **Spring Boot 3.4**, acompañada de los scripts de descarga y verificación en Python, las especificaciones SDD en `specs/` y los archivos de resultados experimentales en `results/`:
 
 ```text
-src/main/java/com/analisis/backend/
-├── algorithm/               # Implementaciones algorítmicas nativas desde cero (sin librerías externas de grafos)
-│   ├── convexhull/          # R3: QuickHull 2D con proyección UTM 18N y producto cruz long
-│   │   ├── QuickHull2D.java
-│   │   └── scipy/           # SciPyBenchmarkRunner (comparación con Qhull C)
-│   ├── scc/                 # R1: Algoritmo de Tarjan para Componentes Fuertemente Conexas O(V+E)
-│   │   └── TarjanScc.java
-│   ├── shortestpath/        # R2: Dijkstra Lineal O(V^2) y Dijkstra con Min-Heap O((V+E)log V)
-│   │   ├── DijkstraLinear.java
-│   │   ├── DijkstraMinHeap.java
-│   │   └── TimeMatrixCalculator.java
-│   └── tsp/                 # R4: Viajante Asimétrico (ATSP) y Planificador de Itinerarios
-│       ├── BruteForceTsp.java
-│       ├── HeldKarpTsp.java
-│       ├── GreedyTsp.java
-│       └── DayItineraryPlanner.java
-├── config/                  # Configuración global de CORS, beans y carga de grafo
-├── controller/              # Controladores REST (/api/v1/network, /places, /routes, /convexhull, /tsp, /experiments)
-├── service/                 # Servicios de orquestación y contratos de negocio
-│   ├── impl/                # Implementaciones de servicios
-├── repository/              # Acceso a entidades de catálogo territorial (Spring Data JPA)
-├── model/                   # Modelos de dominio y entidades JPA
-│   ├── domain/              # Modelos en memoria: RoadNetwork, GraphNode, GraphEdge, NetworkDataHolder
-│   └── entity/              # Entidades relacionales: Place
-├── dto/                     # DTOs de petición y respuesta tipados
-├── util/                    # Utilidades de proyección geográfica (GeoUtils: WGS84 a UTM Zona 18N)
-└── exception/               # Manejador global de excepciones (@RestControllerAdvice)
+backend-analisis/
+├── specs/                        # Especificaciones SDD (Spec-Driven Development) por requerimiento
+│   ├── R1_modelo_red_vial.md
+│   ├── R2_caminos_minimos.md
+│   ├── R3_envolvente_convexa.md
+│   ├── R4_ruta_optima_atsp.md
+│   └── R5_aplicacion_y_protocolo.md
+├── scripts/                      # Scripts reproducibles de descarga OSM y benchmarks de librería
+│   ├── download_network.py       # Descarga y exportación de la red vial de OpenStreetMap (quindio_network.json)
+│   ├── measure_r1_scc_osmnx.py   # R1.3: Medición de ox.truncate.largest_component (radios 2, 5, 10, 20 km y depto)
+│   └── scipy_convexhull_benchmark.py # R3: Medición y verificación exacta con scipy.spatial.ConvexHull (Qhull C)
+├── results/                      # Archivos CSV y JSON generados por el protocolo experimental (Sección 6 y Anexo)
+│   ├── r1_network_sizes.csv
+│   ├── r1_scc_times.csv
+│   ├── r1_places_mapping.csv
+│   ├── r2_dijkstra_measurements.csv
+│   ├── r2_ratio_summary.csv
+│   ├── r2_time_matrix.csv
+│   ├── r3_convex_hull.csv
+│   ├── r4_exact_times.csv
+│   ├── r4_heuristic_quality.csv
+│   ├── r4_day_itinerary.csv
+│   └── experiments_results.json
+└── src/main/java/com/analisis/backend/
+    ├── algorithm/                # Implementaciones algorítmicas propias desde cero
+    │   ├── convexhull/
+    │   │   ├── QuickHull2D.java
+    │   │   └── scipy/SciPyBenchmarkRunner.java
+    │   ├── scc/
+    │   │   └── TarjanScc.java
+    │   ├── shortestpath/
+    │   │   ├── DijkstraLinear.java
+    │   │   └── DijkstraPriorityQueue.java
+    │   └── tsp/
+    │       ├── BruteForceTsp.java
+    │       ├── HeldKarpTsp.java
+    │       ├── GreedyTsp.java
+    │       └── DayItineraryPlanner.java
+    ├── config/                   # Configuración global de CORS
+    ├── controller/               # Controladores REST (/api/v1/network, /places, /routes, /convex-hull, /tsp, /experiments)
+    ├── service/                  # Contratos de servicio e implementaciones (service/impl/)
+    ├── repository/               # Persistencia del catálogo (PlaceRepository)
+    ├── model/                    # Modelos en memoria (RoadNetwork, RoadNode, RoadEdge, NetworkDataHolder) y entidades JPA
+    ├── dto/                      # DTOs de petición y respuesta
+    ├── util/                     # DataLoader y utilidades geodésicas (GeoUtils: WGS84 a UTM Zona 18N)
+    └── exception/                # Manejador global de excepciones
 ```
 
 ---
 
-## 🧠 Algoritmos Implementados desde Cero
+## 🧠 Algoritmos y Modelo de Datos
 
-1. **Requerimiento 1 — Modelo de la Red Vial & Componente Conexa**:
-   - Descarga e indexación de la red vial de OpenStreetMap (`osmnx` filtro `drive`).
-   - Grafo dirigido $G = (V, E)$ representado en **Listas de Adyacencia** (1.97 MB frente a 1,675 MB de la matriz de adyacencia).
-   - Detección de la Componente Fuertemente Conexa (SCC) principal mediante el **Algoritmo de Tarjan** $O(V + E)$ con numeración DFS y pila de ancestros.
-   - Proyección de 42 atractivos y cabeceras hacia el nodo vial más cercano en UTM 18N.
+1. **Requerimiento 1 — Modelo de la Red Vial de OpenStreetMap & Componente Fuertemente Conexa**:
+   - **Red vial descargada (`quindio_network.json`)**: $V = 37\,117$ nodos y $E = 73\,615$ aristas dirigidas de OpenStreetMap (`network_type="drive"`, fecha de descarga `2026-10-17T10:00:00-05:00`).
+   - **Estimación de memoria (R1.1)**: Bajo la fórmula del modelo ($24V + 8V^2$ bytes vs. $24V + 48E$ bytes en JVM 64 bits), la **Matriz de Adyacencia** requeriría **10,511.65 MB**, mientras que las **Listas de Adyacencia** ocupan únicamente **4.22 MB** ($\approx 2\,491.3\times$ menos memoria).
+   - **Velocidades y Pesos (R1.2)**: Se utiliza la etiqueta `maxspeed` de OpenStreetMap cuando está registrada ($20 \dots 100$ km/h); en tramos sin `maxspeed`, se imputa por etiqueta `highway` (`motorway: 80`, `trunk: 70`, `primary: 60`, `secondary: 50`, `tertiary: 40`, `unclassified: 35`, `residential: 30`, `living_street: 20` km/h; tramos con superficie destapada `surface=unpaved/dirt/gravel/compacted` se limitan a `20 km/h`). El tiempo de viaje en segundos es $t = \text{length} / (\text{speed} / 3.6)$.
+   - **Componente Fuertemente Conexa (R1.3)**: Se mide `ox.truncate.largest_component(G, strongly=True)` en Python con OSMnx sobre los radios de 2, 5, 10 y 20 km alrededor de la Plaza de Bolívar de Armenia y el departamento completo (`scripts/measure_r1_scc_osmnx.py`), y se extrae en Java mediante implementación propia del **Algoritmo de Tarjan** (`TarjanScc.java`, $\Theta(V + E)$), conservando $35\,442$ nodos y $70\,837$ aristas en la mayor componente fuertemente conexa.
+   - **Asociación de los 42 lugares (R1.4)**: Cada lugar se asocia al nodo de la SCC más cercano en línea recta en coordenadas métricas UTM Zona 18N (`EPSG:32618`).
+
 2. **Requerimiento 2 — Caminos Mínimos & Matriz de Tiempos Asimétrica**:
-   - **Dijkstra Lineal** $O(V^2)$ con escaneo de distancias sobre arreglo.
-   - **Dijkstra con Min-Heap Binario** $O((V + E)\log V)$ con parada temprana al extraer el destino.
-   - Verificación del invariante formal $d[v] \le d[u] + w(u, v)$ y monotonicidad de la cola de prioridad.
-   - Cálculo de la matriz asimétrica de tiempos $42 \times 42$ (1,764 trayectos) vía One-to-All.
-3. **Requerimiento 3 — Envolvente Convexa (QuickHull 2D)**:
-   - Enfoque divide y vencerás sobre coordenadas UTM 18N redondeadas a enteros con producto cruz entero de 64 bits (`long`).
-   - Eliminación estricta de puntos colineales intermedios y ordenamiento antihorario (CCW).
-   - Recurrencia $T(n) = 2T(n/2) + O(n) \implies O(n \log n)$ en caso promedio, contrastada contra `scipy.spatial.ConvexHull` (Qhull en C).
-4. **Requerimiento 4 — Viajante Asimétrico (ATSP) & Planificador de 11 Horas**:
-   - Solución exacta mediante **Bellman-Held-Karp** con programación dinámica y máscaras de bits $O(2^k k^2)$.
-   - Búsqueda exhaustiva por **Fuerza Bruta** $O(k!)$ con control de timeout a 5 minutos.
-   - **Heurística Voraz** del vecino más cercano $O(k^2)$ y análisis de brecha de calidad.
-   - Planificador de jornada turística con **poda sistemática** de atractivos para no exceder 11 horas (660 minutos), garantizando la optimalidad del subcircuito restante.
+   - **Dijkstra Lineal (`DijkstraLinear.java`)**: Búsqueda lineal del mínimo en $\Theta(V^2)$.
+   - **Dijkstra con Cola de Prioridad (`DijkstraPriorityQueue.java`)**: Extracción con Min-Heap en $O((V + E)\log V)$.
+   - **Matriz Asimétrica $42 \times 42$**: Precalculada ejecutando `computeOneToAll` desde cada lugar sobre la SCC de OpenStreetMap y exportada a `results/r2_time_matrix.csv`.
+
+3. **Requerimiento 3 — Envolvente Convexa (`QuickHull2D.java`)**:
+   - Enfoque Divide y Vencerás sobre coordenadas enteras de 64 bits en UTM Zona 18N, descartando duplicados y puntos colineales sobre los lados del polígono.
+   - Verificado al 100 % en cantidad y coordenadas de vértices contra `scipy.spatial.ConvexHull` (`scripts/scipy_convexhull_benchmark.py` y `SciPyBenchmarkRunner.java`) sobre los $35\,442$ nodos de la SCC ($17$ vértices) y cuadrados aleatorios de $1\,000$, $10\,000$ y $50\,000$ puntos con semilla fija `42`.
+
+4. **Requerimiento 4 — Ruta Óptima ATSP e Itinerario de 11 Horas**:
+   - **Fuerza Bruta (`BruteForceTsp.java`, $\Theta(k!)$)** y **Bellman-Held-Karp (`HeldKarpTsp.java`, $\Theta(2^k k^2)$ en tiempo y $\Theta(2^k k)$ en memoria)** evaluados para $k = 5 \dots 12$ desde Armenia (`ARM_CAB`) con semilla fija `42`.
+   - **Heurística Voraz (`GreedyTsp.java`, $\Theta(k^2)$)** evaluada en $k \in \{5, 8, 10, 12\}$ con 5 instancias por cada $k$.
+   - **Planificador de Jornada de 11 Horas (`DayItineraryPlanner.java`)** con poda justificada y recálculo óptimo con Held-Karp.
 
 ---
 
-## 📡 Endpoints de la API REST (`/api/v1`)
+## 🔁 Reproducción de la Descarga de Datos y los Experimentos
 
-| Módulo | Método | Endpoint | Descripción |
-|---|---|---|---|
-| **R1 Red** | `GET` | `/api/v1/network/stats` | Estadísticas del grafo, análisis de memoria y tiempos de Tarjan |
-| **R1 Red** | `GET` | `/api/v1/network/scc` | Componente fuertemente conexa calculada con Tarjan |
-| **R1 Lugares** | `GET` | `/api/v1/places` | Catálogo de los 42 lugares (cabeceras, atractivos, fincas, acopios) |
-| **R2 Rutas** | `POST` | `/api/v1/routes/shortest-path` | Camino mínimo entre dos lugares (Linear vs MinHeap) |
-| **R2 Rutas** | `POST` | `/api/v1/routes/compare-versions` | Comparativa directa de complejidad e invariante |
-| **R2 Rutas** | `GET` | `/api/v1/routes/time-matrix` | Matriz asimétrica de tiempos $42 \times 42$ |
-| **R2 Rutas** | `GET` | `/api/v1/routes/time-matrix/csv` | Descarga de la matriz en formato CSV |
-| **R3 QuickHull** | `GET` | `/api/v1/convexhull` | Envolvente convexa de la red y lugares en UTM 18N |
-| **R3 QuickHull** | `GET` | `/api/v1/convexhull/benchmarks` | Benchmarks experimentales vs SciPy Qhull |
-| **R4 ATSP** | `POST` | `/api/v1/tsp/solve` | Solución del ATSP (Held-Karp, Fuerza Bruta o Voraz) |
-| **R4 ATSP** | `POST` | `/api/v1/tsp/compare` | Comparación exacta de las tres metodologías |
-| **R4 Itinerario**| `POST` | `/api/v1/tsp/itinerary` | Itinerario de un día (11h) con algoritmo de poda |
-| **R5 Experimentos**| `GET`| `/api/v1/experiments/all` | Ejecución canónica del protocolo experimental del anexo |
-
----
-
-## 🚀 Requisitos y Puesta en Marcha
-
-### Requisitos del Sistema
-- **Java Development Kit (JDK)**: 21 LTS (Oracle OpenJDK, Eclipse Temurin o similar)
-- **Maven**: 3.9+ (incluido wrapper `mvnw` y `mvnw.cmd`)
-- Memoria RAM recomendada: 4 GB o superior
-
-### 1. Compilación y Pruebas Unitarias
+### 1. Reproducir descarga y procesamiento de la red vial de OpenStreetMap
 ```bash
-# En Windows:
-.\mvnw.cmd clean test-compile
-.\mvnw.cmd test -Dtest="QuickHull2DTest,TarjanSccTest,DijkstraTest,GeoUtilsTest"
-
-# En Linux/macOS:
-./mvnw clean test-compile
-./mvnw test -Dtest="QuickHull2DTest,TarjanSccTest,DijkstraTest,GeoUtilsTest"
+pip install osmnx networkx scipy numpy
+python scripts/download_network.py
 ```
+Genera `src/main/resources/data/quindio_network.json`.
 
-### 2. Iniciar el Servidor Backend
+### 2. Reproducir mediciones R1.3 con OSMnx (`ox.truncate.largest_component`)
 ```bash
-# En Windows:
-.\mvnw.cmd spring-boot:run
+python scripts/measure_r1_scc_osmnx.py
+```
+Genera `results/r1_network_sizes.csv` y `results/r1_scc_times.csv`.
 
-# En Linux/macOS:
-./mvnw spring-boot:run
+### 3. Reproducir benchmark R3 con `scipy.spatial.ConvexHull`
+```bash
+python scripts/scipy_convexhull_benchmark.py
+```
+Genera `src/main/resources/data/experiments/scipy_benchmark_seed42.json`.
+
+### 4. Reproducir el protocolo experimental completo R1–R4 en Java 21 y exportar CSV/JSON
+```bash
+.\mvnw.cmd test "-Dtest=QuickHull2DTest,TarjanSccTest,DijkstraTest,GeoUtilsTest,ExperimentSuiteGeneratorTest"
+```
+Verifica todos los algoritmos y actualiza todos los archivos en `results/` y `src/main/resources/data/experiments/experiments_results.json`.
+
+### 5. Iniciar el Servidor Backend
+```bash
+.\mvnw.cmd spring-boot:run
 ```
 El servidor quedará disponible en `http://localhost:8080`.
 
@@ -116,6 +121,6 @@ El servidor quedará disponible en `http://localhost:8080`.
 
 ## 👥 Equipo de Trabajo
 
-- **Samuel Ortiz** (`Samuxll0`) — *Arquitectura Spring Boot, entidades, catálogo y Requerimiento 1 (Red y Tarjan SCC).*
-- **Samuel Zuluaga Castaño** (`samuel26zc`) — *Requerimiento 2 (Dijkstra lineal y heap, Matriz Asimétrica) y Requerimiento 3 (QuickHull 2D UTM 18N).*
-- **Juan Pablo Mejia Parada** (`jpelefantino`) — *Requerimiento 4 (ATSP exacto Held-Karp, Fuerza Bruta, Heurística Voraz y Poda de 11h) y Requerimiento 5 (Laboratorio Experimental).*
+- **Samuel Ortiz** (`Samuxll0`) — *Arquitectura Spring Boot, catálogo y Requerimiento 1 (Red vial OSM y componente conexa).*
+- **Samuel Zuluaga Castaño** (`samuel26zc`) — *Requerimiento 2 (Dijkstra lineal y cola de prioridad, Matriz Asimétrica) y Requerimiento 3 (QuickHull 2D vs SciPy).*
+- **Juan Pablo Mejia Parada** (`jpelefantino`) — *Requerimiento 4 (ATSP Fuerza Bruta, Held-Karp, Heurística Voraz e Itinerario de 11h) y Requerimiento 5 (Aplicación y Laboratorio Experimental).*

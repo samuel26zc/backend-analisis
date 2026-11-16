@@ -36,9 +36,11 @@ public class NetworkServiceImpl implements NetworkService {
                 .downloadSource("OpenStreetMap via OSMnx (Quindío, Colombia)")
                 .networkType("drive")
                 .coordinateSystem("WGS84 & UTM Zona 18N EPSG:32618 (metros enteros 64-bit)")
-                .speedTreatmentNote("Velocidades obtenidas de la etiqueta maxspeed de OSM. En tramos sin velocidad registrada, " +
-                        "se imputó velocidad estándar según el tipo de vía (motorway: 80 km/h, primary: 60 km/h, " +
-                        "secondary: 50 km/h, tertiary: 40 km/h, residential/unclassified: 30 km/h).")
+                .speedTreatmentNote("Velocidades obtenidas de la etiqueta maxspeed de OpenStreetMap (20 a 100 km/h). " +
+                        "En tramos sin velocidad registrada se imputó velocidad estándar según la etiqueta highway " +
+                        "(motorway: 80 km/h, trunk: 70 km/h, primary: 60 km/h, secondary: 50 km/h, tertiary: 40 km/h, " +
+                        "unclassified: 35 km/h, residential: 30 km/h, living_street: 20 km/h). " +
+                        "En tramos con superficie destapada (surface=unpaved/dirt/gravel/compacted) se limitó a 20 km/h.")
                 .build();
     }
 

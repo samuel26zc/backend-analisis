@@ -56,4 +56,33 @@ class QuickHull2DTest {
         assertTrue(QuickHull2D.crossProduct(p1, p2, right) < 0, "Punto debe estar a la derecha");
         assertEquals(0, QuickHull2D.crossProduct(p1, p2, colin), "Puntos colineales deben dar 0");
     }
+
+    @Test
+    @DisplayName("QuickHull2D produce exactamente los mismos vértices que scipy.spatial.ConvexHull en pruebas con semilla 42")
+    void testVerifyAgainstSciPy() {
+        QuickHull2D quickHull = new QuickHull2D();
+        for (int n : List.of(1000, 10000, 50000)) {
+            java.util.Random rng = new java.util.Random(42L);
+            List<QuickHull2D.Point> pts = new ArrayList<>(n);
+            for (int i = 0; i < n; i++) {
+                long x = 400000L + rng.nextInt(100000);
+                long y = 480000L + rng.nextInt(100000);
+                pts.add(new QuickHull2D.Point(x, y));
+            }
+            QuickHull2D.HullResult res = quickHull.computeHull(pts);
+            var scipyEntry = com.analisis.backend.algorithm.convexhull.scipy.SciPyBenchmarkRunner.getSquareSciPyBenchmark(n);
+            if (res.vertices().size() != scipyEntry.scipyHullVerticesCount()) {
+                for (var v : res.vertices()) {
+                    String k = v.x() + ":" + v.y();
+                    if (!scipyEntry.vertexSet().contains(k)) {
+                        System.out.println("EXTRA EN JAVA n=" + n + " -> " + k);
+                    }
+                }
+            }
+            assertEquals(scipyEntry.scipyHullVerticesCount(), res.vertices().size(),
+                    "Número de vértices debe coincidir con SciPy para n=" + n);
+            assertTrue(com.analisis.backend.algorithm.convexhull.scipy.SciPyBenchmarkRunner.verifyVerticesMatch(res.vertices(), scipyEntry),
+                    "Coordenadas exactas de vértices deben coincidir con SciPy para n=" + n);
+        }
+    }
 }

@@ -1,6 +1,7 @@
 package com.analisis.backend.service.impl;
 
 import com.analisis.backend.algorithm.convexhull.QuickHull2D;
+import com.analisis.backend.algorithm.convexhull.scipy.SciPyBenchmarkRunner;
 import com.analisis.backend.dto.request.ConvexHullBenchmarkRequestDto;
 import com.analisis.backend.dto.request.ConvexHullComputeRequestDto;
 import com.analisis.backend.dto.response.ConvexHullBenchmarkResponseDto;
@@ -17,6 +18,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 
 @Service
@@ -100,17 +102,19 @@ public class ConvexHullServiceImpl implements ConvexHullService {
         List<ConvexHullBenchmarkResponseDto.BenchmarkRowDto> rows = new ArrayList<>();
         QuickHull2D quickHull = new QuickHull2D();
 
-        // 1. Benchmark con los nodos reales de la red
+        // 1. Benchmark con los nodos reales de la SCC de la red vial del Quindío
         List<RoadNode> networkNodes = new ArrayList<>(dataHolder.getLargestSccNetwork().getNodes().values());
-        List<QuickHull2D.Point> netPoints = new ArrayList<>();
+        List<QuickHull2D.Point> netPoints = new ArrayList<>(networkNodes.size());
         for (RoadNode n : networkNodes) {
             netPoints.add(new QuickHull2D.Point(n.utmX(), n.utmY(), n.latitude(), n.longitude()));
         }
 
         double netMedianOwnTime = measureMedianTime(quickHull, netPoints, 5);
         QuickHull2D.HullResult netHull = quickHull.computeHull(netPoints);
-        double netRefTime = Math.max(0.15, Math.round((netMedianOwnTime / 2.99) * 100.0) / 100.0);
-        double netRatio = Math.round((netMedianOwnTime / netRefTime) * 100.0) / 100.0;
+        SciPyBenchmarkRunner.SciPyEntry netScipy = SciPyBenchmarkRunner.getNetworkSciPyBenchmark();
+        boolean netMatch = SciPyBenchmarkRunner.verifyVerticesMatch(netHull.vertices(), netScipy);
+        double netRefTime = Math.round(netScipy.scipyTimeMs() * 100.0) / 100.0;
+        double netRatio = (netRefTime > 0.0) ? Math.round((netMedianOwnTime / netRefTime) * 100.0) / 100.0 : 1.0;
 
         rows.add(ConvexHullBenchmarkResponseDto.BenchmarkRowDto.builder()
                 .pointSet("Nodos de la red")
@@ -121,7 +125,8 @@ public class ConvexHullServiceImpl implements ConvexHullService {
                 .ratio(netRatio)
                 .build());
 
-        // 2. Benchmarks con puntos sintéticos aleatorios en un cuadrado
+        // 2. Benchmarks con puntos sintéticos aleatorios en un cuadrado (semilla fija = 42)
+        boolean allSquaresMatch = true;
         for (int n : counts) {
             Random rng = new Random(seed);
             List<QuickHull2D.Point> randomPoints = new ArrayList<>(n);
@@ -133,13 +138,14 @@ public class ConvexHullServiceImpl implements ConvexHullService {
 
             double medianOwnTime = measureMedianTime(quickHull, randomPoints, 5);
             QuickHull2D.HullResult hullRes = quickHull.computeHull(randomPoints);
+            SciPyBenchmarkRunner.SciPyEntry sqScipy = SciPyBenchmarkRunner.getSquareSciPyBenchmark(n);
+            boolean sqMatch = SciPyBenchmarkRunner.verifyVerticesMatch(hullRes.vertices(), sqScipy);
+            allSquaresMatch = allSquaresMatch && sqMatch;
 
-            // Tiempo de referencia SciPy Qhull (C nativo)
-            double refFactor = 3.0 + (n / 50000.0) * 0.8;
-            double refTime = Math.max(0.10, Math.round((medianOwnTime / refFactor) * 100.0) / 100.0);
-            double ratio = Math.round((medianOwnTime / refTime) * 100.0) / 100.0;
+            double refTime = Math.round(sqScipy.scipyTimeMs() * 100.0) / 100.0;
+            double ratio = (refTime > 0.0) ? Math.round((medianOwnTime / refTime) * 100.0) / 100.0 : 1.0;
 
-            String label = String.format("Cuadrado, %,d puntos", n);
+            String label = String.format(Locale.US, "Cuadrado, %,d puntos", n);
             rows.add(ConvexHullBenchmarkResponseDto.BenchmarkRowDto.builder()
                     .pointSet(label)
                     .n(n)
@@ -150,8 +156,11 @@ public class ConvexHullServiceImpl implements ConvexHullService {
                     .build());
         }
 
-        String note = "Medición ejecutada con 5 repeticiones tomando la mediana conforme a la regla 3 de la sección 6 del proyecto. " +
-                "SciPy usa internamente la librería Qhull escrita y compilada en C nativo con optimizaciones SIMD.";
+        String note = String.format(
+                "Medición ejecutada con 5 repeticiones reportando la mediana (semilla=%d). " +
+                "Verificación contra scipy.spatial.ConvexHull (Qhull C, SciPy 1.18.1): coincidencia exacta de vértices extremos (red=%s, cuadrados=%s).",
+                seed, netMatch ? "100% idénticos" : "revisar", allSquaresMatch ? "100% idénticos" : "revisar"
+        );
 
         return ConvexHullBenchmarkResponseDto.builder()
                 .seed(seed)

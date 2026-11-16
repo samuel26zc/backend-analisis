@@ -1,0 +1,43 @@
+lugar_id,nombre,municipio,categoria,nodo_osm_id,distancia_m,supera_500m
+ARM_CAB,"Armenia (Plaza de Bolívar)",Armenia,CABECERA_MUNICIPAL,10042792787,50.6,false
+BUE_CAB,"Buenavista (Plaza Principal)",Buenavista,CABECERA_MUNICIPAL,4591259594,24.1,false
+CAL_CAB,"Calarcá (Plaza de Bolívar)",Calarcá,CABECERA_MUNICIPAL,3011634731,35.0,false
+CIR_CAB,"Circasia (Parque Principal Bolívar)",Circasia,CABECERA_MUNICIPAL,12695725968,38.6,false
+COR_CAB,"Córdoba (Plaza Principal)",Córdoba,CABECERA_MUNICIPAL,3192289501,9.1,false
+FIL_CAB,"Filandia (Parque Principal)",Filandia,CABECERA_MUNICIPAL,2734059702,15.0,false
+GEN_CAB,"Génova (Plaza Bolívar)",Génova,CABECERA_MUNICIPAL,4466303404,35.0,false
+TEB_CAB,"La Tebaida (Plaza Bolívar)",La Tebaida,CABECERA_MUNICIPAL,9698974980,38.1,false
+MON_CAB,"Montenegro (Parque Bolívar)",Montenegro,CABECERA_MUNICIPAL,960391884,27.5,false
+PIJ_CAB,"Pijao (Plaza Principal)",Pijao,CABECERA_MUNICIPAL,5952335864,29.8,false
+QUI_CAB,"Quimbaya (Parque Bolívar)",Quimbaya,CABECERA_MUNICIPAL,4051879911,23.6,false
+SAL_CAB,"Salento (Plaza de Bolívar)",Salento,CABECERA_MUNICIPAL,12984614208,39.0,false
+PARQ_CAFE,"Parque Nacional del Café",Montenegro,ATRACTIVO_TURISTICO,11276245852,458.7,false
+PANACA,"PANACA (Parque Nacional de la Cultura Agropecuaria)",Quimbaya,ATRACTIVO_TURISTICO,7805664839,13.4,false
+VALLE_COCORA,"Valle de Cocora",Salento,ATRACTIVO_TURISTICO,11470157051,654.6,true
+JARDIN_BOTANICO,"Jardín Botánico del Quindío y Mariposario",Calarcá,ATRACTIVO_TURISTICO,2849481609,139.2,false
+MUSEO_ORO_QUIMBAYA,"Museo del Oro Quimbaya",Armenia,ATRACTIVO_TURISTICO,2985301177,56.6,false
+RECUCA,"Recuca (Recorrido de la Cultura Cafetera)",Calarcá,ATRACTIVO_TURISTICO,2274612887,42.7,false
+PARQ_ARRIEROS,"Parque Los Arrieros",Montenegro,ATRACTIVO_TURISTICO,4443172761,65.9,false
+MIRADOR_FILANDIA,"Mirador Colina Iluminada",Filandia,ATRACTIVO_TURISTICO,2099850900,113.4,false
+PARQ_VIDA,"Parque De La Vida",Armenia,ATRACTIVO_TURISTICO,7616921528,79.8,false
+CENTRO_GUADUA,"Centro de Interpretación de la Guadua",Córdoba,ATRACTIVO_TURISTICO,2178759865,336.9,false
+RES_KASAGUADUA,"Reserva Natural Kasaguadua",Salento,ATRACTIVO_TURISTICO,9816454098,278.4,false
+BIO_RESERVA,"BioParque La Reserva",Salento,ATRACTIVO_TURISTICO,6399871751,312.7,false
+MIRADOR_SECRETA,"Mirador La Secreta",Armenia,ATRACTIVO_TURISTICO,2949584883,66.1,false
+CASC_RIOVERDE,"Cascadas de Río Verde",Córdoba,ATRACTIVO_TURISTICO,7626062080,571.2,true
+VALLE_MARAVELEZ,"Valle de Maravélez",La Tebaida,ATRACTIVO_TURISTICO,7877018506,111.6,false
+HAC_COMBIA,"Hacienda Combia Inspiración Cafetera",Calarcá,FINCA_HOTEL,5021074422,266.2,false
+HOT_CAMELIAS,"Hotel Las Camelias",Montenegro,FINCA_HOTEL,7630356027,76.2,false
+FINCA_PALMAR,"Finca Hotel El Palmar",Montenegro,FINCA_HOTEL,975335191,208.8,false
+BOSQ_SAMAN,"Finca Hotel Bosques del Samán",Quimbaya,FINCA_HOTEL,7486839809,2514.6,true
+HOT_BAMBUSA,"Finca Hotel Bambusa",Armenia,FINCA_HOTEL,321509732,5.0,false
+FINCA_B_AIRES,"Finca Hotel Buenos Aires",Buenavista,FINCA_HOTEL,4689124914,43.8,false
+FINCA_MINA,"Finca Cafetera La Mina",Pijao,FINCA_HOTEL,7626584781,420.3,false
+HOT_SAN_ALBERTO,"Hotel Finca San Alberto",Buenavista,FINCA_HOTEL,2274612394,66.7,false
+COOP_ARM,"Cooperativa de Caficultores del Quindío - Armenia",Armenia,CENTRO_ACOPIO,5883102950,42.0,false
+TRILL_MESETA,"Trilladora La Meseta",Armenia,CENTRO_ACOPIO,2098095492,35.5,false
+COMITE_CAF,"Comité Departamental de Cafeteros del Quindío",Armenia,CENTRO_ACOPIO,12810777384,57.7,false
+COOP_CAL,"Cooperativa de Caficultores - Agencia Calarcá",Calarcá,CENTRO_ACOPIO,3003932814,28.3,false
+COOP_FIL,"Cooperativa de Caficultores - Agencia Filandia",Filandia,CENTRO_ACOPIO,7087242278,35.4,false
+TRILL_CAFE_Q,"Trilladora Café Quindío",Armenia,CENTRO_ACOPIO,6546261584,46.8,false
+ACOPIO_PIJ,"Centro de Acopio y Catación Pijao",Pijao,CENTRO_ACOPIO,4820628946,17.0,false
